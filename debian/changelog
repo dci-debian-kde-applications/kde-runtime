@@ -1,14 +1,22 @@
-kdebase-runtime (4:4.1.1-3~lenny+1) lenny; urgency=low
+kdebase-runtime (4:4.1.2-1~lenny+1) lenny; urgency=low
 
   * Backport for Lenny.
 
- -- Ana Beatriz Guerrero Lopez <ana@debian.org>  Thu, 11 Sep 2008 00:11:30 +0200
+ -- Ana Beatriz Guerrero Lopez <ana@debian.org>  Tue, 07 Oct 2008 18:17:32 +0200
 
-kdebase-runtime (4:4.1.1-3) experimental; urgency=low
+kdebase-runtime (4:4.1.2-1) experimental; urgency=low
+
+  * New upstream release.
+
+  +++ Changes by Sune Vuorela:
 
   * Revert /usr/bin/kdesu link. It is *not* expected to be there. Reopens 495999.
 
- -- Sune Vuorela <debian@pusling.com>  Wed, 10 Sep 2008 16:21:24 +0200
+  +++ Changes by Ana Beatriz Guerrero Lopez:
+
+  * Update kdebase-runtime-data.install.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 28 Sep 2008 15:22:21 +0200
 
 kdebase-runtime (4:4.1.1-2) experimental; urgency=low
 
