@@ -1,4 +1,4 @@
-kde-runtime (4:4.10.1-0r0) UNRELEASED; urgency=low
+kde-runtime (4:4.10.2-1) experimental; urgency=low
 
   * New upstream release.
 
@@ -25,7 +25,7 @@ kde-runtime (4:4.10.1-0r0) UNRELEASED; urgency=low
   * Update installed files.
   * Update not-installed file.
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Wed, 24 Oct 2012 17:33:47 -0300
+ -- Sune Vuorela <sune@debian.org>  Tue, 02 Apr 2013 22:39:25 +0000
 
 kde-runtime (4:4.8.4-2) unstable; urgency=low
 
