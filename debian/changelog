@@ -4,6 +4,9 @@ kde-runtime (4:4.10.2-2) UNRELEASED; urgency=low
   * Make kde-runtime-data breaks/replaces kde-workspace-bin < 4:4.10, since
     plasmapkg.1.gz was moved.
 
+  [ Sune Vuorela ]
+  * Fiddle with build-deps in order to work around a bug in aptitude resolver.
+
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 08 Apr 2013 22:36:46 +0200
 
 kde-runtime (4:4.10.2-1) experimental; urgency=low

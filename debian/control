@@ -9,10 +9,10 @@ Uploaders: Sune Vuorela <sune@debian.org>,
  José Manuel Santamaría Lema <panfaust@gmail.com>,
  Eshat Cakar <info@eshat.de>,
  Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>
-Build-Depends: kde-sc-dev-latest (>= 4:4.10.0),
+Build-Depends: kde-sc-dev-latest (>= 4:4.10.2),
  cmake, debhelper (>= 7.3.16), pkg-kde-tools (>= 0.12),
- kdelibs5-dev (>= 4:4.10), kdepimlibs5-dev (>= 4:4.10), libkactivities-dev (>= 4:4.10),
- nepomuk-core-dev (>= 4:4.10), nepomuk-core-runtime, kdelibs5-plugins,
+ kdepimlibs5-dev (>= 4:4.10.2), libkactivities-dev (>= 4:4.10),
+ nepomuk-core-dev (>= 4:4.10.2), nepomuk-core-runtime (>= 4:4.10),
  libphonon-dev (>= 4:4.6.0really4.4.3),
  libsmbclient-dev, libsoprano-dev (>= 2.6.50),
  libstreamanalyzer-dev (>= 0.6.3), libstrigiqtdbusclient-dev (>= 0.6.3),
@@ -23,7 +23,7 @@ Build-Depends: kde-sc-dev-latest (>= 4:4.10.0),
  libqca2-dev,shared-desktop-ontologies (>= 0.7),
  libntrack-qt4-dev [linux-any], libpulse-dev (>= 0.9.16), libcanberra-dev,
  libnm-util-dev (>= 0.7)  [linux-any], network-manager-dev (>= 0.7.0) [linux-any],
- libqtwebkit-dev, libqzeitgeist-dev
+ libqtwebkit-dev, libqzeitgeist-dev, shared-mime-info
 Standards-Version: 3.9.3
 Homepage: http://www.kde.org/
 Vcs-Browser: http://git.debian.org/?p=pkg-kde/kde-sc/kde-runtime.git
@@ -32,7 +32,7 @@ Vcs-Git: git://git.debian.org/pkg-kde/kde-sc/kde-runtime.git
 Package: kde-runtime
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends},
- kde-runtime-data (>= ${source:Version}), ${sameVersionDep:kdelibs5-plugins:kde-runtime},
+ kde-runtime-data (>= ${source:Version}), kdelibs5-plugins (>= ${source:Upstream-Version}),
  ${sameVersionDep:nepomuk-core-runtime:kde-runtime},
  oxygen-icon-theme (>= 4:4.6),
  shared-desktop-ontologies (>= 0.8), plasma-scriptengine-javascript (= ${binary:Version})
