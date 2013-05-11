@@ -1,3 +1,9 @@
+kde-runtime (4:4.10.3-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+
+ -- Maximiliano Curia <maxy@debian.org>  Sat, 11 May 2013 16:04:07 +0200
+
 kde-runtime (4:4.10.2-2) experimental; urgency=low
 
   [ Pino Toscano ]
