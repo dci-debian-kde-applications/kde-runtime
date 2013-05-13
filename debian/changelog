@@ -1,6 +1,7 @@
 kde-runtime (4:4.10.3-1) UNRELEASED; urgency=low
 
   * New upstream release.
+  * Add myself to the Uploaders list.
 
  -- Maximiliano Curia <maxy@debian.org>  Sat, 11 May 2013 16:04:07 +0200
 
