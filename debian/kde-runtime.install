@@ -23,7 +23,6 @@ usr/bin/ktrash
 usr/bin/kuiserver
 usr/bin/kwalletd
 usr/bin/kwriteconfig
-usr/bin/nepomukcontroller
 usr/bin/plasma-remote-helper
 usr/bin/plasmapkg
 usr/bin/solid-hardware
@@ -37,6 +36,7 @@ usr/lib/kde4/exrthumbnail.so
 usr/lib/kde4/fixhosturifilter.so
 usr/lib/kde4/htmlthumbnail.so
 usr/lib/kde4/imagethumbnail.so
+usr/lib/kde4/imports/org/kde/dirmodel/libdirmodelplugin.so
 usr/lib/kde4/imports/org/kde/draganddrop/libdraganddropplugin.so
 usr/lib/kde4/imports/org/kde/locale/liblocalebindingsplugin.so
 usr/lib/kde4/imports/org/kde/plasma/components/libplasmacomponentsplugin.so
