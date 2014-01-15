@@ -412,8 +412,8 @@ usr/share/kde4/services/cgi.protocol
 usr/share/kde4/services/comicbookthumbnail.desktop
 usr/share/kde4/services/componentchooser.desktop
 usr/share/kde4/services/cursorthumbnail.desktop
-usr/share/kde4/services/desktop.protocol
 usr/share/kde4/services/desktop-search.desktop
+usr/share/kde4/services/desktop.protocol
 usr/share/kde4/services/desktopthumbnail.desktop
 usr/share/kde4/services/device_automounter_kcm.desktop
 usr/share/kde4/services/directorythumbnail.desktop
@@ -569,8 +569,8 @@ usr/share/kde4/services/searchproviders/opendesktop.desktop
 usr/share/kde4/services/searchproviders/pgpkeys.desktop
 usr/share/kde4/services/searchproviders/php.desktop
 usr/share/kde4/services/searchproviders/python.desktop
-usr/share/kde4/services/searchproviders/qt4.desktop
 usr/share/kde4/services/searchproviders/qt.desktop
+usr/share/kde4/services/searchproviders/qt4.desktop
 usr/share/kde4/services/searchproviders/rae.desktop
 usr/share/kde4/services/searchproviders/rfc.desktop
 usr/share/kde4/services/searchproviders/rpmfind.desktop
