@@ -7,6 +7,7 @@ kde-runtime (4:4.11.5-1) UNRELEASED; urgency=low
   * New upstream release.
   * Update Standards-Version to 3.9.5, no changes required.
   * Add basic support for autopkgtest.
+  * Add use_the_correct_locale.patch to use C.UTF-8 as locale on testtrash.cpp.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 15 Dec 2013 22:19:33 +0100
 
