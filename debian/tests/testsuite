@@ -1,2 +1,2 @@
 #!/bin/sh
-LANG=C.UTF-8 xvfb-run -a debian/tests/testsuite.xsession
+LANG=C.UTF-8 xvfb-run -a --server-args="-screen 0 1024x768x24" debian/tests/testsuite.xsession
