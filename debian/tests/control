@@ -2,5 +2,5 @@
 # lots of warnings that you would normally get with phonon-backend-null.
 Tests: testsuite
 Depends: @, @builddeps@, build-essential,
-         xvfb, xauth, dbus-x11, kdelibs5-plugins, udisks2, phonon-backend-vlc
+         xvfb, xauth, dbus-x11, kdelibs5-plugins, udisks2, phonon-backend-vlc, ghostscript
 Restrictions: build-needed
