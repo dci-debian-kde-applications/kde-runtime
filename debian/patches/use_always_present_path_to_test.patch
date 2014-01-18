@@ -4,7 +4,7 @@ Description: use a path that's always there
  To try to use /etc/cups/ it will require to install cups first. But to be
  able to achieve the same result one can simply use /etc/crond.d, which
  is present both in Debian and Red Hat almost always (if not always).
-Author: Lisandro Dami√n Nicanor P√rez Meyer <lisandro@debian.org>
+Author: Lisandro Dami√°n Nicanor P√©rez Meyer <lisandro@debian.org>
 Forwarded: no
 Last-Update: 2014-01-17
 
