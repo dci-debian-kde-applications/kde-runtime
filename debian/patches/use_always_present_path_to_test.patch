@@ -5,7 +5,7 @@ Description: use a path that's always there
  able to achieve the same result one can simply use /etc/crond.d, which
  is present both in Debian and Red Hat almost always (if not always).
 Author: Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>
-Forwarded: no
+Forwarded: https://bugs.kde.org/show_bug.cgi?id=330107
 Last-Update: 2014-01-17
 
 --- kde-runtime-4.11.5.orig/kioslave/trash/tests/testtrash.cpp
