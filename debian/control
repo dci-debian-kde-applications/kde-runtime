@@ -46,6 +46,7 @@ Build-Depends: cmake,
                shared-desktop-ontologies (>= 0.7),
                shared-mime-info
 Standards-Version: 3.9.5
+XS-Testsuite: autopkgtest
 Homepage: http://www.kde.org/
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-kde/kde-sc/kde-runtime.git
 Vcs-Git: git://anonscm.debian.org/pkg-kde/kde-sc/kde-runtime.git
