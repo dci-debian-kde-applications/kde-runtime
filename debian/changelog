@@ -12,6 +12,9 @@ kde-runtime (4:4.11.5-1) UNRELEASED; urgency=low
     test (use_always_present_path_to_test.patch).
   * Add XS-Testsuite: autopkgtest, this package can be now tested.
 
+  [ Maximiliano Curia ]
+  * New patch: kshorturifilter_qgetenv_calling_error.diff
+
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 15 Dec 2013 22:19:33 +0100
 
 kde-runtime (4:4.11.3-1) unstable; urgency=low

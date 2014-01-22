@@ -3,3 +3,4 @@ disable_usr_lib_install_rpath.diff
 khelp_htdig.diff
 use_the_correct_locale.patch
 use_always_present_path_to_test.patch
+kshorturifilter_qgetenv_calling_error.diff
