@@ -1,4 +1,4 @@
-kde-runtime (4:4.11.5-1) UNRELEASED; urgency=low
+kde-runtime (4:4.11.5-1) unstable; urgency=low
 
   [ Pino Toscano ]
   * Add the pkg-config build dependency.
@@ -15,7 +15,7 @@ kde-runtime (4:4.11.5-1) UNRELEASED; urgency=low
   [ Maximiliano Curia ]
   * New patch: kshorturifilter_qgetenv_calling_error.diff
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 15 Dec 2013 22:19:33 +0100
+ -- Maximiliano Curia <maxy@debian.org>  Wed, 22 Jan 2014 14:43:04 -0300
 
 kde-runtime (4:4.11.3-1) unstable; urgency=low
 
