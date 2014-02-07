@@ -572,6 +572,7 @@ usr/share/kde4/services/searchproviders/python.desktop
 usr/share/kde4/services/searchproviders/qt.desktop
 usr/share/kde4/services/searchproviders/qt4.desktop
 usr/share/kde4/services/searchproviders/rae.desktop
+usr/share/kde4/services/searchproviders/rag.desktop
 usr/share/kde4/services/searchproviders/rfc.desktop
 usr/share/kde4/services/searchproviders/rpmfind.desktop
 usr/share/kde4/services/searchproviders/ruby_application_archive.desktop
