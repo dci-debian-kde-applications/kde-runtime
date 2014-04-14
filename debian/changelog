@@ -1,6 +1,7 @@
 kde-runtime (4:4.12.4-1~) UNRELEASED; urgency=medium
 
   * New upstream release.
+  * New patch: disable_flacky_tests
 
  -- Maximiliano Curia <maxy@debian.org>  Wed, 09 Apr 2014 17:06:18 +0200
 
