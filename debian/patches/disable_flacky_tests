@@ -1,7 +1,7 @@
 Index: kde-runtime/kurifilter-plugins/tests/kurifiltertest.cpp
 ===================================================================
 --- kde-runtime.orig/kurifilter-plugins/tests/kurifiltertest.cpp	2014-02-21 07:47:45.694599672 +0100
-+++ kde-runtime/kurifilter-plugins/tests/kurifiltertest.cpp	2014-04-14 15:07:57.258031095 +0200
++++ kde-runtime/kurifilter-plugins/tests/kurifiltertest.cpp	2014-04-29 17:33:48.503161340 +0200
 @@ -299,8 +299,8 @@
      // The default search engine is set to 'Google'
      //this may fail if your DNS knows domains KDE or FTP
@@ -13,11 +13,13 @@ Index: kde-runtime/kurifilter-plugins/tests/kurifiltertest.cpp
  }
  
  void KUriFilterTest::executables()
-@@ -309,7 +309,7 @@
+@@ -308,8 +308,8 @@
+     // Executable tests - No IKWS in minicli
      filter( "cp", "cp", KUriFilterData::Executable, minicliFilters );
      filter( "ktraderclient", "ktraderclient", KUriFilterData::Executable, minicliFilters );
-     filter( "KDE", "KDE", NO_FILTERING, minicliFilters );
+-    filter( "KDE", "KDE", NO_FILTERING, minicliFilters );
 -    filter( "I/dont/exist", "I/dont/exist", NO_FILTERING, minicliFilters );      //krazy:exclude=spelling
++    // filter( "KDE", "KDE", NO_FILTERING, minicliFilters );
 +    // filter( "I/dont/exist", "I/dont/exist", NO_FILTERING, minicliFilters );      //krazy:exclude=spelling
      filter( "/I/dont/exist", 0, KUriFilterData::Error, minicliFilters );         //krazy:exclude=spelling
      filter( "/I/dont/exist#a", 0, KUriFilterData::Error, minicliFilters );       //krazy:exclude=spelling
