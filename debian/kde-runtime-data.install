@@ -166,7 +166,6 @@ usr/share/doc/kde/HTML/*/kdebugdialog/
 usr/share/doc/kde/HTML/*/kdesu/
 usr/share/doc/kde/HTML/*/kioslave/
 usr/share/doc/kde/HTML/*/knetattach/
-usr/share/doc/kde/HTML/*/network/
 usr/share/emoticons/kde4/angry.png
 usr/share/emoticons/kde4/bat.png
 usr/share/emoticons/kde4/beer.png
@@ -412,7 +411,6 @@ usr/share/kde4/services/cgi.protocol
 usr/share/kde4/services/comicbookthumbnail.desktop
 usr/share/kde4/services/componentchooser.desktop
 usr/share/kde4/services/cursorthumbnail.desktop
-usr/share/kde4/services/desktop-search.desktop
 usr/share/kde4/services/desktop.protocol
 usr/share/kde4/services/desktopthumbnail.desktop
 usr/share/kde4/services/device_automounter_kcm.desktop
@@ -433,7 +431,6 @@ usr/share/kde4/services/info.protocol
 usr/share/kde4/services/jpegthumbnail.desktop
 usr/share/kde4/services/kcm_attica.desktop
 usr/share/kde4/services/kcm_kdnssd.desktop
-usr/share/kde4/services/kcm_nepomuk.desktop
 usr/share/kde4/services/kcm_phonon.desktop
 usr/share/kde4/services/kcmcgi.desktop
 usr/share/kde4/services/kcmkded.desktop
@@ -443,7 +440,6 @@ usr/share/kde4/services/kded/desktopnotifier.desktop
 usr/share/kde4/services/kded/device_automounter.desktop
 usr/share/kde4/services/kded/kpasswdserver.desktop
 usr/share/kde4/services/kded/ktimezoned.desktop
-usr/share/kde4/services/kded/nepomuksearchmodule.desktop
 usr/share/kde4/services/kded/networkstatus.desktop
 usr/share/kde4/services/kded/networkwatcher.desktop
 usr/share/kde4/services/kded/phononserver.desktop
@@ -463,8 +459,6 @@ usr/share/kde4/services/language.desktop
 usr/share/kde4/services/localdomainurifilter.desktop
 usr/share/kde4/services/lzma.protocol
 usr/share/kde4/services/man.protocol
-usr/share/kde4/services/nepomuk.protocol
-usr/share/kde4/services/nepomuksearch.protocol
 usr/share/kde4/services/network.protocol
 usr/share/kde4/services/nfs.protocol
 usr/share/kde4/services/plasma-containment-newspaper.desktop
@@ -602,11 +596,9 @@ usr/share/kde4/services/sftp.protocol
 usr/share/kde4/services/smb.protocol
 usr/share/kde4/services/spellchecking.desktop
 usr/share/kde4/services/svgthumbnail.desktop
-usr/share/kde4/services/tags.protocol
 usr/share/kde4/services/tar.protocol
 usr/share/kde4/services/textthumbnail.desktop
 usr/share/kde4/services/thumbnail.protocol
-usr/share/kde4/services/timeline.protocol
 usr/share/kde4/services/trash.protocol
 usr/share/kde4/services/windowsexethumbnail.desktop
 usr/share/kde4/services/windowsimagethumbnail.desktop
