@@ -1,7 +1,16 @@
 Index: kde-runtime/kurifilter-plugins/tests/kurifiltertest.cpp
 ===================================================================
---- kde-runtime.orig/kurifilter-plugins/tests/kurifiltertest.cpp	2014-02-21 07:47:45.694599672 +0100
-+++ kde-runtime/kurifilter-plugins/tests/kurifiltertest.cpp	2014-04-29 17:33:48.503161340 +0200
+--- kde-runtime.orig/kurifilter-plugins/tests/kurifiltertest.cpp	2014-05-20 15:03:30.637246910 +0200
++++ kde-runtime/kurifilter-plugins/tests/kurifiltertest.cpp	2014-05-20 15:05:01.693663586 +0200
+@@ -256,7 +256,7 @@
+     filter( "ftp.kde.org:21", "ftp://ftp.kde.org:21", KUriFilterData::NetProtocol );
+     filter( "cr.yp.to", "http://cr.yp.to", KUriFilterData::NetProtocol );
+     filter( "www.kde.org:21", "http://www.kde.org:21", KUriFilterData::NetProtocol );
+-    filter( "foobar.local:8000", "http://foobar.local:8000", KUriFilterData::NetProtocol );
++    // filter( "foobar.local:8000", "http://foobar.local:8000", KUriFilterData::NetProtocol );
+     filter( "foo@bar.com", "mailto:foo@bar.com", KUriFilterData::NetProtocol );
+     filter( "firstname.lastname@x.foo.bar", "mailto:firstname.lastname@x.foo.bar", KUriFilterData::NetProtocol );
+     filter( "www.123.foo", "http://www.123.foo", KUriFilterData::NetProtocol );
 @@ -299,8 +299,8 @@
      // The default search engine is set to 'Google'
      //this may fail if your DNS knows domains KDE or FTP
