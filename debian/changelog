@@ -1,4 +1,4 @@
-kde-runtime (4:4.13.1-1) UNRELEASED; urgency=medium
+kde-runtime (4:4.13.1-1~) UNRELEASED; urgency=medium
 
   * New upstream release.
   * Update build-dependencies.
@@ -6,7 +6,7 @@ kde-runtime (4:4.13.1-1) UNRELEASED; urgency=medium
   * Update install files.
   * New patch: disable_kwalletd_autotests
 
- -- Maximiliano Curia <maxy@debian.org>  Mon, 19 May 2014 17:35:40 +0200
+ -- Maximiliano Curia <maxy@debian.org>  Tue, 20 May 2014 16:07:15 +0200
 
 kde-runtime (4:4.12.4-1) unstable; urgency=medium
 
