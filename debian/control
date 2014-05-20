@@ -54,12 +54,9 @@ Depends: kde-runtime-data (>= ${source:Version}),
          kdelibs5-plugins (>= ${source:Upstream-Version}),
          oxygen-icon-theme (>= 4:4.6),
          plasma-scriptengine-javascript (= ${binary:Version}),
-         shared-desktop-ontologies (>= 0.8),
          ${misc:Depends},
          ${perl:Depends},
-         ${sameVersionDep:nepomuk-core-runtime:kde-runtime},
          ${shlibs:Depends}
-Recommends: virtuoso-minimal
 Suggests: djvulibre-bin, finger, icoutils
 Replaces: kdebase-runtime (<< 4:4.7.2),
           kdebase-runtime-bin-kde4,
