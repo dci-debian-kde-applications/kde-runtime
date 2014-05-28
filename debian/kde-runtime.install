@@ -118,6 +118,7 @@ usr/lib/kde4/plasma_appletscript_declarative.so
 usr/lib/kde4/plasma_containment_newspaper.so
 usr/lib/kde4/plasma_packagestructure_javascriptaddon.so
 usr/lib/kde4/platformimports/touch/org/kde/plasma/components/libplasmacomponentsplugin.so
+usr/lib/kde4/plugins/imageformats/kimg_webp.so
 usr/lib/kde4/plugins/phonon_platform/kde.so
 usr/lib/kde4/svgthumbnail.so
 usr/lib/kde4/textthumbnail.so

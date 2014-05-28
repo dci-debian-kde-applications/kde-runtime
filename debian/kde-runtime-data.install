@@ -467,6 +467,7 @@ usr/share/kde4/services/plasma-kpart.desktop
 usr/share/kde4/services/plasma-packagestructure-javascript-addon.desktop
 usr/share/kde4/services/plasma-scriptengine-applet-declarative.desktop
 usr/share/kde4/services/programs.protocol
+usr/share/kde4/services/qimageioplugins/webp.desktop
 usr/share/kde4/services/recentdocuments.protocol
 usr/share/kde4/services/remote.protocol
 usr/share/kde4/services/renaudiodlg.desktop
@@ -1321,6 +1322,7 @@ usr/share/locale/l10n/zw/flag.png
 usr/share/man/man1/kdesu.1
 usr/share/man/man1/plasmapkg.1
 usr/share/mime/packages/network.xml
+usr/share/mime/packages/webp.xml
 usr/share/polkit-1/actions/org.kde.kcontrol.kcmremotewidgets.policy
 usr/share/sounds/KDE-Im-Cant-Connect.ogg
 usr/share/sounds/KDE-Im-Connection-Lost.ogg
