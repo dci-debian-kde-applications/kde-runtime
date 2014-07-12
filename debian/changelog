@@ -1,7 +1,7 @@
 kde-runtime (4:4.13.2-1) UNRELEASED; urgency=medium
 
   [ Adrien Grellier ]
-  * build with libwebp (Closes: #736574) 
+  * build with libwebp (Closes: #736574)
 
   [ Maximiliano Curia ]
   * New upstream release.
