@@ -1,4 +1,4 @@
-kde-runtime (4:4.13.2-1) UNRELEASED; urgency=medium
+kde-runtime (4:4.13.3-1) UNRELEASED; urgency=medium
 
   [ Adrien Grellier ]
   * build with libwebp (Closes: #736574)
@@ -6,7 +6,7 @@ kde-runtime (4:4.13.2-1) UNRELEASED; urgency=medium
   [ Maximiliano Curia ]
   * New upstream release.
 
- -- Maximiliano Curia <maxy@debian.org>  Tue, 01 Jul 2014 17:03:25 +0200
+ -- Maximiliano Curia <maxy@debian.org>  Wed, 16 Jul 2014 12:45:29 +0200
 
 kde-runtime (4:4.13.1-1) unstable; urgency=medium
 
