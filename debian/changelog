@@ -1,4 +1,4 @@
-kde-runtime (4:4.13.3-1) UNRELEASED; urgency=medium
+kde-runtime (4:4.13.3-1~) UNRELEASED; urgency=medium
 
   [ Adrien Grellier ]
   * build with libwebp (Closes: #736574)
@@ -8,7 +8,7 @@ kde-runtime (4:4.13.3-1) UNRELEASED; urgency=medium
   * Version khelpcenter4->khelpcenter breaks/conflicts to only affect <<
     4:4.0
 
- -- Maximiliano Curia <maxy@debian.org>  Wed, 16 Jul 2014 12:45:29 +0200
+ -- Maximiliano Curia <maxy@debian.org>  Thu, 31 Jul 2014 21:04:11 +0200
 
 kde-runtime (4:4.13.1-1) unstable; urgency=medium
 
