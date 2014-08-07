@@ -89,7 +89,7 @@ usr/lib/kde4/kio_nfs.so
 usr/lib/kde4/kio_recentdocuments.so
 usr/lib/kde4/kio_remote.so
 usr/lib/kde4/kio_settings.so
-usr/lib/kde4/kio_sftp.so
+# usr/lib/kde4/kio_sftp.so
 usr/lib/kde4/kio_smb.so
 usr/lib/kde4/kio_thumbnail.so
 usr/lib/kde4/kio_trash.so

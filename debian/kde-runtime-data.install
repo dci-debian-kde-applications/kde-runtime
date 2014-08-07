@@ -594,7 +594,7 @@ usr/share/kde4/services/searchproviders/yahoo_shopping.desktop
 usr/share/kde4/services/searchproviders/yahoo_video.desktop
 usr/share/kde4/services/searchproviders/youtube.desktop
 usr/share/kde4/services/settings.protocol
-usr/share/kde4/services/sftp.protocol
+# usr/share/kde4/services/sftp.protocol
 usr/share/kde4/services/smb.protocol
 usr/share/kde4/services/spellchecking.desktop
 usr/share/kde4/services/svgthumbnail.desktop
