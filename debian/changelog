@@ -1,11 +1,11 @@
-kde-runtime (4:4.14.0-1) UNRELEASED; urgency=medium
+kde-runtime (4:4.14.0-1~) UNRELEASED; urgency=medium
 
   * Disable libssh build-dep, due to openssl license incompatibility.
     (Closes: #750867)
   * Update install files.
   * New upstream release.
 
- -- Maximiliano Curia <maxy@debian.org>  Mon, 18 Aug 2014 18:30:16 +0200
+ -- Maximiliano Curia <maxy@debian.org>  Sun, 24 Aug 2014 20:31:11 +0200
 
 kde-runtime (4:4.13.3-1) unstable; urgency=medium
 
