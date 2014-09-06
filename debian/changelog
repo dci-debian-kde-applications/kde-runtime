@@ -1,8 +1,8 @@
-kde-runtime (4:4.14.0-2) UNRELEASED; urgency=medium
+kde-runtime (4:4.14.0-2) unstable; urgency=medium
 
   * Add libssh-gcrypt build-dep. (Closes: #759254, #739494)
 
- -- Maximiliano Curia <maxy@debian.org>  Sat, 06 Sep 2014 19:20:33 +0200
+ -- Maximiliano Curia <maxy@debian.org>  Sat, 06 Sep 2014 20:44:36 +0200
 
 kde-runtime (4:4.14.0-1) unstable; urgency=medium
 
