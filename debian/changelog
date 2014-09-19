@@ -1,11 +1,11 @@
-kde-runtime (4:4.14.1-1~) UNRELEASED; urgency=medium
+kde-runtime (4:4.14.1-1) unstable; urgency=medium
 
   * New upstream release (4.14.1).
   * kde-runtime-data: Update install file.
   * Remove patch: use_always_present_path_to_test.patch, no longer
     needed.
 
- -- Maximiliano Curia <maxy@debian.org>  Fri, 12 Sep 2014 20:29:07 +0200
+ -- Maximiliano Curia <maxy@debian.org>  Fri, 19 Sep 2014 15:24:08 +0200
 
 kde-runtime (4:4.14.0-2) unstable; urgency=medium
 
