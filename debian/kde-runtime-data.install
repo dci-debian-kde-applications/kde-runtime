@@ -492,9 +492,9 @@ usr/share/kde4/servicetypes/plasma-javascriptaddon.desktop
 usr/share/kde4/servicetypes/searchprovider.desktop
 usr/share/kde4/servicetypes/thumbcreator.desktop
 usr/share/locale/currency/
+usr/share/locale/l10n/*.desktop
 usr/share/locale/l10n/*/entry.desktop
 usr/share/locale/l10n/*/flag.png
-usr/share/locale/l10n/*.desktop
 usr/share/man/man1/kdesu.1
 usr/share/man/man1/plasmapkg.1
 usr/share/mime/packages/network.xml

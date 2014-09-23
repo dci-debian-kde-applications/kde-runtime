@@ -58,7 +58,11 @@ Depends: kde-runtime-data (>= ${source:Version}),
          ${misc:Depends},
          ${perl:Depends},
          ${shlibs:Depends}
-Suggests: djvulibre-bin, finger, icoutils
+Suggests: djvulibre-bin,
+          finger,
+          icoutils,
+          libcanberra-pulse,
+          sound-theme-freedesktop
 Replaces: kdebase-runtime (<< 4:4.7.2),
           kdebase-runtime-bin-kde4,
           kdebase-workspace-bin (<< 4:4.6),
