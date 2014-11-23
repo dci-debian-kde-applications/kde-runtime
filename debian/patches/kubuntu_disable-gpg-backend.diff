@@ -1,0 +1,76 @@
+Description: disable kwallet gpg backend as it is not working perfectly
+Forwarded: no
+Author: Alex Fiestas <afiestas@kde.org>
+Reviewed-by: Harald Sitter <apachelogger@kubuntu.org>
+
+diff --git a/kwalletd/CMakeLists.txt b/kwalletd/CMakeLists.txt
+index 73aec82..4d73d5c 100644
+--- a/kwalletd/CMakeLists.txt
++++ b/kwalletd/CMakeLists.txt
+@@ -1,15 +1,15 @@
+ project(kwalletd)
+ 
+ ########### find needed packages ######
+-find_package(Gpgme)  # Called by FindQGpgme, but since we call some gpgme
+-                     # functions ourselves we need to link against it directly.
+-find_package(QGpgme) # provided by kdepimlibs
++# find_package(Gpgme)  # Called by FindQGpgme, but since we call some gpgme
++#                      # functions ourselves we need to link against it directly.
++# find_package(QGpgme) # provided by kdepimlibs
+ 
+-if (GPGME_FOUND AND QGPGME_FOUND)
+-    add_definitions(-DHAVE_QGPGME)
+-    include_directories(${GPGME_INCLUDES} ${QGPGME_INCLUDE_DIR})
+-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
+-endif(GPGME_FOUND AND QGPGME_FOUND)
++# if (GPGME_FOUND AND QGPGME_FOUND)
++#     add_definitions(-DHAVE_QGPGME)
++#     include_directories(${GPGME_INCLUDES} ${QGPGME_INCLUDE_DIR})
++#     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
++# endif(GPGME_FOUND AND QGPGME_FOUND)
+ 
+ ########### build backends #########
+ add_subdirectory(backend)
+@@ -37,18 +37,18 @@ kde4_add_ui_files(kwalletd_KDEINIT_SRCS
+    kwalletwizardpagepassword.ui
+ )
+ 
+-if (GPGME_FOUND AND QGPGME_FOUND)
+-    set(kwalletd_KDEINIT_SRCS
+-        ${kwalletd_KDEINIT_SRCS}
+-        knewwalletdialog.cpp
+-    )
+-    kde4_add_ui_files(kwalletd_KDEINIT_SRCS
+-        kwalletwizardpagepasswordgpg.ui
+-        kwalletwizardpagegpgkey.ui
+-        knewwalletdialogintro.ui
+-        knewwalletdialoggpg.ui
+-    )
+-endif(GPGME_FOUND AND QGPGME_FOUND)
++# if (GPGME_FOUND AND QGPGME_FOUND)
++#     set(kwalletd_KDEINIT_SRCS
++#         ${kwalletd_KDEINIT_SRCS}
++#         knewwalletdialog.cpp
++#     )
++#     kde4_add_ui_files(kwalletd_KDEINIT_SRCS
++#         kwalletwizardpagepasswordgpg.ui
++#         kwalletwizardpagegpgkey.ui
++#         knewwalletdialogintro.ui
++#         knewwalletdialoggpg.ui
++#     )
++# endif(GPGME_FOUND AND QGPGME_FOUND)
+ 
+ find_file(kwallet_xml org.kde.KWallet.xml HINTS ${KDE4_DBUS_INTERFACES_DIR} )
+ 
+@@ -57,9 +57,9 @@ qt4_add_dbus_adaptor( kwalletd_KDEINIT_SRCS ${kwallet_xml} kwalletd.h KWalletD )
+ kde4_add_kdeinit_executable( kwalletd NOGUI ${kwalletd_KDEINIT_SRCS} )
+ 
+ target_link_libraries(kdeinit_kwalletd ${KDE4_KDEUI_LIBS} kwalletbackend )
+-if (GPGME_FOUND AND QGPGME_FOUND)
+-    target_link_libraries(kdeinit_kwalletd ${QGPGME_LIBRARIES} )
+-endif(GPGME_FOUND AND QGPGME_FOUND)
++# if (GPGME_FOUND AND QGPGME_FOUND)
++#     target_link_libraries(kdeinit_kwalletd ${QGPGME_LIBRARIES} )
++# endif(GPGME_FOUND AND QGPGME_FOUND)
+ 
+ install(TARGETS kdeinit_kwalletd  ${INSTALL_TARGETS_DEFAULT_ARGS})

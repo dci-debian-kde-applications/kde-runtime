@@ -1,0 +1,23 @@
+Description: use a path that's always there
+ Or at least in Debian ;)
+ .
+ To try to use /etc/cups/ it will require to install cups first. But to be
+ able to achieve the same result one can simply use /etc/crond.d, which
+ is present both in Debian and Red Hat almost always (if not always).
+Author: Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>
+Forwarded: https://bugs.kde.org/show_bug.cgi?id=330107
+Last-Update: 2014-01-17
+
+--- kde-runtime-4.11.5.orig/kioslave/trash/tests/testtrash.cpp
++++ kde-runtime-4.11.5/kioslave/trash/tests/testtrash.cpp
+@@ -856,8 +856,8 @@ void TestTrash::moveDirectoryFromTrash()
+ void TestTrash::trashDirectoryOwnedByRoot()
+ {
+     KUrl u;
+-    if ( QFile::exists( "/etc/cups" ) )
+-        u.setPath( "/etc/cups" );
++    if ( QFile::exists( "/etc/cron.d" ) )
++        u.setPath( "/etc/cron.d" );
+     else if ( QFile::exists( "/boot" ) )
+         u.setPath( "/boot" );
+     else

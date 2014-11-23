@@ -1,6 +1,13 @@
-kde4_information_menu.diff
+#kde4_information_menu.diff
 disable_usr_lib_install_rpath.diff
 khelp_htdig.diff
 use_the_correct_locale.patch
+use_always_present_path_to_test.patch
 disable_flacky_tests
 disable_kwalletd_autotests
+kubuntu_langpack_install.diff
+kubuntu_nodisplay_knetattach.diff
+kubuntu_shutup_shutup_shutup.diff
+kubuntu_drkonqi_whoopsie_integration.patch
+kubuntu_disable-gpg-backend.diff
+upstream_CVE-2014-8600.diff

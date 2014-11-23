@@ -1,3 +1,4 @@
+debian/30-baloo-inotify-limit.conf etc/sysctl.d/
 usr/bin/kcmshell4
 usr/bin/kde-cp
 usr/bin/kde-mv
@@ -99,7 +100,7 @@ usr/lib/kde4/kurisearchfilter.so
 usr/lib/kde4/libexec/drkonqi
 usr/lib/kde4/libexec/kcmremotewidgetshelper
 usr/lib/kde4/libexec/kdeeject
-usr/lib/kde4/libexec/kdesu
+usr/lib/kde4/libexec/kdesu /usr/lib/kde4/libexec/kdesu-distrib/
 usr/lib/kde4/libexec/kdesud
 usr/lib/kde4/libexec/kdontchangethehostname
 usr/lib/kde4/libexec/khc_docbookdig.pl

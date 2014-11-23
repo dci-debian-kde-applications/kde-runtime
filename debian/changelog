@@ -1,3 +1,31 @@
+kde-runtime (4:4.14.2-2ubuntu1) UNRELEASED; urgency=medium
+
+  * Merge with debian git, remaining changes:
+    - add and install 30-baloo-inotify-limit.conf
+    - build-depend on libboost1.55-dev instead of libboost-dev
+    - build-depend on libkubuntu-dev
+    - kde-runtime:
+      + depends on language-selector-common and libqapt2-runtime
+      + recommends, not suggests icoutils, libcanberra-pulse,
+        sound-theme-freedesktop
+      + recommends udisks2, upower
+      + breaks/replaces kde-runtime-data (<< 4:4.13.97)
+    - kde-runtime-data breaks/replaces kde-runtime (<< 4:4.13.90)
+    - khelpcenter4 breaks/replaces kde-runtime-data (<< 4:4.13.90)
+    - put kdesu into /usr/lib/kde4/libexec/kdesu-distrib/
+    - add kde-runtime.(postins|preinst|prerm) for kdesu handling
+    - keep our changes to not-installed
+    - add patches:
+      + kubuntu_disable-gpg-backend.diff
+      + kubuntu_drkonqi_whoopsie_integration.patch
+      + kubuntu_langpack_install.diff
+      + kubuntu_nodisplay_knetattach.diff
+      + kubuntu_shutup_shutup_shutup.diff
+      + upstream_CVE-2014-8600.diff
+      + use_always_present_path_to_test.patch
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Sun, 23 Nov 2014 18:30:53 +0100
+
 kde-runtime (4:4.14.2-2) UNRELEASED; urgency=medium
 
   [ Lisandro Damián Nicanor Pérez Meyer ]
@@ -15,6 +43,25 @@ kde-runtime (4:4.14.2-1) unstable; urgency=medium
 
  -- Maximiliano Curia <maxy@debian.org>  Tue, 21 Oct 2014 19:12:39 +0200
 
+kde-runtime (4:4.14.2-0ubuntu2) vivid; urgency=medium
+
+  * SECURITY UPDATE: Insufficient Input Validation By IO Slaves and
+    Webkit Part
+   - Add upstream_CVE-2014-8600.diff to escape protocol twice: once
+     for i18n, and once for HTML
+   - https://www.kde.org/info/security/advisory-20141113-1.txt
+   - CVE-2014-8600
+   - LP: #1393479
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 17 Nov 2014 17:52:25 +0100
+
+kde-runtime (4:4.14.2-0ubuntu1) vivid; urgency=medium
+
+  * New upstream release
+  * Remove kshorturifilter_qgetenv_calling_error.diff applied upstream.
+
+ -- Scarlett Clark <sgclark@kubuntu.org>  Fri, 10 Oct 2014 04:20:34 -0700
+
 kde-runtime (4:4.14.1-1) unstable; urgency=medium
 
   * New upstream release (4.14.1).
@@ -23,6 +70,14 @@ kde-runtime (4:4.14.1-1) unstable; urgency=medium
     needed.
 
  -- Maximiliano Curia <maxy@debian.org>  Fri, 19 Sep 2014 15:24:08 +0200
+
+kde-runtime (4:4.14.1-0ubuntu1) utopic; urgency=medium
+
+  * New upstream release
+  * Add missing qwant searchproviders files to install file. 
+  * wrap-and-sort 
+
+ -- Scarlett Clark <scarlett@scarlettgatelyclark.com>  Mon, 22 Sep 2014 17:06:28 +0200
 
 kde-runtime (4:4.14.0-2) unstable; urgency=medium
 
@@ -39,6 +94,56 @@ kde-runtime (4:4.14.0-1) unstable; urgency=medium
 
  -- Maximiliano Curia <maxy@debian.org>  Sun, 24 Aug 2014 23:26:40 +0200
 
+kde-runtime (4:4.14.0-0ubuntu1) utopic; urgency=medium
+
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 20 Aug 2014 12:49:02 +0200
+
+kde-runtime (4:4.13.97-0ubuntu4) utopic; urgency=medium
+
+  * Bump kde-runtime-data breaks/replaces kde-runtime version for the SRU
+    updates 
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Tue, 12 Aug 2014 22:08:00 +0200
+
+kde-runtime (4:4.13.97-0ubuntu3) utopic; urgency=medium
+
+  * Bump khelpcenter4 replaces/breaks kde-runtime-data version for
+    updates
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 12 Aug 2014 20:03:22 +0200
+
+kde-runtime (4:4.13.97-0ubuntu2) utopic; urgency=medium
+
+  * Add breaks/replaces on old kde-runtime-data for overlapping
+    othercontrolmodules.desktop
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 11 Aug 2014 17:25:20 +0200
+
+kde-runtime (4:4.13.97-0ubuntu1) utopic; urgency=medium
+
+  * New upstream beta release RC
+
+ -- Scarlett Clark <scarlett@scarlettgatelyclark.com>  Fri, 01 Aug 2014 16:36:31 +0200
+
+kde-runtime (4:4.13.95-0ubuntu1) utopic; urgency=medium
+
+  [ Scarlett Clark ]
+  * New upstream beta release
+
+  [ Harald Sitter ]
+  * Version khelpcenter4->khelpcenter breaks/conflicts to only affect << 4:4.0
+
+ -- Scarlett Clark <scarlett@scarlettgatelyclark.com>  Wed, 30 Jul 2014 18:06:07 +0200
+
+kde-runtime (4:4.13.90-0ubuntu1) utopic; urgency=medium
+
+  * New upstream beta release
+  * Removed version from libkactivities-dev depend as it has not been updated.
+
+ -- Scarlett Clark <scarlett@scarlettgatelyclark.com>  Thu, 17 Jul 2014 13:01:17 -0700
+
 kde-runtime (4:4.13.3-1) unstable; urgency=medium
 
   [ Adrien Grellier ]
@@ -51,6 +156,65 @@ kde-runtime (4:4.13.3-1) unstable; urgency=medium
 
  -- Maximiliano Curia <maxy@debian.org>  Thu, 31 Jul 2014 21:53:33 +0200
 
+kde-runtime (4:4.13.2-0ubuntu5) utopic; urgency=medium
+
+  * kde-runtime-data Breaks/Replaces kde-runtime (LP: #1331840)
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Thu, 19 Jun 2014 19:22:44 +0200
+
+kde-runtime (4:4.13.2-0ubuntu4) utopic; urgency=medium
+
+  * khelpcenter4 breaks/replaces kde-runtime-data << 4:4.13.2-0ubuntu3~ 
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Thu, 19 Jun 2014 10:28:47 +0200
+
+kde-runtime (4:4.13.2-0ubuntu3) utopic; urgency=medium
+
+  * Remove khelpcentre files in kde-runtime-data
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 19 Jun 2014 09:00:26 +0100
+
+kde-runtime (4:4.13.2-0ubuntu2) utopic; urgency=medium
+
+  * Update kde-runtime-data.install
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 18 Jun 2014 14:58:28 +0100
+
+kde-runtime (4:4.13.2-0ubuntu1) utopic; urgency=medium
+
+  [ Rohan Garg ]
+  * Merge with Debian, remaining changes:
+    - Add patches
+      + kubuntu_langpack_install.diff
+      + kubuntu_nodisplay_knetattach.diff
+      + kubuntu_shutup_shutup_shutup.diff
+    - debian/control:
+      + Depend on boost 1.55
+      + Add build-dep on libkubuntu-dev
+      + kde-runtime depends on language-selector-common, libqapt2-runtime
+      + add udisks, upower, kubuntu-debug-installer, icoutils,
+       libcanberra-pulse | libcanberra-gstreamer to kde-runtime recommends
+      + helpcenter4 no recommend on htdig
+    - debian/kde-runtime-data.install:
+      + change etc/xdg/menus/kde4-information.menu to
+        etc/xdg/menus/kde-information.menu
+      + change usr/share/desktop-directories/kde4-information.directory to
+        usr/share/desktop-directories/kde-information.directory
+      + Don't install
+        usr/share/kde4/apps/kio_desktop/DesktopLinks/Home.desktop
+      + Don't install usr/share/kde4/apps/kio_desktop/directory.trash
+      + install plasma active QML components and remove from not-installed
+    - debian/kde-runtime.install
+      + install usr/lib/kde4/libexec/kdesu to
+        /usr/lib/kde4/libexec/kdesu-distrib/
+      + install 30-nepomuk-inotify-limit.conf to /etc/sysctl.d
+    - add 30-nepomuk-inotify-limit.conf
+
+  [ Jonathan Riddell ]
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 18 Jun 2014 12:41:03 +0100
+
 kde-runtime (4:4.13.1-1) unstable; urgency=medium
 
   * New upstream release.
@@ -60,6 +224,84 @@ kde-runtime (4:4.13.1-1) unstable; urgency=medium
   * New patch: disable_kwalletd_autotests
 
  -- Maximiliano Curia <maxy@debian.org>  Mon, 26 May 2014 14:19:23 +0200
+
+kde-runtime (4:4.13.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update build-dependencies.
+  * Update kde-runtime dependencies.
+  * Update install files.
+  * New patch: disable_kwalletd_autotests
+
+ -- Maximiliano Curia <maxy@debian.org>  Mon, 26 May 2014 14:19:23 +0200
+
+kde-runtime (4:4.13.0-0ubuntu2) utopic; urgency=medium
+
+  * Build against boost1.55.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Sat, 03 May 2014 21:58:57 +0100
+
+kde-runtime (4:4.13.0-0ubuntu1) trusty; urgency=medium
+
+  * New upstream KDE Software Compilation release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 10 Apr 2014 21:57:18 +0100
+
+kde-runtime (4:4.12.97-0ubuntu3) trusty; urgency=medium
+
+  * Flat diff import upstream git commits since 4.12.97 from KDE/4.13 branch in
+    patches/upstream_git.patch (using flat diff because of intermediate merges)
+  * Bring back kubuntu_disable-gpg-backend.diff dropped in 4:4.12.97-0ubuntu2
+    in a revised, more complete version. In addition to changes brought in by
+    upstream_git.patch this should make the disabling work as intended.
+
+ -- Harald Sitter <apachelogger@kubuntu.org>  Tue, 08 Apr 2014 12:38:48 +0200
+
+kde-runtime (4:4.12.97-0ubuntu2) trusty; urgency=medium
+
+  * Drop kubuntu_disable-gpg-backend.diff, causes crashes for
+    various users (LP: #1298951)
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Wed, 02 Apr 2014 14:48:01 +0200
+
+kde-runtime (4:4.12.97-0ubuntu1) trusty; urgency=medium
+
+  * New upstream release candidate
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Wed, 02 Apr 2014 11:21:51 +0200
+
+kde-runtime (4:4.12.95-0ubuntu2) trusty; urgency=medium
+
+  * Disable the GPG backend since it does not work
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Thu, 27 Mar 2014 13:41:03 +0100
+
+kde-runtime (4:4.12.95-0ubuntu1) trusty; urgency=medium
+
+  * New upstream beta release
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Sun, 23 Mar 2014 12:23:16 +0100
+
+kde-runtime (4:4.12.90-0ubuntu2) trusty; urgency=medium
+
+  * Remove KDERUNTIME_BUILD_NEPOMUK=TRUE so nepomuk isn't build anymore
+    and remove the nepomuk related files from the install files
+  * Rename 30-nepomuk-inotify-limit.conf to 30-baloo-inotify-limit.conf
+  * Don't depend on nepomuk-core-runtime anymore, but still recommend it
+    for nepomukbaloomigrator
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Wed, 19 Mar 2014 17:04:26 +0100
+
+kde-runtime (4:4.12.90-0ubuntu1) trusty; urgency=medium
+
+  [ Rohan Garg ]
+  * Update install files
+  * Pass KDERUNTIME_BUILD_NEPOMUK=TRUE to cmake to build nepomuk
+
+  [ Jonathan Riddell ]
+  * New upstream beta release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 19 Mar 2014 10:51:27 +0000
 
 kde-runtime (4:4.12.4-1) unstable; urgency=medium
 
@@ -74,6 +316,20 @@ kde-runtime (4:4.12.3-1) experimental; urgency=medium
 
  -- Maximiliano Curia <maxy@debian.org>  Tue, 04 Mar 2014 00:05:51 +0100
 
+kde-runtime (4:4.12.3-0ubuntu1) trusty; urgency=medium
+
+  [ Rohan Garg ]
+  * Drop kubuntu_kde-runtime-4.9.98-kde#310486.patch, KDE Workspace
+    will only have bug fix releases, hence this patch is not required
+
+  [ Harald Sitter ]
+  * Dep3 for kubuntu_drkonqi_whoopsie_integration.patch
+
+  [ Rohan Garg ]
+  * New upstream bugfix release
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Tue, 04 Mar 2014 20:43:29 +0100
+
 kde-runtime (4:4.12.2-1) experimental; urgency=medium
 
   * New upstream release.
@@ -82,6 +338,90 @@ kde-runtime (4:4.12.2-1) experimental; urgency=medium
   * Bump kde-sc-dev-latest build dependency.
 
  -- Maximiliano Curia <maxy@debian.org>  Mon, 10 Feb 2014 11:32:18 +0100
+
+kde-runtime (4:4.12.2-0ubuntu2) trusty; urgency=medium
+
+  * Update kubuntu_langpack_install.diff for 4.12.2 from 
+    git@git.kde.org:clones/kde-runtime/sitter/kubuntu
+    + Also port to libkubuntu, cutting the patch in half.
+    + This is part of the ongoing movement towards upstreaming this patch.
+  * Drop libqapt-dev as build dependency
+  * Add libkubuntu-dev as build dependency
+
+ -- Harald Sitter <apachelogger@kubuntu.org>  Mon, 10 Feb 2014 12:41:19 +0100
+
+kde-runtime (4:4.12.2-0ubuntu1) trusty; urgency=medium
+
+  * New upstream bugfix release
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Tue, 04 Feb 2014 23:53:39 +0000
+
+kde-runtime (4:4.12.1-0ubuntu2) trusty; urgency=medium
+
+  * No-change rebuild for libwebp transition
+
+ -- Iain Lane <iain.lane@canonical.com>  Mon, 20 Jan 2014 12:18:16 +0000
+
+kde-runtime (4:4.12.1-0ubuntu1) trusty; urgency=low
+
+  * New upstream bugfix release
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Thu, 16 Jan 2014 08:11:50 +0000
+
+kde-runtime (4:4.12.0-0ubuntu1) trusty; urgency=low
+
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 18 Dec 2013 16:52:30 +0000
+
+kde-runtime (4:4.11.97-0ubuntu2) trusty; urgency=low
+
+  * Add kubuntu_drkonqi_whoopsie_integration.patch (whoopsie-integration-set).
+    This patch adds a checkbox to drkonqi which allows automatic submission
+    of crash reports via whoopsie to errors.ubuntu.com.
+    The checkbox is only shown when whoopsie reporting is enabled.
+    When the checkbox is checked on exit a special stamp file is written to
+    /var/crash/$app.$uid.drkonqi-accept indicating that KCrash (kdelibs) needs
+    to re-raise the signal to the native handlers such that apport gets
+    invoked to create an apport report *and* that the resulting report
+    may be uploaded by kubuntu-notification-helper (watching /var/crash/)
+    without going through apport-kde to ask for permission.
+
+ -- Harald Sitter <apachelogger@kubuntu.org>  Thu, 12 Dec 2013 12:39:34 +0100
+
+kde-runtime (4:4.11.97-0ubuntu1) trusty; urgency=low
+
+  [ Jonathan Riddell ]
+  * New upstream RC release
+
+  [ Rohan Garg ]
+  * Drop kubuntu_oxygenify_knetattach_icon.diff, oxygen-icons now install
+    a knetattach icon making this patch useless
+  * Drop kubuntu_silence_kwallet_on_first_start.patch , Alex is going to write
+    another patch for KDE 4.12 which makes PAM authentication possible.
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 29 Nov 2013 12:50:21 +0000
+
+kde-runtime (4:4.11.95-0ubuntu1) trusty; urgency=low
+
+  * New upstream beta release
+  * Add rebased kubuntu_silence_kwallet_on_first_start.patch
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Mon, 25 Nov 2013 17:59:00 +0100
+
+kde-runtime (4:4.11.80-0ubuntu1) trusty; urgency=low
+
+  [ Rohan Garg ]
+  * New upstream beta release
+    - Drop kubuntu_silence_kwallet_on_first_start.patch, applied upstream
+  * Update install files
+  * Add dependency on boost 1.54
+
+  [ Jonathan Riddell ]
+  * Add build-dep on libwebp-dev for random kimgio plugin for webp (it
+    gives no notice with cmake config) and install new files
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Sat, 23 Nov 2013 17:37:46 +0100
 
 kde-runtime (4:4.11.5-1) unstable; urgency=low
 
@@ -122,6 +462,92 @@ kde-runtime (4:4.11.2-1) experimental; urgency=low
 
  -- Maximiliano Curia <maxy@debian.org>  Sat, 05 Oct 2013 13:20:25 +0200
 
+kde-runtime (4:4.11.2-0ubuntu1) saucy; urgency=low
+
+  * New upstream bugfix release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 30 Sep 2013 14:04:51 +0100
+
+kde-runtime (4:4.11.1-0ubuntu2) saucy; urgency=low
+
+  * Import be1a5d484c70f4f6a383150810afbfbb367db2ac 
+    from upstream to fix regressions related to
+    ignored events in the event handler.
+
+ -- Howard Chan <smartboyhw@gmail.com>  Sat, 07 Sep 2013 18:28:38 +0800
+
+kde-runtime (4:4.11.1-0ubuntu1) saucy; urgency=low
+
+  * New upstream bugfix release.
+
+ -- Howard Chan <smartboyhw@gmail.com>  Fri, 06 Sep 2013 22:10:16 +0100
+
+kde-runtime (4:4.11.0-0ubuntu2) saucy; urgency=low
+
+  * Recommend udisks2 instead of udisks now that kdelibs builds the udisks2
+    backend 
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Fri, 16 Aug 2013 02:33:50 +0200
+
+kde-runtime (4:4.11.0-0ubuntu1) saucy; urgency=low
+
+  [ Howard Chan ]
+  * New upstream release
+
+  [ Jonathan Riddell ]
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 14 Aug 2013 00:05:23 +0100
+
+kde-runtime (4:4.10.97-0ubuntu1) saucy; urgency=low
+
+  * New upstream RC 2 release
+  * New upstream RC 2 release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 26 Jul 2013 19:13:17 +0100
+
+kde-runtime (4:4.10.95-0ubuntu1) saucy; urgency=low
+
+  * New upstream RC release 
+    - Drop kubuntu_phonon_forget_option.diff as that's now fixed upstream
+    - Drop kubuntu_silence_kwallet_per_app.patch, applied upstream
+    - Add documentation files to kde-runtime-data
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Tue, 16 Jul 2013 19:14:15 +0200
+
+kde-runtime (4:4.10.90-0ubuntu2) saucy; urgency=low
+
+  * Update kubuntu_langpack_install.diff now by default select the
+    system language if installed and no other language is explicitly selected.
+
+ -- Harald Sitter <apachelogger@kubuntu.org>  Wed, 17 Jul 2013 16:13:40 +0200
+
+kde-runtime (4:4.10.90-0ubuntu1) saucy; urgency=low
+
+  * New upstream bet release
+
+ -- Michał Zając <quintasan@kubuntu.org>  Fri, 28 Jun 2013 18:04:21 +0100
+
+kde-runtime (4:4.10.80-0ubuntu1) saucy; urgency=low
+
+  [ Rohan Garg ]
+  * New upstream release
+    - Adjust install files
+    - Re work kubuntu_oxygenify_knetattach_icon.diff,
+      kubuntu_oxygenify_knetattach_icon.diff so that they apply
+    - Drop kubuntu_hide_nepomukcontroller.diff
+    - Breaks/Replaces plasma-active ( << 3.0-0ubuntu2) since
+      libdirmodelplugin.so was moved to kde-runtime
+
+  [ Philip Muškovac ]
+  * Bump Breaks/Replaces for the 4.10.3 debian merge to << 4:4.10.80 to catch
+    upgrades.
+
+  [ Jonathan Riddell ]
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 21 Jun 2013 00:55:53 +0100
+
 kde-runtime (4:4.10.5-1) unstable; urgency=low
 
   * New upstream release.
@@ -137,6 +563,83 @@ kde-runtime (4:4.10.4-1) experimental; urgency=low
   * Update vcs fields.
 
  -- Maximiliano Curia <maxy@debian.org>  Fri, 14 Jun 2013 12:21:26 +0200
+
+kde-runtime (4:4.10.4-0ubuntu1) saucy-proposed; urgency=low
+
+  [ Jonathan Riddell ]
+  * drop icoutils from suggests, it's recommended
+
+  [ Rohan Garg ]
+  * New upstream bugfix release
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Thu, 06 Jun 2013 23:41:24 +0100
+
+kde-runtime (4:4.10.3-0ubuntu3) saucy; urgency=low
+
+  * Remove conflicting libplasmacomponentsplugin.so from
+    kde-runtime-data.install, it's shipped in kde-runtime, and add
+    breaks/replaces
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Sat, 25 May 2013 14:51:51 +0200
+
+kde-runtime (4:4.10.3-0ubuntu2) saucy; urgency=low
+
+  * khelpcenter4 breaks/replaces kde-runtime-data << 4:4.10.3-0ubuntu2~ 
+  * Remove plasmapkg manpage from kde-runtime.manpages, it's shipped in
+    kde-runtime-data and add breaks/replaces
+    (LP: #1184127)
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Sat, 25 May 2013 14:27:08 +0200
+
+kde-runtime (4:4.10.3-0ubuntu1) saucy; urgency=low
+
+  * New upstream release
+  * Merge from Debian, remaining changes:
+   - Add patches
+    - kubuntu_hide_nepomukcontroller.diff
+    - kubuntu_kde-runtime-4.9.98-kde#310486.patch
+    - kubuntu_langpack_install.diff
+    - kubuntu_nodisplay_knetattach.diff
+    - kubuntu_oxygenify_knetattach_icon.diff
+    - kubuntu_phonon_forget_option.diff
+    - kubuntu_shutup_shutup_shutup.diff
+    - add kde-runtime.[postinst,prerm] for update-alternatives kdesu
+    - debian/control:
+     + Add build-dep on libqapt-dev
+     + kde-runtime depends on language-selector-common, libqapt2-runtime
+     + add udisks, upower, kubuntu-debug-installer, icoutils,
+       libcanberra-pulse | libcanberra-gstreamer to kde-runtime recommends
+     + helpcenter4 no recommend on htdig
+     + keep Break/Replaces
+    - debian/patches:
+      + remove kde4_information_menu.diff
+      + add:
+        - kubuntu_nodisplay_knetattach.diff
+        - kubuntu_oxygenify_knetattach_icon.diff
+        - kubuntu_phonon_forget_option.diff
+        - kubuntu_strigi_ram_detection.diff
+    - debian/kde-runtime-data.install:
+      + change etc/xdg/menus/kde4-information.menu to
+        etc/xdg/menus/kde-information.menu
+      + change usr/share/desktop-directories/kde4-information.directory to
+        usr/share/desktop-directories/kde-information.directory
+      + Don't install
+        usr/share/kde4/apps/kio_desktop/DesktopLinks/Home.desktop
+      + Don't install usr/share/kde4/apps/kio_desktop/directory.trash
+      + install plasma active QML components and remove from not-installed
+    - debian/kde-runtime.install
+      + install usr/lib/kde4/libexec/kdesu to
+        /usr/lib/kde4/libexec/kdesu-distrib/
+      + install 30-nepomuk-inotify-limit.conf to /etc/sysctl.d
+    - add 30-nepomuk-inotify-limit.conf
+    - update not-installed for Kubuntu
+  * Add upstream patches to restore old Kubuntu kwallet behaviour
+    kubuntu_silence_kwallet_on_first_start.patch (Add a config
+    option to silently create the initial wallet) and
+    kubuntu_silence_kwallet_per_app.patch from upstream (Make the
+    prompt-on-open config option apply to all accesses)
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 23 May 2013 11:04:35 +0000
 
 kde-runtime (4:4.10.2-2) experimental; urgency=low
 
@@ -177,6 +680,285 @@ kde-runtime (4:4.10.2-1) experimental; urgency=low
   * Update not-installed file.
 
  -- Sune Vuorela <sune@debian.org>  Tue, 02 Apr 2013 22:39:25 +0000
+
+kde-runtime (4:4.10.2-0ubuntu3) raring; urgency=low
+
+  * Make kubuntu_langpack_install.diff also set LANG and LANGUAGE.
+    This is done via a kde environment script (sourced by startkde).
+    kdesudo invoked applications as well as polkit actions and non-KDE
+    applications require properly set LANG/LANGUAGE, otherwise they'll use
+    the system default which is not intended. On that note, setting the
+    language system-wide remains unsupported.
+
+ -- Harald Sitter <apachelogger@kubuntu.org>  Wed, 17 Apr 2013 12:42:43 +0200
+
+kde-runtime (4:4.10.2-0ubuntu2) raring; urgency=low
+
+  * Add kubuntu_hide_nepomukcontroller.diff to hide nepomuk controller from
+    the menu. We have the controller on autostart so this is redundant.
+    For upstream 4.11 it is being entirely replaced by a plasma widget.
+
+ -- Harald Sitter <apachelogger@kubuntu.org>  Fri, 12 Apr 2013 00:22:01 +0200
+
+kde-runtime (4:4.10.2-0ubuntu1) raring; urgency=low
+
+  [ Harald Sitter ]
+  * In kubuntu_langpack_install.diff:
+    Mark kcmlocale busyoverlay form title as not for translation.
+
+  [ Philip Muškovac ]
+  * New upstream bugfix release
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Sun, 31 Mar 2013 14:40:34 +0200
+
+kde-runtime (4:4.10.1-0ubuntu1) raring-proposed; urgency=low
+
+  * New upstream bugfix release
+  * Set priority of kdebase-runtime to extra
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Tue, 05 Mar 2013 15:24:34 +0000
+
+kde-runtime (4:4.10.0-0ubuntu1) raring-proposed; urgency=low
+
+  * New upstream release
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Wed, 06 Feb 2013 11:35:44 +0000
+
+kde-runtime (4:4.9.98-0ubuntu2) raring; urgency=low
+
+  * Import kde-runtime-4.9.98-kde#310486.patch from fedora as
+    kubuntu_kde-runtime-4.9.98-kde#310486.patch which reverts parts from 
+    upstream commit deee161a42efda74965ca4aab7d79fb7fb375352 to work around
+    kde bug #310486.
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Mon, 28 Jan 2013 14:15:34 +0100
+
+kde-runtime (4:4.9.98-0ubuntu1) raring-proposed; urgency=low
+
+  * Remove kde-runtime alternate recommend on libcanberra-gstreamer,
+    libcanberra-gstreamer uses gstreamer1.0 which much of kde still uses
+    gstreamer0.10
+  * New upstream release candidate
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 18 Jan 2013 15:03:56 +0000
+
+kde-runtime (4:4.9.97-0ubuntu1) raring; urgency=low
+
+  * New upstream release candidate
+    - drop kubuntu_fix_default_wallpaper.diff, applied upstream
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Thu, 03 Jan 2013 21:17:09 +0100
+
+kde-runtime (4:4.9.95-0ubuntu3) raring; urgency=low
+
+  * Add kubuntu_fix_default_wallpaper.diff to fix screenlocker and
+    lightdm background
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Mon, 24 Dec 2012 17:02:46 +0530
+
+kde-runtime (4:4.9.95-0ubuntu2) raring; urgency=low
+
+  * kde-runtime breaks replaces kde-workspace-bin << 4:4.9.95 
+    (overwrites plasmapkg)
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Sun, 23 Dec 2012 15:07:01 +0100
+
+kde-runtime (4:4.9.95-0ubuntu1) raring; urgency=low
+
+  * New upstream RC release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 18 Dec 2012 23:20:56 +0000
+
+kde-runtime (4:4.9.90-0ubuntu1) raring-proposed; urgency=low
+
+  * New upstream beta release
+  * Update .install files
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 07 Dec 2012 17:43:09 +0000
+
+kde-runtime (4:4.9.80-0ubuntu1) raring; urgency=low
+
+  [ Harald Sitter ]
+  * Fix kubuntu_langpack_install.diff
+    - Ensure xapian index is opened and created before searching (LP: #1074371)
+      Also display a busy indicator overlay while working on the cache.
+    - Map kde-l10n-* codes to kde's to language-pack-kde-* to make sure
+      kdelibs can present a localized proper string for all languages and
+      our install logic also installs packages where the ubuntu code is
+      different (e.g. zhcn in kde-l10n is zh-hans in langpack)
+    - Don't list installable languages which are already installed/selected
+    - Disable the language selection UI while installing packages.
+    - Use QLatin1String and QCharwhere appropriate
+    - List languages based on kde-l10n-* rather than language-pack-kde-* as
+      the logic with former is simpler and we know that the language has a
+      reasonable quality from a KDE POV, while language-packs may be lingering
+      around from when we used launchpad etc.
+    - Add some kDebug to enable easier debugging when something goes wrong
+    - Only issue qapt transactions (install) when we have something to install,
+      otherwise leave qapt out of it entirely
+    - Track qapt transaction errors and finishes as well as which language belongs
+      to which transaction
+      + Languages with a failed transaction are auto-deselected (e.g. the user
+        did not authorize the transaction)
+      + Only once all transactions are finished the selection UI is enabled again
+      + Remaining packages marked for installation will be discareded once
+        all transactions finished (if there are some left for whatever reason)
+    - Prevent random crashes by only issuing language changes etc. once QAPT
+      is done with all transactions
+
+  [ Jonathan Riddell ]
+  * New upstream beta release
+  * Update .install files
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 19 Nov 2012 15:47:26 +0000
+
+kde-runtime (4:4.9.3-0ubuntu1) raring; urgency=low
+
+  [ Jonathan Thomas ]
+  * Technically, consumers of libqapt need to declare a dependency on
+    libqapt2-runtime if they use functionality that requires the QApt Worker.
+    The kubuntu langpack patch makes use of the runtime components of LibQApt
+    and needs such a dependency.
+
+  [ Philip Muškovac ]
+  * New upstream release (LP: #1074747)
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Tue, 06 Nov 2012 22:25:35 +0100
+
+kde-runtime (4:4.9.2-0ubuntu3) raring-proposed; urgency=low
+
+  * My kubuntu_langpack_install.diff changes from the last upload didn't
+    seem to make it into bzr/the upload... Here they are, for real this time.
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Tue, 30 Oct 2012 15:18:52 -0400
+
+kde-runtime (4:4.9.2-0ubuntu2) raring-proposed; urgency=low
+
+  * Add kubuntu_shutup_shutup_shutup.diff to stop Attica-KDE from being so
+    damn noisy, debug-wise.
+  * Update kubuntu_langpack_install.diff:           
+    - Port to QApt2. (New transaction API for installs)
+    - Use the KDE proxy for downloading langpacks
+    - Optimize QString usage, by using const QString functions to avoid
+      deep copies.
+    - Clean up pkg_depends parsing code a bit to make it readable. (Less
+      nested brackets)
+  * Make libqapt-dev build-depend (>= 1.9.60) for the above.
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Tue, 30 Oct 2012 14:24:01 -0400
+
+kde-runtime (4:4.9.2-0ubuntu1) quantal-proposed; urgency=low
+
+  * New upstream bugfix release
+  * Use 4.9.* on library versions
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 02 Oct 2012 15:13:55 +0100
+
+kde-runtime (4:4.9.1-0ubuntu2) quantal; urgency=low
+
+  * Rebuild against libattica0.4
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 13 Sep 2012 12:57:44 +0100
+
+kde-runtime (4:4.9.1-0ubuntu1) quantal; urgency=low
+
+  * New upstream release
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Mon, 10 Sep 2012 18:27:22 +0530
+
+kde-runtime (4:4.9.0-0ubuntu3) quantal; urgency=low
+
+  * Update kubuntu_langpack_install.diff to use pkg_depends data from
+    language-selector to select complete list of needed languages
+  * kde-runtime depends on language-selector-common
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 17 Aug 2012 17:17:23 +0100
+
+kde-runtime (4:4.9.0-0ubuntu2) quantal; urgency=low
+
+  * Build-dep on kdelibs 4.9.0a, adjust .install files to new library
+    version no
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 02 Aug 2012 11:57:51 +0100
+
+kde-runtime (4:4.9.0-0ubuntu1) quantal; urgency=low
+
+  * Use direct build-depends versions rather than kde-sc-dev-latest
+  * Build-dep on nepomuk-core-dev (>= 4.9.0a)
+  * Remove kubuntu_kactivities_cmake.diff now upstream
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 31 Jul 2012 10:30:17 +0100
+
+kde-runtime (4:4.8.90-0ubuntu2) quantal; urgency=low
+
+  * Add kubuntu_langpack_install.diff to install language packs from kcontrol
+  * Build-dep on libqapt-dev
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 20 Jun 2012 14:15:49 +0100
+
+kde-runtime (4:4.8.90-0ubuntu1) quantal; urgency=low
+
+  [ Felix Geyer ]
+  * New upstream beta release.
+
+  [ Jonathan Riddell ]
+  * Add kubuntu_kactivities_cmake.diff from upstream, fix detection of kactivities
+
+ -- Felix Geyer <debfx@ubuntu.com>  Mon, 11 Jun 2012 22:08:34 +0200
+
+kde-runtime (4:4.8.80-0ubuntu1) quantal; urgency=low
+
+  * Merge with debian git, remaining changes: 
+    - add kde-runtime.[postinst,prerm] for update-alternatives kdesu
+    - debian/control:
+      + Remove libqzeitgeist-dev build-dep, not in main
+      + add udisks, upower, kubuntu-debug-installer, icoutils,
+        libcanberra-pulse | libcanberra-gstreamer to kde-runtime recommends
+      + keep Break/Replaces
+      + add packages:
+        - kde-runtime-dev
+        - libnepomukdatamanagement4
+        - libnepomuksync4
+      + helpcenter4 no recommend on htdig
+    - debian/patches:
+      + remove kde4_information_menu.diff
+      + add:
+        - kubuntu_nodisplay_knetattach.diff
+        - kubuntu_oxygenify_knetattach_icon.diff
+        - kubuntu_phonon_forget_option.diff
+        - kubuntu_strigi_ram_detection.diff
+    - debian/kde-runtime-data.install:
+      + change etc/xdg/menus/kde4-information.menu to
+        etc/xdg/menus/kde-information.menu
+      + change usr/share/desktop-directories/kde4-information.directory to
+        usr/share/desktop-directories/kde-information.directory
+      + Don't install
+        usr/share/kde4/apps/kio_desktop/DesktopLinks/Home.desktop
+      + Don't install usr/share/kde4/apps/kio_desktop/directory.trash
+      + add D-Bus Interface XMLs for Playground Nepomuk
+      + install plasma active QML components
+    - debian/kde-runtime.install
+      + install usr/lib/kde4/libexec/kdesu to
+        /usr/lib/kde4/libexec/kdesu-distrib/
+      + install 30-nepomuk-inotify-limit.conf to /etc/sysctl.d
+    - drop libnepomukdatamanagement.so override from
+      kde-runtime.lintian-overrides
+    - add 30-nepomuk-inotify-limit.conf
+
+  * New upstream beta release
+    - drop libnepomuksync4 package, moved to nepomuk-core
+    - drop obsolete libnepomukdatamanagement4 package
+    - drop now empty kde-runtime-dev package, all files moved to
+      nepomuk-core-dev
+    - remove nepomuk files that were moved to nepomuk-core
+    - make kde-runtime depend on nepomuk-core
+    - drop now obsolete kubuntu_strigi_ram_detection.diff, moved to
+      nepomuk-core
+    - add nepomuk-core-dev, libkactivities-dev and kdepimlibs5-dev to
+      build-depends
+    - update kde-runtime.install and kde-runtime-data.install
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Sun, 03 Jun 2012 21:50:00 +0200
 
 kde-runtime (4:4.8.4-2) unstable; urgency=low
 
@@ -225,6 +1007,85 @@ kde-runtime (4:4.8.3-1) experimental; urgency=low
 
  -- Modestas Vainius <modax@debian.org>  Sat, 26 May 2012 19:53:12 +0300
 
+kde-runtime (4:4.8.3-0ubuntu1) quantal; urgency=low
+
+  * New upstream release
+    - New upstream symbols for libnepomukdatamanagement4
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Wed, 02 May 2012 17:33:19 +0530
+
+kde-runtime (4:4.8.3-0r1) raring; urgency=low
+
+  * New upstream release.
+
+  [ Eshat Cakar ]
+  * Add libqca2-dev to build dependecies.
+  * Update not-installed files.
+  * Update installed files.
+  * Bump kdelibs5-dev build dependency to version 4:4.8.
+  * Bump kde-sc-dev-latest build dependency to version 4:4.8.3.
+  * Bump Standards-Version to 3.9.3, no changes needed.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Thu, 08 Mar 2012 20:54:47 +0100
+
+kde-runtime (4:4.8.2-0ubuntu1) precise; urgency=low
+
+  * New upstream release
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Fri, 30 Mar 2012 21:36:32 +0200
+
+kde-runtime (4:4.8.1-0ubuntu1) precise; urgency=low
+
+  [ Philip Muskovac ]
+  * New upstream release
+  * Add a kde-runtime-dev package with the nepomuk headers 
+    (LP: #928009, #947498)
+  * Add separate packages for libnepomukdatamanagement4 and libnepomuksync4
+    and add symbol files
+  * libnepomuksync4 breaks/replaces kde-runtime << 4:4.8.1~
+  * kde-runtime-dev breaks/replaces kde-runtime << 4:4.8.1~
+  * Refresh kde-runtime-data.install
+
+  [ Felix Geyer ]
+  * Drop broken /usr/bin/trash4 symlink.
+  * Switch kde-runtime-dev to arch:any and make it depend on libnepomuksync4 and
+    libnepomukdatamanagement4 instead of kde-runtime.
+  * Move /usr/bin/nepomuk-simpleresource-rcgen from kde-runtime to
+    kde-runtime-dev and add appropriate dependencies to kde-runtime-dev.
+  * kde-runtime: drop unused lintian override shlib-without-versioned-soname
+    libnepomukdatamanagement.so.
+
+ -- Felix Geyer <debfx@ubuntu.com>  Wed, 07 Mar 2012 17:38:39 +0100
+
+kde-runtime (4:4.8.0-0ubuntu1) precise; urgency=low
+
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 19 Jan 2012 12:01:21 +0000
+
+kde-runtime (4:4.7.97-0ubuntu1) precise; urgency=low
+
+  * New upstream RC release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 04 Jan 2012 13:14:56 +0000
+
+kde-runtime (4:4.7.95-0ubuntu1) precise; urgency=low
+
+  * New upstream release candidate
+    - disable kubuntu_knetattach_use_sftp.diff, doesn't apply
+    - adapt kubuntu_strigi_ram_detection.diff for upstream changes
+    - update kde-runtime.install, kde-runtime-data.install and not-installed
+  * drop icoutils from suggests, it's recommended
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Sat, 24 Dec 2011 00:16:36 +0100
+
+kde-runtime (4:4.7.90-0ubuntu1) precise; urgency=low
+
+  * New upstream beta release
+  * Add build-dep on libqca
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 13 Dec 2011 11:53:26 +0000
+
 kde-runtime (4:4.7.4-2) unstable; urgency=low
 
   * Team upload. Upload to unstable.
@@ -251,6 +1112,45 @@ kde-runtime (4:4.7.4-1) experimental; urgency=low
     "oldlibs."
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 18 Dec 2011 01:40:20 +0100
+
+kde-runtime (4:4.7.3-0ubuntu3) raring; urgency=low
+
+  * Remove unused patch kubuntu_discard_actions_when_using_ayatana.diff
+    equivalent functionality has been upstream for a while now
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 24 Nov 2011 14:30:54 +0000
+
+kde-runtime (4:4.7.3-0ubuntu2) precise; urgency=low
+
+  * New upstream release
+  * Merge from Debian Unstable, remaining changes:
+    - add 30-nepomuk-inotify-limit.conf
+    - add kdebase-runtime.[postinst,prerm] for update-alternatives kdesu
+    - debian/control:
+      - helpcenter4 no recommend on htdig
+    - debian/patches:
+      - Don't add:
+        - kde4_information_menu.diff
+    - debian/kde-runtime-data.install:
+      - change etc/xdg/menus/kde4-information.menu to
+        etc/xdg/menus/kde-information.menu
+      - change usr/share/desktop-directories/kde4-information.directory to
+        usr/share/desktop-directories/kde-information.directory
+      - Don't install
+        usr/share/kde4/apps/kio_desktop/DesktopLinks/Home.desktop
+      - Don't install usr/share/kde4/apps/kio_desktop/directory.trash
+    - debian/kde-runtime.install
+      - install usr/lib/kde4/libexec/kdesu to
+        /usr/lib/kde4/libexec/kdesu-distrib/
+      - install 30-nepomuk-inotify-limit.conf to /etc/sysctl.d
+    - kde-config-phonon-xine commented out in debian/control
+    - kde-runtime-data.install: add D-Bus Interface XMLs for Playground
+      Nepomuk
+    - Remove xine rules in debian/rules
+    - Remove xine build-dep in debian/control
+    - Remove libqzeitgeist-dev build-dep, not yet in main
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 23 Nov 2011 19:30:25 +0000
 
 kde-runtime (4:4.7.2-1) experimental; urgency=low
 
@@ -287,6 +1187,39 @@ kde-runtime (4:4.7.2-1) experimental; urgency=low
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 03 Dec 2011 10:46:18 -0300
 
+kde-runtime (4:4.7.2-0r3) raring; urgency=low
+
+  * New upstream release.
+
+  [ Lisandro Damián Nicanor Pérez Meyer ]
+  * Remove patch dont_show_netattach_outside_kde.diff, it has been merged
+    upstream.
+  * Bump build dependencies:
+    - shared-desktop-ontologies to >= 0.7.
+    - kdelibs5-dev to >= 4:4.7.
+
+  [ Daniele E. Domenichelli ]
+  * Bump build dependency on kde-sc-dev-latest to 4:4.7.2.
+  * Update dependencies:
+    - Add libqtwebkit-dev.
+    - Add libqzeitgeist-dev.
+    - Bump libsoprano-dev to 2.6.50.
+  * Update installed files.
+
+  [ José Manuel Santamaría Lema ]
+  * Rename source package from kdebase-runtime to kde-runtime in order
+    to match upstream naming.
+  * Rename the following binary packages:
+    - kdebase-runtime -> kde-runtime
+    - kdebase-runtime-data -> kde-runtime-data
+  * Add the following dummy packages (which depend on kde-runtime-*):
+    - kdebase-runtime
+    - kdebase-runtime-dbg
+  * Update Vcs-* fields.
+  * Update lintian overrides.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 22 Aug 2011 19:53:35 -0300
+
 kdebase-runtime (4:4.6.5-1) unstable; urgency=low
 
   * New upstream release.
@@ -313,6 +1246,190 @@ kdebase-runtime (4:4.6.4-1) unstable; urgency=low
   * Bump build dependency on kde-sc-dev-latest to 4:4.6.4.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Thu, 23 Jun 2011 13:05:46 +0300
+
+kde-runtime (4:4.7.3-0ubuntu1) precise; urgency=low
+
+  [ Jonathan Kolberg ]
+  * New upstream release
+
+  [ Felix Geyer ]
+  * Disable the kde-config-phonon-xine package as we don't support the phonon
+    xine backend anymore
+    - Drop libxine-dev from build-deps
+    - Disable the xine dh addon in debian/rules
+  * Build-depend on libjpeg-dev instead of libjpeg62-dev.
+
+ -- Jonathan Kolberg <bulldog98@kubuntu-de.org>  Thu, 10 Nov 2011 15:27:26 +0100
+
+kde-runtime (4:4.7.2-0ubuntu1) oneiric-proposed; urgency=low
+
+  * New upstream release (LP: #872506)
+  * Drop patches that are applied upstream:
+    - 0001-Connect-to-the-right-object-jobView-instead-of-this.patch
+    - 0002-Fix-jobs-some-times-showing-empty.patch
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Thu, 13 Oct 2011 12:19:44 +0200
+
+kde-runtime (4:4.7.1-0ubuntu5) oneiric; urgency=low
+
+  * Drop all kde-active packages and patches as double-building with different
+    patchsets doesn't seem to work on the archive builders.
+
+ -- Felix Geyer <debfx-pkg@fobos.de>  Fri, 16 Sep 2011 14:57:48 +0200
+
+kde-runtime (4:4.7.1-0ubuntu4) oneiric; urgency=low
+
+  * Make a full copy of the source and apply active patches to that, build
+    active patches in that tree, then copy the results to the main build so
+    patching the source multiple times can not collide
+
+ -- Scott Kitterman <scott@kitterman.com>  Sat, 10 Sep 2011 13:33:33 -0400
+
+kde-runtime (4:4.7.1-0ubuntu3) oneiric; urgency=low
+
+  * Build without --parallel since patch/unpatch sequences are stepping on
+    each other
+
+ -- Scott Kitterman <scott@kitterman.com>  Fri, 09 Sep 2011 20:19:28 -0400
+
+kde-runtime (4:4.7.1-0ubuntu2) oneiric; urgency=low
+
+  * Unpatch and repatch the extra active patches in each rule we need them in
+    so patches stay in sync
+  * Add post-4.7.1 cherrypicks from upstream (added for both series and
+    series-active):
+    - debian/patches/0001-Connect-to-the-right-object-jobView-instead-of-this.patch
+    - debian/patches/0002-Fix-jobs-some-times-showing-empty.patch
+
+ -- Scott Kitterman <scott@kitterman.com>  Fri, 09 Sep 2011 15:32:34 -0400
+
+kde-runtime (4:4.7.1-0ubuntu1) oneiric; urgency=low
+
+  [ Rodrigo Belem ]
+  * Add the patches kubuntu-mobile-10-fix-the-signal-signature.patch and
+    kubuntu-mobile-09-Add-title-to-activity-resources.patch needed by the
+    latest plasma-active snapshot.
+
+  [ Rohan Garg ]
+  * New upstream release
+
+  [ Felix Geyer ]
+  * Fix kde-runtime and kde-runtime-data install files to not install
+    plasma-active stuff.
+
+  [ Michał Zając ]
+  * Fixed issue with wrong patches being applied when calling dh_auto_install
+    and debug info stripping issues
+
+  [ Jonathan Kolberg ]
+  * Update that should fix the installabilty of kde-runtime-active
+
+ -- Felix Geyer <debfx-pkg@fobos.de>  Thu, 08 Sep 2011 21:27:15 +0200
+
+kde-runtime (4:4.7.0a-0ubuntu2) oneiric; urgency=low
+
+  * Added plasma-active patches
+  * Added activitymanager files to install files
+  * Added a patch series for the plasma-active patches
+  * Added the packages kde-runtime-active, kde-runtime-data-active,
+   and plasma-scriptengine-javascript-active that will hold the binaries for
+   built with the plasma-active patches.
+  * Build the source twice to generate the packages with the plasma-active
+    patches.
+
+ -- Rodrigo Belem <rbelem@ubuntu.com>  Wed, 24 Aug 2011 20:52:26 -0400
+
+kde-runtime (4:4.7.0a-0ubuntu1) oneiric; urgency=low
+
+  [ Romain Perier ]
+  * Remove dont_show_netattach_outside_kde.diff, applied on upstream
+  * Refresh kubuntu_nodisplay_knetattach.diff
+
+  [ Philip Muškovac ]
+  * New upstream release
+  * Bump various breaks/replaces to catch the package version from the
+    kubuntu-ppa.
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Tue, 26 Jul 2011 22:28:56 +0200
+
+kde-runtime (4:4.6.90-0ubuntu1) oneiric; urgency=low
+
+  [ Felix Geyer ]
+  * Drop sound-theme-freedesktop dependency as it has been added to
+    libcanberra0.
+  * Make kdebase-runtime-dbg a transitional package for kde-runtime-dbg
+
+  [ Harald Sitter ]
+  * New upstream release
+  * Refresh:
+    - kubuntu_oxygenify_knetattach_icon.diff
+    - kubuntu_phonon_forget_option.diff
+  * Build depend on libqtwebkit-dev
+
+  [ Philip Muškovac ]
+  * Make kdebase-runtime a transitional package for kde-runtime
+  * Fix Vcs links for new location
+  * kde-runtime-data breaks/replaces nepomukcontroller
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Sat, 09 Jul 2011 10:23:48 +0200
+
+kdebase-runtime (4:4.6.3-1ubuntu3) oneiric; urgency=low
+
+  * Make kdebase-runtime recommend on libcanberra-pulse | libcanberra-gstreamer
+    - Much like Phonon, Canberra has backends, so kdebase-runtime needs to
+      recommend those. Only recommend because they are only necessary
+      for speaker setup testing at this time.
+  * Make kdebase-runtime depend on sound-theme-freedesktop
+    - The sound theme spec that is implemented by canberra demands this to
+      be around as general fallback (much like hicolor for icons).
+      Pending a fix for LP: #790608, we depend on it here meanwhile.
+  * LP: #790627
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Tue, 31 May 2011 13:14:17 +0200
+
+kdebase-runtime (4:4.6.3-1ubuntu2) oneiric; urgency=low
+
+  * Mark kdebase-runtime as replacing/breaking pre-merge versions of
+    plasma-scriptengine-javascript
+  * Mark kdebase-runtime-data as replacing/breaking pre-merge versions of
+    kdebase-runtime
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Mon, 30 May 2011 11:56:04 -0400
+
+kdebase-runtime (4:4.6.3-1ubuntu1) oneiric; urgency=low
+
+  [ Jonathan Thomas ]
+  * Merge from Debian Unstable, remaining changes:
+    - add 30-nepomuk-inotify-limit.conf
+    - add kdebase-runtime.[postinst,prerm] for update-alternatives kdesu
+    - debian/control:
+      - helpcenter4 no recommend on htdig
+    - debian/patches:
+      - Don't add:
+        - kde4_information_menu.diff
+    - debian/kdebase-runtime-data.install:
+      - change etc/xdg/menus/kde4-information.menu to
+        etc/xdg/menus/kde-information.menu
+      - change usr/share/desktop-directories/kde4-information.directory to
+        usr/share/desktop-directories/kde-information.directory
+      - Don't install
+        usr/share/kde4/apps/kio_desktop/DesktopLinks/Home.desktop
+      - Don't install usr/share/kde4/apps/kio_desktop/directory.trash
+    - debian/kdebase-runtime.install
+      - install usr/lib/kde4/libexec/kdesu to
+        /usr/lib/kde4/libexec/kdesu-distrib/
+      - install 30-nepomuk-inotify-limit.conf to /etc/sysctl.d
+    - kde-config-phonon-xine replaces/conflicts kcm-phonon-xine
+    - kdebase-runtime-data.install: add D-Bus Interface XMLs for Playground
+      Nepomuk
+
+  [ Philip Muškovac ]
+  * Update Vcs links as the branch is owned by kubuntu-packagers now
+
+  [ Felix Geyer ]
+  * Remove sequence number from kubuntu patches.
+
+ -- Felix Geyer <debfx-pkg@fobos.de>  Mon, 30 May 2011 11:41:36 +0200
 
 kdebase-runtime (4:4.6.3-1) unstable; urgency=low
 
@@ -409,6 +1526,315 @@ kdebase-runtime (4:4.6.2-1) experimental; urgency=low
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Wed, 27 Apr 2011 12:23:39 +0300
 
+kdebase-runtime (4:4.6.2-0ubuntu1) natty; urgency=low
+
+  * New upstream release
+    - Update kde-sc-dev-latest version
+
+ -- Christian Mangold <neversfelde@ubuntu.com>  Sat, 02 Apr 2011 19:14:35 +0000
+
+kdebase-runtime (4:4.6.1-0ubuntu1) natty; urgency=low
+
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 28 Feb 2011 16:16:40 +0000
+
+kdebase-runtime (4:4.6.0-0ubuntu2) raring; urgency=low
+
+  * Update kde-sc-dev-latest version
+  * Remove kubuntu_85_language_selector.diff now language selector is a
+    separate kcontrol module
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 23 Feb 2011 12:17:33 +0000
+
+kdebase-runtime (4:4.6.0-0ubuntu1) natty; urgency=low
+
+  [ Jonathan Riddell ]
+  * New upstream release
+
+  [ Felix Geyer ]
+  * Prefer phonon-backend-gstreamer over phonon-backend-xine.
+    - Make kdebase-runtime depend on phonon-backend-gstreamer | phonon-backend.
+  * Refresh and re-enable kubuntu_85_language_selector.diff. (LP: #683435)
+
+ -- Felix Geyer <debfx-pkg@fobos.de>  Mon, 24 Jan 2011 12:45:27 +0100
+
+kdebase-runtime (4:4.5.95-0ubuntu1) natty; urgency=low
+
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 05 Jan 2011 13:50:11 +0000
+
+kdebase-runtime (4:4.5.90-0ubuntu1) natty; urgency=low
+
+  * New upstream RC release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 22 Dec 2010 15:23:10 +0000
+
+kdebase-runtime (4:4.5.85-0ubuntu1) natty; urgency=low
+
+  * New upstream beta release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 07 Dec 2010 11:41:36 +0000
+
+kdebase-runtime (4:4.5.80-0ubuntu4) natty; urgency=low
+
+  * Recommend udisks and upower instead of hal now that they are supported
+    upstream
+
+ -- Scott Kitterman <scott@kitterman.com>  Tue, 30 Nov 2010 21:41:43 -0500
+
+kdebase-runtime (4:4.5.80-0ubuntu3) natty; urgency=low
+
+  * kdebase-runtime-dbg replaces kdebase-workspace-dbg (<< 4:4.5.80)
+    (Networkstatus moved from workspace to runtime) (LP: #683132)
+
+ -- Philip Muskovac <yofel@gmx.net>  Wed, 01 Dec 2010 00:14:18 +0100
+
+kdebase-runtime (4:4.5.80-0ubuntu2) natty; urgency=low
+
+  * Add kdebase-runtime replaces plasma-netbook (<< 4:4.5.80) (Newspaper
+    containment moved from workspace to runtime) (LP: #683002)
+  * Drop temporary change to reduce required phonon version now that we have
+    Phonon 4.4.3
+
+ -- Scott Kitterman <scott@kitterman.com>  Tue, 30 Nov 2010 08:55:14 -0500
+
+kdebase-runtime (4:4.5.80-0ubuntu1) natty; urgency=low
+
+  * New upstream release
+  * Disable kubuntu_85_language_selector.diff FIXME needs sorted
+  * Add build-deps on libpulse, libcanberra and libntrack-qt4
+  * Don't install .h files for unversioned libraries
+  * kdebase-runtime replaces old kdebase-workspace-bin due to moved files
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 24 Nov 2010 11:07:10 +0000
+
+kdebase-runtime (4:4.5.3-0ubuntu1) natty; urgency=low
+
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 04 Nov 2010 14:45:54 +0000
+
+kdebase-runtime (4:4.5.2-0ubuntu2) natty; urgency=low
+
+  * Upload without broken autogenerated patch
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 22 Oct 2010 16:58:02 +0100
+
+kdebase-runtime (4:4.5.2-0ubuntu1) natty; urgency=low
+
+  [ Alessandro Ghersi ]
+  * Merge with Debian git remaining changes:
+    - add 30-nepomuk-inotify-limit.conf
+    - add kdebase-runtime.[postinst,prerm] for update-alternatives kdesu
+    - debian/control:
+      - helpcenter4 no recommend on htdig
+    - debian/patches:
+      - Don't add:
+        - 01_kde4_information_menu.diff
+        - 02_ksvgtopng4.diff
+    - debian/kdebase-runtime-data.install:
+      - change etc/xdg/menus/kde4-information.menu to
+        etc/xdg/menus/kde-information.menu
+      - change usr/share/desktop-directories/kde4-information.directory to
+        usr/share/desktop-directories/kde-information.directory
+      - Don't install
+        usr/share/kde4/apps/kio_desktop/DesktopLinks/Home.desktop
+      - Don't install usr/share/kde4/apps/kio_desktop/directory.trash
+    - debian/kdebase-runtime.install
+      - install usr/lib/kde4/libexec/kdesu to
+        /usr/lib/kde4/libexec/kdesu-distrib/
+    - kde-config-phonon-xine replaces/conflicts kcm-phonon-xine
+    - kdebase-runtime-data.install: add D-Bus Interface XMLs for Playground
+      Nepomuk
+    - Build against kdelibs5-dev 4.5.2-0ubuntu1 for libkutils4 transition
+  * Update KUBUNTU_DEBIAN_DIFFERENCES
+
+  [ Jonathan Riddell ]
+  * New upstream release
+  * Remove kubuntu_92_remove_kmail2_mapping_drkonqi.diff now upstream
+  * Remove
+    kubuntu_93_nepomuk_services_run_with_low_cpu_and_io_scheduling.diff
+    now upstream
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Sat, 16 Oct 2010 05:16:54 +0200
+
+kdebase-runtime (4:4.5.1-0ubuntu3.1) maverick-proposed; urgency=low
+
+  * Add kubuntu_94_rupee.diff to change default currency to new
+    rupee symbol. (LP: #656196)
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Thu, 07 Oct 2010 17:37:42 +0530
+
+kdebase-runtime (4:4.5.1-0ubuntu3) maverick; urgency=low
+
+  * Fix Lucid -> Maverick upgrade (LP: #652055)
+    - kdebase-runtime-dbg replaces kdelibs5-dbg (<< 4:4.5.0)
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Sun, 03 Oct 2010 02:40:59 +0200
+
+kdebase-runtime (4:4.5.1-0ubuntu2) maverick; urgency=low
+
+  [ Alessandro Ghersi ]
+  * Add kubuntu_92_remove_kmail2_mapping_drkonqi.diff
+    we don't ship kmail2 in maverick
+    (http://bugs.kde.org/show_bug.cgi?id=250553)
+  * Add kubuntu_93_nepomuk_services_run_with_low_cpu_and_io_scheduling.diff
+    make all Nepomuk services run with low CPU and IO scheduling priority,
+    from upstream.
+
+  [ Felix Geyer ]
+  * kdebase-runtime replaces kdebase-runtime-data << 4:4.4.80. (LP: #631151)
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Tue, 14 Sep 2010 17:47:46 +0200
+
+kdebase-runtime (4:4.5.1-0ubuntu1) maverick; urgency=low
+
+  * New upstream release.
+  * Drop kubuntu_08_network_ioslave_lockup.diff, applied upstream.
+  * Update install files.
+
+ -- Felix Geyer <debfx-pkg@fobos.de>  Mon, 30 Aug 2010 16:58:47 +0200
+
+kdebase-runtime (4:4.5.1-0r1) raring; urgency=low
+
+  * New upstream release.
+
+  [ Modestas Vainius ]
+  * Point debian/control Vcs fields to the new Git repository.
+
+  [ George Kiagiadakis ]
+  * Change my email address in uploaders.
+  * Refresh patches.
+  * Update installed files.
+  * Add replaces:
+    - kdebase-runtime-data replaces kdelibs5-data << 4:4.5.0
+      due to moved kcmremotewidgets data files.
+    - kdebase-runtime replaces kdelibs5-plugins << 4:4.5.0 and
+      kdelibs5 << 4:4.4.0 due to moved kcmremotewidgetshelper
+      and kdontchangethehostname executables.
+    - kdebase-runtime-dbg replaces kdelibs5-dbg << 4:4.5.0
+      due to the moved executables mentioned above.
+  * Bump build depedencies versions: kdelibs5-dev to version
+    4:4.5 and libsoprano-dev to version 2.4.63.
+  * Remove unused build dependencies:
+    - libclucene-dev
+    - libxcb1-dev
+    - libqt4-opengl-dev
+    - libpulse-dev
+  * Re-wrap khelpcenter4's extended description to fix lintian warning.
+  * Cleanup unused lintian overrides.
+
+  [ José Manuel Santamaría Lema ]
+  * Add replaces:
+    - kdebase-runtime-data replaces plasma-widget-networkmanagement <=
+      0.1~svn1175124-1 because they both install
+      /usr/share/kde4/apps/desktoptheme/default/icons/network.svgz
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 30 Jul 2010 14:51:46 +0300
+
+kdebase-runtime (4:4.5.0b-0ubuntu2) maverick; urgency=low
+
+  * kdebase-runtime-data replaces old kdelibs5-dev
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 10 Aug 2010 14:42:14 +0100
+
+kdebase-runtime (4:4.5.0b-0ubuntu1) maverick; urgency=low
+
+  * New tar from upstream
+  * Add kubuntu_08_network_ioslave_lockup.diff advised by upstream to
+    stop network kioslave locking kded
+    http://websvn.kde.org/?revision=1160391&view=revision
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 04 Aug 2010 23:20:01 +0100
+
+kdebase-runtime (4:4.5.0-0ubuntu3) raring; urgency=low
+
+  * Add debian/30-nepomuk-inotify-limit.conf installed with kdebase-
+    runtime to up the inotify limit
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 04 Aug 2010 19:00:30 +0100
+
+kdebase-runtime (4:4.5.0-0ubuntu2) maverick; urgency=low
+
+  * Fix build by not trying to instal files that are not there.
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Mon, 02 Aug 2010 23:00:20 +0200
+
+kdebase-runtime (4:4.5.0-0ubuntu1) maverick; urgency=low
+
+  [ Jonathan Thomas ]
+  * Add kubuntu_91_phonon_forget_option.diff from openSUSE to allow users with
+    roaming home directories to tell Phonon to always forget about old hw
+
+  [ Jonathan Riddell ]
+  * Update kdebase-runtime-data.install for new search providers
+
+  [ Harald Sitter ]
+  * New upstream release
+    - Refresh kubuntu_89_strigi_ram_detection.diff
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Fri, 30 Jul 2010 12:07:04 +0200
+
+kdebase-runtime (4:4.4.92-0ubuntu2) maverick; urgency=low
+
+  * Add kubuntu_90_search_engines.diff to add baidu and bing to search
+    engines
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 23 Jul 2010 14:11:00 +0100
+
+kdebase-runtime (4:4.4.92-0ubuntu1) maverick; urgency=low
+
+  * New upstream RC release
+    - Bump kde-sc-dev-latest to 4.4.92
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Thu, 08 Jul 2010 04:36:20 +0200
+
+kdebase-runtime (4:4.4.90-0ubuntu1) maverick; urgency=low
+
+  [ Michał Zając ]
+  * New upstream beta release
+    - Bump on build-depends
+    - Commented out kubuntu_88_nepomuksearch_uds-url.diff in
+    debian/patches/series
+
+  [ Jonathan Thomas ]
+  * Make kdebase-runtime provide notification-daemon since it implements
+    the FD.o notification spec
+
+ -- Michał Zając <michal.zajac@gmail.com>  Thu, 24 Jun 2010 22:47:02 +0200
+
+kdebase-runtime (4:4.4.85-0ubuntu1) maverick; urgency=low
+
+  * New upstream beta release
+    - Bump build-depends
+    - kdebase-runtime-data replaces kdelibs5-data << 4:4.4.85
+    - kdebase-runtime replaces kdelibs5-plugin << 4:4.4.85
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Mon, 07 Jun 2010 19:20:38 +0200
+
+kdebase-runtime (4:4.4.80-0ubuntu2) maverick; urgency=low
+
+  * kde-config-phonon-xine conflict/replace kcm-phonon-xine,
+    kcm-phonon-xine is gone in the last merge
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Tue, 01 Jun 2010 02:45:07 +0200
+
+kdebase-runtime (4:4.4.80-0ubuntu1) maverick; urgency=low
+
+  * New upstream beta release:
+    - Bump build-depend versions
+    - Refresh knetattach patches for upstream indentation changes
+    - Drop the virtuosoconverter patch, no longer needed
+    - Adapt kubuntu_89_strigi_ram_detection.diff to new upstream changes
+    - Update various .install files
+  * Switch to source format 3.0:
+    - Bump debhelper build-depend version to 7.3.16
+    - Remove README.source
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Mon, 24 May 2010 14:32:13 -0400
+
 kdebase-runtime (4:4.4.5-1) unstable; urgency=low
 
   * New upstream release.
@@ -443,6 +1869,27 @@ kdebase-runtime (4:4.4.4-1) unstable; urgency=low
     0.1.4 (Closes: #583019). Bump build dependency on libattica-dev to 0.1.4.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 01 Jun 2010 01:15:13 +0300
+
+kdebase-runtime (4:4.4.3-1ubuntu1) maverick; urgency=low
+
+  [ Michał Zając ]
+  * Merge with Debian
+   - Docs path remains unchanged
+   - Added debian/patches/03_disable_usr_lib_install_rpath.diff and synced
+     debian/patches/25_khelp_htdig.diff
+   - Added man/*
+   - Renamed kcm-phonon-xine.install to kde-config-phonon-xine.install
+   - Copied over *.litian.overrides and khelpcenter.{dirs, links}
+   - Copied over debian/rules
+   - Synced Replaces & Conflicts
+   - Removed transitional packages.
+
+  [ Jonathan Thomas ]
+  * Drop kubuntu_90_strigi_notification_polish.diff for KDE 4.4.3, upstream
+    had something else in mind
+  * Drop kubuntu_91_set_US_time_format.diff, upstream in 4.4.3
+
+ -- Michał Zając <michal.zajac@gmail.com>  Fri, 21 May 2010 22:28:59 +0200
 
 kdebase-runtime (4:4.4.3-1) unstable; urgency=low
 
@@ -521,6 +1968,272 @@ kdebase-runtime (4:4.4.2-1) experimental; urgency=low
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 05 Apr 2010 16:21:50 +0300
 
+kdebase-runtime (4:4.4.2-0ubuntu4) lucid; urgency=low
+
+  * In kubuntu_89_ram_detection.diff, add a "First start=true" key to the
+    nepomukserver.kcfg. It is imperative to set the first start key here, as
+    doing it in kubuntu-default-settings led to the code preferring the k-d-s
+    setting over the default-when-key-doesn't-exist value set in the code. I
+    also included a few logic fixes, and this plus kubuntu-default-settings
+    10.04ubuntu23 should fix this bug. (LP: #564049)
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Fri, 16 Apr 2010 10:43:54 -0400
+
+kdebase-runtime (4:4.4.2-0ubuntu3) lucid; urgency=low
+
+  * Rebuild for sneaky libssh ABI breakage. The ftp:/ ioslave worked, but
+    the sftp:/ ioslave didn't...
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Tue, 13 Apr 2010 20:19:15 -0400
+
+kdebase-runtime (4:4.4.2-0ubuntu2) lucid; urgency=low
+
+  [ Brandon Holtsclaw ]
+  * Removed searchhandlers from being installed to hide the search tab in
+    khelpcenter4 (htdig broken/not in main) Closes (LP: #19767)
+
+  [ Jonathan Thomas ]
+  * Backport kubuntu_91_set_US_time_format.diff from upstream's 4.4 branch to
+    properly set a timezone for US users.
+
+  [ Scott Kitterman ]
+  * Update debian/copyright from Debian (Thanks to Ferdinand Thommes)
+
+ -- Scott Kitterman <scott@kitterman.com>  Sun, 11 Apr 2010 23:39:59 -0400
+
+kdebase-runtime (4:4.4.2-0ubuntu1) lucid; urgency=low
+
+  [ Alessandro Ghersi ]
+  * New upstream release
+    - Bump build-depends
+    - Update kdebase-runtime-data.install
+    - Add final newline to kubuntu_87_nepomuk_virtuosoconverter.diff
+
+  [ Jonathan Riddell ]
+  * Drop recommends on virtuosoconverter, virtuoso 5 was never used in
+    the main archive and virtuosoconverter is in universe
+
+  [ Jonathan Thomas ]
+  * Add kubuntu_89_strigi_ram_detection.diff. This will make Nepomuk disable
+    strigi on systems with less than or equal to 1GB of RAM, on its first
+    run. Users will still be able to enable it for themselves if they wish.
+  * Add kubuntu_90_strigi_notification_polish.diff. This silences the
+    extraneous indexing notifications, except for the low disk space one.
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 29 Mar 2010 18:14:36 +0100
+
+kdebase-runtime (4:4.4.1-0ubuntu3) lucid; urgency=low
+
+  * kdebase-runtime needs to recommend kubuntu-debug-installer, so that
+    drkonqi can automatically install debug packages (LP: #514557)
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Sun, 07 Mar 2010 21:29:23 +0100
+
+kdebase-runtime (4:4.4.1-0ubuntu2) lucid; urgency=low
+
+  * Add nepomuk dbus interface files to kdebase-runtime-data, needed for
+    compiling nepomuk playground parts
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 04 Mar 2010 19:13:45 +0000
+
+kdebase-runtime (4:4.4.1-0ubuntu1) lucid; urgency=low
+
+  [ Alessandro Ghersi ]
+  * New upstream release
+    - Bump build-depends
+    - Update kdebase-runtime-data.install
+
+  [ Achim Bohnet ]
+  * add patch: kubuntu_88_nepomuksearch_uds-url.diff: fixes
+    URLs handed over to programs when clicking on files returned
+    from a nepomuksearch. Now file:///... instead of
+    nepomuksearch:SearchThis/weird-cryptic-string is used. See:
+    also http://reviewboard.kde.org/r/3069/
+    Closes LP: #529021
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Sat, 27 Feb 2010 01:30:54 +0100
+
+kdebase-runtime (4:4.4.0-0ubuntu3) lucid; urgency=low
+
+  * Make kdebase-runtime depend on shared-desktop-ontologies
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 16 Feb 2010 12:07:34 +0000
+
+kdebase-runtime (4:4.4.0-0ubuntu2) lucid; urgency=low
+
+  * Make kdebase-runtime depend on plasma-scriptengine-javascript
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 11 Feb 2010 22:57:30 +0000
+
+kdebase-runtime (4:4.4.0-0ubuntu1) lucid; urgency=low
+
+  [ Vikram Dhillon ]
+  * Added kubuntu_87_nepomuk_virtuosoconverter.diff nepomuk-virtuosoconverter patch
+
+  [ Michał Zając ]
+  * New upstream release
+   - Bump on Build-Depends
+
+ -- Michał Zając <michal.zajac@gmail.com>  Thu, 04 Feb 2010 16:20:20 +0100
+
+kdebase-runtime (4:4.3.98-0ubuntu1) lucid; urgency=low
+
+  [ Michał Zając ]
+  * New upstream release
+   - Bump on build-deps
+   - Updated kdebase-runtime and kdebase-runtime-data install files
+
+  [ Alessandro Ghersi ]
+  * Bump Qt to 4.6.1
+  * Bump kdelibs5-dev to 4.3.98
+  * Bump Soprano to 2.3.73
+
+ -- Michał Zając <michal.zajac@gmail.com>  Mon, 01 Feb 2010 11:30:24 +0100
+
+kdebase-runtime (4:4.3.95-0ubuntu1) lucid; urgency=low
+
+  * New upstream release
+    - Bump build-deps
+    - Update kdebase-runtima-data.install
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Wed, 20 Jan 2010 12:29:09 +0100
+
+kdebase-runtime (4:4.3.90-0ubuntu3) lucid; urgency=low
+
+  * Add Recommends on icoutils to kdebase-runtime for extended thumbnailer
+    support. (LP: #505424)
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Mon, 11 Jan 2010 14:50:25 -0500
+
+kdebase-runtime (4:4.3.90-0ubuntu2) lucid; urgency=low
+
+  * Add libssh-dev build-dep now it has been promoted to main for sftp ioslave
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Sat, 09 Jan 2010 00:55:09 +0000
+
+kdebase-runtime (4:4.3.90-0ubuntu1) lucid; urgency=low
+
+  [ Jonathan Thomas ]
+  * New uptream release candidate:
+    - Bump build-depend versions
+    - Update .install files
+  * Remove kubuntu_08_suggest_soprano_backend_sesame.diff from debian/patches/
+    series
+  * Build against newest libexiv2 (LP: #502565)
+
+  [ Jonathan Riddell ]
+  * Do not set DEB_KDE_LINK_WITH_AS_NEEDED to no, "This should be no
+    more needed after r1061445"
+  * Remove kubuntu_08_suggest_soprano_backend_sesame.diff, we use virtuoso now
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Wed, 06 Jan 2010 16:42:22 -0500
+
+kdebase-runtime (4:4.3.85-0ubuntu2) lucid; urgency=low
+
+  * Rebuild for liblzma-dev transition
+    - Bump kdelibs5-dev build-dep to >= 4:4.3.85-0ubuntu4~ to ensure all archs
+      build against the same liblzma-dev as kdelibs
+
+ -- Scott Kitterman <scott@kitterman.com>  Tue, 22 Dec 2009 12:01:29 -0500
+
+kdebase-runtime (4:4.3.85-0ubuntu1) lucid; urgency=low
+
+  * New upstream beta release
+  * Bump on kdelibs5-dev (4.3.85)
+  * Removed kubuntu_95_temp_arm_compile_fixes.diff, went upstream.
+  * Removed Nepomuk ontologies,fixed docbook paths for KHTML and added Phonon
+    docs in kdebase-runtime-data.install
+
+ -- Michał Zając <michal.zajac@gmail.com>  Fri, 18 Dec 2009 23:48:56 +0100
+
+kdebase-runtime (4:4.3.80-0ubuntu10) lucid; urgency=low
+
+  * Remove debian/kdebase-runtime-*.install.armel - arch specific install
+    files should not be needed anymore and these are definitely wrong
+
+ -- Scott Kitterman <scott@kitterman.com>  Thu, 17 Dec 2009 23:04:56 -0500
+
+kdebase-runtime (4:4.3.80-0ubuntu9) lucid; urgency=low
+
+  * Remove the KDE4_DISABLE_MULTIMEDIA=ON flag now that we have a working
+    Phonon; update .install files (LP: #494643)
+  * Split the KCM for the Phonon Xine backend into a separate package from the
+    kdebase-runtime binary package. The KCM depends on Xine, and making all
+    of KDE depend on Xine because of it isn't nice, especially when we have
+    Phonon's wonderful backend system. (LP: #386406)
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Tue, 15 Dec 2009 14:46:17 -0500
+
+kdebase-runtime (4:4.3.80-0ubuntu8) lucid; urgency=low
+
+  * Ensure patch kubuntu_95_temp_arm_compile_fixes.diff is complete
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 14 Dec 2009 22:40:38 +0000
+
+kdebase-runtime (4:4.3.80-0ubuntu7) lucid; urgency=low
+
+  * Fix patch kubuntu_95_temp_arm_compile_fixes.diff
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 14 Dec 2009 18:37:09 +0000
+
+kdebase-runtime (4:4.3.80-0ubuntu6) lucid; urgency=low
+
+  * Update kubuntu_95_temp_arm_compile_fixes.diff with complete fix
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 14 Dec 2009 16:57:22 +0000
+
+kdebase-runtime (4:4.3.80-0ubuntu5) lucid; urgency=low
+
+  * Drop debian/patches/kubuntu_12_arm_no_soprano.diff and related
+    debian/rules changes
+    - The was a just before release hack and if it's still a problem it should
+      be corrected properly in Lucid
+
+ -- Scott Kitterman <scott@kitterman.com>  Sun, 13 Dec 2009 03:27:42 -0500
+
+kdebase-runtime (4:4.3.80-0ubuntu4) lucid; urgency=low
+
+  [ Alessandro Ghersi ]
+  * In kdebase-runtime bump kdebase-runtime-bin-kde4 conflicts/replaces
+    (LP: #486028)
+  * In kdebase-runtime-data bump kdebase-runtime-data-common conflicts/replaces
+
+  [ Scott Kitterman ]
+  * Refreshed kubuntu_85_language_selector.diff
+  * Add kubuntu_95_temp_arm_compile_fixes.diff to fix FTBFS on armel
+    - Already fixed in trunk, can be dropped after the next upstream update
+
+ -- Scott Kitterman <scott@kitterman.com>  Sat, 12 Dec 2009 21:50:52 -0500
+
+kdebase-runtime (4:4.3.80-0ubuntu3) lucid; urgency=low
+
+  * Stop kdebase-runtime recommending pmount
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 09 Dec 2009 12:49:27 +0000
+
+kdebase-runtime (4:4.3.80-0ubuntu2) lucid; urgency=low
+
+  * Drop libssh-dev as build-dep (needs MIR)
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Mon, 07 Dec 2009 22:22:16 +0100
+
+kdebase-runtime (4:4.3.80-0ubuntu1) lucid; urgency=low
+
+  * New upstream release:
+    - Remove build-depend on libknotificationitem-dev, now part of
+      kdelibs5-dev
+    - Add build-depend on libattica-dev for KNewStuff support
+    - Add build-depend on shared-desktop-ontologies for Nepomuk support
+    - Whitespace fix in debian/control
+    - Remove kubuntu_02_fix_dash_incompatibility.diff,
+      kubuntu_11_kstyle_fixes.diff, kubuntu_86-90.diff; merged upstream
+    - Refresh all patches
+    - Update various .install files
+    - Temporarily build with KDE4_DISABLE_MULTIMEDIA=ON to work around old
+      Phonon from Qt
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Tue, 01 Dec 2009 09:57:22 -0500
+
 kdebase-runtime (4:4.3.4-2) unstable; urgency=low
 
   +++ Changes by Modestas Vainius:
@@ -565,11 +2278,106 @@ kdebase-runtime (4:4.3.4-1) unstable; urgency=low
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Wed, 09 Dec 2009 00:24:05 +0200
 
+kdebase-runtime (4:4.3.3-0ubuntu3) lucid; urgency=low
+
+  * Add missing epoch to Qt build-depends version
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 25 Nov 2009 13:46:59 +0000
+
+kdebase-runtime (4:4.3.3-0ubuntu2) lucid; urgency=low
+
+  * Rebuild against Qt 4.6 rc 1, which is binary incompatible with 4.6
+    beta
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 24 Nov 2009 08:59:52 +0000
+
+kdebase-runtime (4:4.3.3-0ubuntu1) lucid; urgency=low
+
+  * New upstream release
+  * Merge with Debian testing, remaining changes:
+    - add debian/kdebase-runtime.install.armel: Work around arm build failure
+      by disabling nepomuk code from compile
+    - add kdebase-runtime.[postinst,prerm] for update-alternatives kdesu
+    - debian/control:
+      - build against libphonon-dev >= 4:4.6.0~beta1
+      - add liblzma-dev to build-deps
+      - helpcenter4 no recommend on htdig
+      - Keep khelpcenter transitional package with appropriate replaces
+      - khelpcentre4 Conflicts: khelpcenter (<< 4:4.1.2), khelpcenter-kde4
+      - add kdebase-runtime-bin-kde4 transitional package which depends on kdebase-runtime
+      - add kdebase-runtime-data-common transitional package which depends on kdebase-runtime-data
+    - debian/patches:
+      - Remove:
+        - 01_kde4_information_menu.diff
+        - 02_ksvgtopng4.diff
+        - 03_ktrash4.diff
+      - Keep:
+        - 25_khelp_htdig.diff
+        - kubuntu_01_nodisplay_knetattach.diff
+        - kubuntu_02_fix_dash_incompatibility.diff
+        - kubuntu_03_knetattach_use_sftp.diff
+        - kubuntu_07_oxygenify_knetattach_icon.diff
+        - kubuntu_08_suggest_soprano_backend_sesame.diff
+        - kubuntu_11_kstyle_fixes.diff
+        - kubuntu_85_language_selector.diff
+        - kubuntu_86_fdo_notifications.diff
+        - kubuntu_87_fdo_notifications.diff
+        - kubuntu_88_fdo_notifications.diff
+        - kubuntu_89_fdo_notifications.diff
+        - kubuntu_90_fdo_notifications_discard_actions.diff
+        - kubuntu_12_arm_no_soprano.diff
+    - debian/kdebase-runtime-data.install:
+      - change etc/xdg/menus/kde4-information.menu to etc/xdg/menus/kde-information.menu
+      - change usr/share/desktop-directories/kde4-information.directory to usr/share/desktop-directories/kde-information.directory
+      - path for docs is usr/share/doc/kde/HTML
+      - Don't install usr/share/kde4/apps/kio_desktop/DesktopLinks/Home.desktop
+      - Don't install usr/share/kde4/apps/kio_desktop/directory.trash
+    - debian/kdebase-runtime.install
+      - install usr/lib/kde4/libexec/kdesu to /usr/lib/kde4/libexec/kdesu-distrib/
+    - debian/rules:
+      - Set DEB_KDE_LINK_WITH_AS_NEEDED = no for kde file dialogs in Qt apps
+      - Apply kubuntu_12_arm_no_soprano.diff
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Tue, 10 Nov 2009 19:18:51 +0100
+
 kdebase-runtime (4:4.3.2-1) unstable; urgency=low
 
   * New upstream release.
 
  -- Ana Beatriz Guerrero Lopez <ana@debian.org>  Tue, 06 Oct 2009 15:15:35 +0200
+
+kdebase-runtime (4:4.3.2-0ubuntu4) karmic; urgency=low
+
+  * Work around arm build failure by disabling nepomuk code from
+    compile.  Add kubuntu_12_arm_no_soprano.diff, apply it in
+    debian/rules and create .install.armel files
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 26 Oct 2009 13:44:40 +0000
+
+kdebase-runtime (4:4.3.2-0ubuntu3) karmic; urgency=low
+
+  * kdebase-runtime-data replaces old Konsole, fixes hardy upgrade
+  * kdebase-runtime replaces old kdebase-kio-plugins
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 21 Oct 2009 13:49:43 +0100
+
+kdebase-runtime (4:4.3.2-0ubuntu2) karmic; urgency=low
+
+  * Add kubuntu_11_kstyle_fixes.diff from
+    http://websvn.kde.org/?revision=1034808&view=revision fixes issues
+    with file dialogue in OpenOffice
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 14 Oct 2009 12:42:29 +0100
+
+kdebase-runtime (4:4.3.2-0ubuntu1) karmic; urgency=low
+
+  * New upstream bugfix release:
+    - Bump build-depends
+    - Drop kubuntu_09_remove_indexer_notifications.diff, it fails to apply
+      plus we do not have nepomuk enabled by default anyways
+  * Update not-installed to reflect recent packaging changes
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Fri, 02 Oct 2009 13:58:39 -0400
 
 kdebase-runtime (4:4.3.1-1) unstable; urgency=low
 
@@ -585,6 +2393,40 @@ kdebase-runtime (4:4.3.1-1) unstable; urgency=low
   * Do not ship Dbus intefaces XMLs. There is no dev package.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 29 Aug 2009 21:06:19 +0300
+
+kdebase-runtime (4:4.3.1-0ubuntu4) karmic; urgency=low
+
+  * Keep desktop clean, don't install
+    usr/share/kde4/apps/kio_desktop/DesktopLinks/Home.desktop
+    usr/share/kde4/apps/kio_desktop/directory.trash
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 23 Sep 2009 14:22:59 +0100
+
+kdebase-runtime (4:4.3.1-0ubuntu3) karmic; urgency=low
+
+  * Add kubuntu_90_fdo_notifications_discard_actions.diff from
+    http://people.canonical.com/~agateau/actionless-notification-
+    server/index.html
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 23 Sep 2009 12:45:36 +0100
+
+kdebase-runtime (4:4.3.1-0ubuntu2) karmic; urgency=low
+
+  * Introduce update-alternatives for kdesu vs. kdesudo (LP: #345776)
+  * Add preinst script to remove kdesudo's divert on the kdesu binary. kdesudo
+    Pre-Depends on -runtime while -runtime Conflicts and breaks kdesudo. This
+    causes an intermediate removal of kdesudo until -runtime is fully configured
+    this removal in combo with the diversion removal should prevent any issue.
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Tue, 15 Sep 2009 08:30:17 +0200
+
+kdebase-runtime (4:4.3.1-0ubuntu1) karmic; urgency=low
+
+  * New upstream release
+    - Bump build-depends
+    - Remove kubuntu_10_fish.diff fixed by upstream
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Sat, 29 Aug 2009 03:16:06 +0200
 
 kdebase-runtime (4:4.3.0-2) unstable; urgency=medium
 
@@ -614,6 +2456,85 @@ kdebase-runtime (4:4.3.0-1) unstable; urgency=low
   * Update Standards-Version to 3.8.2, no changes required.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 04 Aug 2009 09:05:51 +0200
+
+kdebase-runtime (4:4.3.0-0ubuntu4) karmic; urgency=low
+
+  * Fix missing lzma support
+    - Add liblzma-dev to build-depends
+    - Add usr/share/kde4/services/lzma.protocol and xz.protocol to
+      debian/kdebase-runtime-data.install
+
+ -- Scott Kitterman <scott@kitterman.com>  Thu, 27 Aug 2009 00:23:17 -0400
+
+kdebase-runtime (4:4.3.0-0ubuntu3) karmic; urgency=low
+
+  * Add kubuntu_10_fish.diff fix kio fish, http://bugs.kde.org/189235
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 24 Aug 2009 12:00:31 +0100
+
+kdebase-runtime (4:4.3.0-0ubuntu2) karmic; urgency=low
+
+  * Bump build-dep to kdelibs 4.3
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 04 Aug 2009 14:23:55 +0000
+
+kdebase-runtime (4:4.3.0-0ubuntu1) karmic; urgency=low
+
+  [ Jonathan Thomas ]
+  * New upstream release:
+    - Bump KDE versions
+  * Merge from Debian Experimental, remaining changes:
+    - helpcenter4 no recommend on htdig
+    - kde-base is not an alternative dep to kdebase-runtime-data-common in
+      kdebase-runtime-data
+    - Keep khelpcenter transitional package with appropriate replaces
+    - Remove dependency from kdebase-runtime-bin-kde4 on pmount
+    - khelpcentre4 Conflicts: khelpcenter (<< 4:4.1.2), khelpcenter-kde4
+    - Set DEB_KDE_LINK_WITH_AS_NEEDED = no for kde file dialogs in Qt apps
+    - Remove:
+      - 01_kde4_information_menu.diff
+      - 02_ksvgtopng4.diff
+      - 03_ktrash4.diff
+    - Keep:
+      - kubuntu_01_nodisplay_knetattach.diff
+      - kubuntu_02_fix_dash_incompatibility.diff
+      - kubuntu_03_knetattach_use_sftp.diff
+      - kubuntu_04_kiosmb.diff
+      - kubuntu_05_knetattach_open_filebrowser.diff
+      - kubuntu_06_fix_knetattach_folder_icon.diff
+      - kubuntu_07_oxygenify_knetattach_icon.diff
+      - kubuntu_85_language_selector.diff
+  * Update KUBUNTU_DEBIAN_DIFFERENCES
+  * Bump kdebase-runtime-data's replace version of kdebase-workspace-data to
+    (<< 4:4.2.95) (LP: #405726)
+
+  [ Khashayar Naderehvandi ]
+  * Add kubuntu_09_remove_indexer_notifications.diff to remove unnecessary
+    notifications from strigi (LP: #406167)
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Wed, 29 Jul 2009 16:40:04 -0400
+
+kdebase-runtime (4:4.2.98-0ubuntu3) karmic; urgency=low
+
+  * Rebuild with new pkg-kde-tools to build translation templates
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 29 Jul 2009 18:11:57 +0100
+
+kdebase-runtime (4:4.2.98-0ubuntu2) karmic; urgency=low
+
+  * Set DEB_KDE_LINK_WITH_AS_NEEDED = no, Arora and other Qt-only
+    apps now use KDE file open dialogues
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 27 Jul 2009 11:45:24 +0100
+
+kdebase-runtime (4:4.2.98-0ubuntu1) karmic; urgency=low
+
+  * New upstream release
+    - Bump build-depend versions to 4.2.98
+    - Bump libsoprano-dev build-dep to 2.3.0
+    - Update kdebase-runtime-data.install
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Wed, 22 Jul 2009 06:01:07 +0200
 
 kdebase-runtime (4:4.2.96-1) experimental; urgency=low
 
@@ -650,6 +2571,130 @@ kdebase-runtime (4:4.2.96-1) experimental; urgency=low
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 26 Jun 2009 18:01:03 +0300
 
+kdebase-runtime (4:4.2.96-0ubuntu2) karmic; urgency=low
+
+  * Backport support for freedesktop.org notifications. Makes it possible for
+    GNOME and KDE applications to display notifications using the native
+    desktop notification system.
+   - added debian/patches/kubuntu_86_fdo_notifications.diff
+   - added debian/patches/kubuntu_87_fdo_notifications.diff
+   - added debian/patches/kubuntu_88_fdo_notifications.diff
+   - added debian/patches/kubuntu_89_fdo_notifications.diff
+
+ -- Aurélien Gâteau <aurelien.gateau@canonical.com>  Fri, 17 Jul 2009 14:13:55 +0200
+
+kdebase-runtime (4:4.2.96-0ubuntu1) karmic; urgency=low
+
+  [ Christian Mangold ]
+  * New upstream release
+  * Bump kdelibs5-de build-dep to 4.2.96
+
+  [ Alessandro Ghersi ]
+  * Add kde-icons-oxygen to depends in kdebase-runtime package (LP: #395418)
+
+ -- Christian Mangold <neversfelde@ubuntu.com>  Thu, 09 Jul 2009 22:40:25 +0200
+
+kdebase-runtime (4:4.2.95-0ubuntu3) karmic; urgency=low
+
+  * kdebase-runtime-dbg replaces old kdebase-dbg
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 02 Jul 2009 13:44:52 +0100
+
+kdebase-runtime (4:4.2.95-0ubuntu2) karmic; urgency=low
+
+  * Fix -data .install file
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 01 Jul 2009 22:05:26 +0100
+
+kdebase-runtime (4:4.2.95-0ubuntu1) karmic; urgency=low
+
+  * New upstream release candidate:
+    - Bump build-depend versions
+    - Update various .install files
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Thu, 25 Jun 2009 15:28:29 -0400
+
+kdebase-runtime (4:4.2.90-0ubuntu4) karmic; urgency=low
+
+  * kdebase-runtime depends on phonon-backend-xine | phonon-backend
+    not just phonon-backend
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 16 Jun 2009 14:18:31 +0100
+
+kdebase-runtime (4:4.2.90-0ubuntu2) karmic; urgency=low
+
+  * kdebase-runtime depends on phonon-backend-xine not
+    phonon-backend (Closes LP: #376396)
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 08 Jun 2009 14:57:12 +0100
+
+kdebase-runtime (4:4.2.90-0ubuntu1) karmic; urgency=low
+
+  * New upstream release:
+    - bump KDE versions to 4.2.90 (KDE 4.3 Beta 2)
+  * debian/control:
+    - Create plasma-scriptengine-javascript binary
+    - bump standards version to 3.8.1, no change
+    - bump build dep on soprano to 2.2.3+dfsg-svn977681
+  * Update various .install files:
+    - kdebase-runtime-bin-kde4.install
+    - kdebase-runtime-data.install
+    - kdebase-runtime.install
+    - add plasma-scriptengine-javascript.install
+
+ -- Steve Stalcup <vorian@ubuntu.com>  Thu, 04 Jun 2009 15:09:31 -0400
+
+kdebase-runtime (4:4.2.85-0ubuntu5) karmic; urgency=low
+
+  * Bump version of kdebase-runtime replaces kdebase-runtime-bin-kde4
+  * Correct kdebase-runtime-data to replace kde-icons-oxygen instead of the
+    non-existant kde-oxygen-icons
+
+ -- Scott Kitterman <scott@kitterman.com>  Fri, 22 May 2009 00:33:53 -0400
+
+kdebase-runtime (4:4.2.85-0ubuntu4) karmic; urgency=low
+
+  * kdebase-runtime-data replaces kde-oxygen-icons (<< 4:4.2.85)
+  * Remove kde-icons-oxygen.install, the package moved to the oxygen-icons
+    source package
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Mon, 18 May 2009 10:58:56 -0400
+
+kdebase-runtime (4:4.2.85-0ubuntu3) karmic; urgency=low
+
+  * kdebase-runtime conflicts kdebase-runtime-data (<< 4:4.2.85)
+  * akonadi-kde4 conflict/replace -> akonadi-kde, my mistake
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Sun, 17 May 2009 10:44:34 -0400
+
+kdebase-runtime (4:4.2.85-0ubuntu2) karmic; urgency=low
+
+  [ Jonathan Thomas ]
+  * Replace/conflict kdebase-runtime-bin-kde4 (<< 4:4.1.85)
+    for kdebase-runtime(LP: #374676)
+  * Replace/conflict kdebase-data (<< 4:4.2.85) for kdebase-runtime-data
+  * Replace/conflict kdebase-bin (<< 4:4.2.85) for kdebase-runtime-bin-kde4
+  * Replace/conflict akonadi-kde4 (<< 4:4.2.85) for kdebase-runtime-data
+
+  [ Scott Kitterman ]
+  * Restore Kubuntu VCS* headers in debian/control (in place of Debian's)
+
+ -- Scott Kitterman <scott@kitterman.com>  Sat, 16 May 2009 16:20:53 -0400
+
+kdebase-runtime (4:4.2.85-0ubuntu1) karmic; urgency=low
+
+  * New upstream beta release:
+    - Remove oxygen icon packaging, it's moved to the oxygen-icons package
+    - Update 04_disable_debug_by_default.diff
+    - Add build-depend on libknotificationitem-dev
+    - Change libphonon-dev build-dep to libqt4-phonon-dev
+    - Bump build-deps in general
+    - Add build-dep on libslp-dev for OpenSLP support in the network:// kio
+      slave
+    - Update .install files
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Wed, 13 May 2009 11:24:59 -0400
+
 kdebase-runtime (4:4.2.4-2) unstable; urgency=medium
 
   * Move a file from kde-icons-oxygen to kdebase-runtime-data where it
@@ -673,6 +2718,54 @@ kdebase-runtime (4:4.2.4-1) unstable; urgency=low
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 01 May 2009 13:49:01 +0200
 
+kdebase-runtime (4:4.2.2-1ubuntu5) karmic; urgency=low
+
+  * Really fix .install files
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Sun, 10 May 2009 20:52:25 +0000
+
+kdebase-runtime (4:4.2.2-1ubuntu4) karmic; urgency=low
+
+  * In kdebase-runtime-data.install fix /usr/share/desktop-directories/kde-information.directory path
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Sun, 10 May 2009 17:17:46 +0000
+
+kdebase-runtime (4:4.2.2-1ubuntu3) karmic; urgency=low
+
+  * Fix kdebase-runtime-data
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Sun, 10 May 2009 16:34:09 +0000
+
+kdebase-runtime (4:4.2.2-1ubuntu2) karmic; urgency=low
+
+  * Fix debian/patches/series file
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Sun, 10 May 2009 15:53:14 +0000
+
+kdebase-runtime (4:4.2.2-1ubuntu1) karmic; urgency=low
+
+  * Merge with Debian, remaining changes:
+    - helpcenter4 no recommend on htdig
+    - kde-base is not an alternative dep to kdebase-runtime-data-common in
+      kdebase-runtime-data
+    - Remove dependency from kdebase-runtime-bin-kde4 on pmount
+    - Keep khelpcenter transitional package with appropriate replaces
+    - Remove:
+      - 01_kde4_information_menu.diff
+      - 02_ksvgtopng4.diff
+      - 03_ktrash4.diff
+    - Keep:
+      - kubuntu_01_nodisplay_knetattach.diff
+      - kubuntu_02_fix_dash_incompatibility.diff
+      - kubuntu_03_knetattach_use_sftp.diff
+      - kubuntu_05_knetattach_open_filebrowser.diff
+      - kubuntu_07_oxygenify_knetattach_icon.diff
+      - kubuntu_08_suggest_soprano_backend_sesame.diff
+      - kubuntu_85_language_selector.diff
+   * Don't build kde-icons-oxygen, now a separate source
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 01 May 2009 21:02:52 +0000
+
 kdebase-runtime (4:4.2.2-1) unstable; urgency=low
 
   * New upstream release.
@@ -682,6 +2775,13 @@ kdebase-runtime (4:4.2.2-1) unstable; urgency=low
   * Bump build-deps.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 05 Apr 2009 01:36:57 +0200
+
+kdebase-runtime (4:4.2.2-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release
+  * Bump KDE versions in debian/contol
+
+ -- Steve Stalcup <vorian@ubuntu.com>  Sat, 28 Mar 2009 21:56:26 -0400
 
 kdebase-runtime (4:4.2.1-2) unstable; urgency=low
 
@@ -704,6 +2804,29 @@ kdebase-runtime (4:4.2.1-1) experimental; urgency=low
   * Point Debian Vcs URLs to pkg-kde/trunk (new location).
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 27 Feb 2009 23:20:40 +0200
+
+kdebase-runtime (4:4.2.1-0ubuntu2) jaunty; urgency=low
+
+  * Add kubuntu_08_suggest_soprano_backend_sesame.diff from
+    Aurélien Gâteau to prompt for sesame install
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 19 Mar 2009 12:14:15 +0000
+
+kdebase-runtime (4:4.2.1-0ubuntu1) jaunty; urgency=low
+
+  [ Roderick B. Greening ]
+  * New upstream release
+  * Update kdebase-runtime.install (replace 4.2.0 ref with 4.2.*)
+  * Update build-dep (kdelibs5-dev, libphonon-dev)
+
+  [ Scott Kitterman ]
+  * Add missing conflicts for kdebase-runtime on kde5libs << 4.1.73
+
+  [ Jonathan Thomas ]
+  * Add missing conflicts for kdebase-runtime-dbg on kdelibs5-dbg <<
+    4.1.80 (LP: #324277)
+
+ -- Roderick B. Greening <roderick.greening@gmail.com>  Fri, 27 Feb 2009 10:27:55 -0330
 
 kdebase-runtime (4:4.2.0-1) experimental; urgency=low
 
@@ -758,6 +2881,65 @@ kdebase-runtime (4:4.2.0-1) experimental; urgency=low
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 26 Jan 2009 20:08:42 +0100
 
+kdebase-runtime (4:4.2.0-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release
+  * Bump duild-deps accordingly
+  * updated *.install doc path from kde4 to kde
+
+ -- Roderick B. Greening <roderick.greening@gmail.com>  Thu, 22 Jan 2009 21:19:21 -0330
+
+kdebase-runtime (4:4.1.96-0ubuntu2) jaunty; urgency=low
+
+  * Make kdebase-runtime depend on phonon-backend-xine | phonon-backend
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 14 Jan 2009 23:11:23 +0000
+
+kdebase-runtime (4:4.1.96-0ubuntu1) jaunty; urgency=low
+
+  * New upstream RC release
+  * Remove kubuntu_06_fix_knetattach_folder_icon.diff, committed upstream
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 08 Jan 2009 14:53:27 +0000
+
+kdebase-runtime (4:4.1.85-0ubuntu2) jaunty; urgency=low
+
+  * Do not install usr/lib/libkwalletbackend.so, it isn't used and
+    clashes with kdelibs4-dev
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 06 Jan 2009 12:46:37 +0000
+
+kdebase-runtime (4:4.1.85-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Fri, 12 Dec 2008 15:32:48 +0100
+
+kdebase-runtime (4:4.1.80-0ubuntu2) raring; urgency=low
+
+  * Change Vcs-Browser to Launchpad and replace Vcs-Svn with Vcs-Bzr
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Wed, 03 Dec 2008 15:01:21 +0100
+
+kdebase-runtime (4:4.1.80-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release
+  * Remove obsolte build dependency on kdepimlibs5-dev
+  * Remove kdepimlibs5-dbg dependency from kdebase-runtime-dbg
+  * Add dependency on kdelibs5-dev (due to removal of kdepimlibs5-dev)
+  * kdebase-runtime replaces kdebase-workspace-data << 4:4.1.73
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Mon, 24 Nov 2008 14:26:43 +0100
+
+kdebase-runtime (4:4.1.73-0ubuntu1) jaunty; urgency=low
+
+  * New upstream snapshot
+  * Add build-dep on libpulse-dev
+  * phonon-backend-xine moved to phonon
+  * Bump replaces version on kdelibs5, files have moved
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 14 Nov 2008 16:23:27 +0000
+
 kdebase-runtime (4:4.1.4-1) experimental; urgency=low
 
   * New upstream release.
@@ -776,6 +2958,36 @@ kdebase-runtime (4:4.1.3-1) experimental; urgency=low
 
  -- Sune Vuorela <debian@pusling.com>  Sat, 01 Nov 2008 11:57:12 +0100
 
+kdebase-runtime (4:4.1.2-1ubuntu1) jaunty; urgency=low
+
+  * Merge with Debian, remaining changes:
+    - helpcenter4 doesn't recommend on htdig
+    - Edit kde-icons-oxygen.install to not install scalable icons,
+      save disk space
+    - kde-base is not an alternative dep to kdebase-runtime-data-common in
+      kdebase-runtime-data
+    - Remove dependency from kdebase-runtime-bin-kde4 on pmount
+    - Keep khelpcenter transitional package with appropriate replaces
+    - Keep -kde4 package conflicts/replaces
+    - khelpcentre4 Conflicts: khelpcenter (<< 4:4.1.2), khelpcenter-kde4
+    - Remove:
+      - 01_kde4_information_menu.diff
+      - 02_ksvgtopng4.diff
+      - 03_ktrash4.diff
+    - Keep:
+      - kubuntu_01_nodisplay_knetattach.diff
+      - kubuntu_02_fix_dash_incompatibility.diff
+      - kubuntu_03_knetattach_use_sftp.diff
+      - kubuntu_04_kiosmb.diff
+      - kubuntu_05_knetattach_open_filebrowser.diff
+      - kubuntu_06_fix_knetattach_folder_icon.diff
+      - kubuntu_07_oxygenify_knetattach_icon.diff
+      - kubuntu_85_language_selector.diff
+    - .orig md5sum different
+  *Update KUBNTU-DEBIAN-DIFFERENCES
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Fri, 07 Nov 2008 09:07:36 -0500
+
 kdebase-runtime (4:4.1.2-1) experimental; urgency=low
 
   * New upstream release.
@@ -789,6 +3001,63 @@ kdebase-runtime (4:4.1.2-1) experimental; urgency=low
   * Update kdebase-runtime-data.install.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 28 Sep 2008 15:22:21 +0200
+
+kdebase-runtime (4:4.1.2-0ubuntu6) intrepid; urgency=low
+
+  * Fix typo in kubuntu_01_nodisplay_knetattach.diff (LP: #277156)
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Wed, 15 Oct 2008 22:49:55 +0200
+
+kdebase-runtime (4:4.1.2-0ubuntu5) intrepid; urgency=low
+
+  * Replace kubuntu_01_onlyshow_knetattach_in_kde.diff with
+    kubuntu_01_nodisplay_knetattach.diff, if the user starts knetattach from
+    the menu there is no indication where the links will end up, which is
+    confusing.
+  * kubuntu_05_knetattach_open_filebrowser.diff open the default file browser
+    instead of the default web browser (LP: #271967)
+  * kubuntu_06_fix_knetattach_folder_icon.diff don't use non-existing icons.
+  * kubuntu_07_oxygenify_knetattach_icon.diff don't use crystal icons if an
+    Oxygen replacement is available (using folder-new since it seems more
+    appropriate considering kubuntu_01_nodisplay_knetattach.diff though).
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Wed, 15 Oct 2008 02:06:39 +0200
+
+kdebase-runtime (4:4.1.2-0ubuntu4) intrepid; urgency=low
+
+  * Add kubuntu_04_kiosmb.diff from trunk, fixes smb access
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 14 Oct 2008 10:59:43 +0100
+
+kdebase-runtime (4:4.1.2-0ubuntu3) intrepid; urgency=low
+
+  [ Ryan Kavanagh ]
+  * Make the Add Languages dropdown menu clear itself before listing the
+    newly installed languages to avoid duplicates (LP: 278620)
+
+  [ Harald Sitter ]
+  * Add knotify4 manpage (LP: #278165)
+  * Add kubuntu_01_onlyshow_knetattach_in_kde.diff to only show knetattach
+    in KDE (LP: #277156)
+  * Add kubuntu_02_fix_dash_incompatibility.diff (LP: #241916)
+  * Add kubuntu_03_knetattach_use_sftp.diff to make knetattach use sftp by
+    default, since it is preferred and works by default on Kubuntu (LP: #133957)
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Mon, 06 Oct 2008 02:22:16 +0200
+
+kdebase-runtime (4:4.1.2-0ubuntu2) intrepid; urgency=low
+
+  * Added Versioned conflicts, provides, and replaces for khelpcenter4
+  * Added transitional package for khelpcenter, for upgrade purposes
+  * (LP: #271779)
+
+ -- Sarah Hobbs <hobbsee@ubuntu.com>  Mon, 29 Sep 2008 11:41:29 +1000
+
+kdebase-runtime (4:4.1.2-0ubuntu1) intrepid; urgency=low
+
+  * New upstream release
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Fri, 26 Sep 2008 15:05:23 +0200
 
 kdebase-runtime (4:4.1.1-2) experimental; urgency=low
 
@@ -817,6 +3086,50 @@ kdebase-runtime (4:4.1.1-1) experimental; urgency=low
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 02 Sep 2008 18:34:08 +0200
 
+kdebase-runtime (4:4.1.1-0ubuntu6) intrepid; urgency=low
+
+  * kdebase-runtime replaces files from
+    kdelibs4-dev << 4:3.5.10-0ubuntu3 (LP: 272383)
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Sat, 20 Sep 2008 14:57:57 +0200
+
+kdebase-runtime (4:4.1.1-0ubuntu5) intrepid; urgency=low
+
+  * Remove .svgz files from kde-icons-oxygen.install
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 24 Sep 2008 13:32:29 +0100
+
+kdebase-runtime (4:4.1.1-0ubuntu4) intrepid; urgency=low
+
+  * Add ported version of kubuntu_85_language_selector.diff to
+    launch language-selector from System Settings
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 08 Sep 2008 14:05:19 +0100
+
+kdebase-runtime (4:4.1.1-0ubuntu3) intrepid; urgency=low
+
+  * Remove:
+    - 01_kde4_information_menu.diff
+    - 02_ksvgtopng4.diff
+    - 03_ktrash4.diff
+    At least the latter patch caused problems (with the trash plasmoid) and
+    since we don't ship a KDE 3 desktop anymore these patches are obsolete
+    (LP: #264163)
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Wed, 03 Sep 2008 09:59:06 +0200
+
+kdebase-runtime (4:4.1.1-0ubuntu2) intrepid; urgency=low
+
+  * Rebuild against kdelibs 4:4.1.1+really4.1.1
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Tue, 02 Sep 2008 03:50:50 +0200
+
+kdebase-runtime (4:4.1.1-0ubuntu1) intrepid; urgency=low
+
+  * New upstream release
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Fri, 29 Aug 2008 02:03:16 +0200
+
 kdebase-runtime (4:4.1.0-2) unstable; urgency=high
 
   +++ Changes by Pino Toscano:
@@ -837,6 +3150,31 @@ kdebase-runtime (4:4.1.0-1) unstable; urgency=low
   * Reviewed copyright file. (Closes: #486343)
 
  -- Ana Beatriz Guerrero Lopez <ana@debian.org>  Fri, 25 Jul 2008 23:49:44 +0200
+
+kdebase-runtime (4:4.1.0-0ubuntu3) intrepid; urgency=low
+
+  * Remove dependency from kdebase-runtime-bin-kde4 on pmount
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 05 Aug 2008 11:33:35 +0100
+
+kdebase-runtime (4:4.1.0-0ubuntu2) intrepid; urgency=low
+
+  * switch to kde4.mk from cdbs
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 01 Aug 2008 15:29:37 +0000
+
+kdebase-runtime (4:4.1.0-0ubuntu1) intrepid; urgency=low
+
+  [ Steve Stalcup ]
+  * New upstream release, 4.1 final
+    -updated kde-icons-oxygen.install file
+    -bumped build-deps on kdepimlibs5-dev to (>= 4:4.1.0)
+
+  [ Harald Sitter ]
+  * Bump build-dep versions of libphonon-dev and libsoprano-dev
+  * Remove kdebase-data as alternativ dependency of kdebase-runtime-data
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Sat, 26 Jul 2008 01:56:07 +0200
 
 kdebase-runtime (4:4.0.98-1) unstable; urgency=low
 
@@ -861,6 +3199,20 @@ kdebase-runtime (4:4.0.98-1) unstable; urgency=low
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 14 Jul 2008 12:59:14 +0200
 
+kdebase-runtime (4:4.0.98-0ubuntu2) intrepid; urgency=low
+
+  * Edit kde-icons-oxygen.install to not install scalable icons,
+    save disk space
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 21 Jul 2008 17:38:34 +0100
+
+kdebase-runtime (4:4.0.98-0ubuntu1) intrepid; urgency=low
+
+  * New upstream release candidate release
+  * Bump Standards-Version to 3.8.0
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Sat, 12 Jul 2008 03:29:58 +0200
+
 kdebase-runtime (4:4.0.84+svn828328-1) unstable; urgency=low
 
   * New upstream development snapshot.
@@ -874,6 +3226,24 @@ kdebase-runtime (4:4.0.84-1) experimental; urgency=low
   * Add build depend on libxcursor-dev.
 
  -- Sune Vuorela <debian@pusling.com>  Fri, 27 Jun 2008 20:54:53 +0200
+
+kdebase-runtime (4:4.0.83-0ubuntu3) intrepid; urgency=low
+
+  * Install kcm_phononxine to phonon-backend-xine
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 30 Jun 2008 14:48:28 +0000
+
+kdebase-runtime (4:4.0.83-0ubuntu2) intrepid; urgency=low
+
+  * Don't recommend htdig
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 25 Jun 2008 17:56:44 +0000
+
+kdebase-runtime (4:4.0.83-0ubuntu1) intrepid; urgency=low
+
+  * New upstream beta release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 19 Jun 2008 11:45:14 +0000
 
 kdebase-runtime (4:4.0.82+svn819867-1) experimental; urgency=low
 
@@ -916,6 +3286,26 @@ kdebase-runtime (4:4.0.80-2) experimental; urgency=low
       due to libkdeinit4_khelpcenter.so. Update respective install files.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 27 May 2008 22:22:42 +0200
+
+kdebase-runtime (4:4.0.80-1ubuntu3) intrepid; urgency=low
+
+  * Fix config install paths
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 09 Jun 2008 16:08:33 +0100
+
+kdebase-runtime (4:4.0.80-1ubuntu2) intrepid; urgency=low
+
+  * Update kde.mk, use /usr/share/kde4/config for settings, mark
+    packages as Kubuntu not Debian
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 09 Jun 2008 15:10:36 +0100
+
+kdebase-runtime (4:4.0.80-1ubuntu1) intrepid; urgency=low
+
+  * New upstream release, merge with Debian
+  * Remove 97_fix_target_link_libraries.diff
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 27 May 2008 10:51:47 +0100
 
 kdebase-runtime (4:4.0.80-1) experimental; urgency=low
 
@@ -983,6 +3373,19 @@ kdebase-runtime (4:4.0.66+svn791114-1) experimental; urgency=low
 
  -- Ana Beatriz Guerrero Lopez <ana@debian.org>  Fri, 28 Mar 2008 15:05:35 +0100
 
+kdebase-runtime (4:4.0.3-0ubuntu2) hardy; urgency=low
+
+  * Removed kdebase-bin-kde3 conflict and it replacing
+    kdebase-bin (<< 4:3.96.0)
+
+ -- Jonathan Aquilina <eagles051387@gmail.com>  Mon, 14 Apr 2008 16:13:25 +0200
+
+kdebase-runtime (4:4.0.3-0ubuntu1) hardy; urgency=low
+
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 28 Mar 2008 11:59:57 +0000
+
 kdebase-runtime (4:4.0.2-1) unstable; urgency=low
 
   * New upstream release.
@@ -997,12 +3400,30 @@ kdebase-runtime (4:4.0.2-1) unstable; urgency=low
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 04 Mar 2008 22:43:18 +0100
 
+kdebase-runtime (4:4.0.2-0ubuntu2) hardy; urgency=low
+
+  * Fix exec path in knetattach's desktop file (LP: #200925)
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Sun, 23 Mar 2008 03:06:31 +0100
+
+kdebase-runtime (4:4.0.2-0ubuntu1) hardy; urgency=low
+
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 03 Mar 2008 11:37:30 +0000
+
 kdebase-runtime (4:4.0.1-1) unstable; urgency=low
 
   * New upstream release.
   * Bump to build-depends >= 4:4.0.1.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 04 Feb 2008 13:45:37 +0100
+
+kdebase-runtime (4:4.0.1-0ubuntu1) hardy; urgency=low
+
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 31 Jan 2008 17:34:08 +0000
 
 kdebase-runtime (4:4.0.0-3) unstable; urgency=low
 
@@ -1069,6 +3490,26 @@ kdebase-runtime (4:4.0.0-1) experimental; urgency=low
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 05 Jan 2008 08:04:49 +0100
 
+kdebase-runtime (4:4.0.0-0ubuntu2) hardy; urgency=low
+
+  * set XDG_APPS_INSTALL_DIR=/usr/share/applications/kde4/ in kde.mk
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 29 Jan 2008 13:30:51 +0000
+
+kdebase-runtime (4:4.0.0-0ubuntu1) hardy; urgency=low
+
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Sun, 06 Jan 2008 18:18:36 +0000
+
+kdebase-runtime (4:3.98.0~svn755919-2ubuntu1) hardy; urgency=low
+
+  * Merge with Debian, remaining change: our kde.mk and paths
+  * kdebase-runtime-data-common does not replace kdebase-data
+  * kdebase-runtime depends on dbus-x11
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 03 Jan 2008 13:30:55 +0000
+
 kdebase-runtime (4:3.98.0~svn755919-1) experimental; urgency=low
 
   * New svn snapshot release to revision 755919.
@@ -1105,6 +3546,44 @@ kdebase-runtime (4:3.98.0~svn753247-1) experimental; urgency=low
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Thu, 27 Dec 2007 02:36:47 +0100
 
+kdebase-runtime (4:3.97.0-1ubuntu5) hardy; urgency=low
+
+  * Merge with Debian
+  * Remove CMAKE_SKIP_RPATH from debian/cdbs/kde.mk due to our install
+    directories
+
+  +++ Added by Terence Simpson
+
+  * Really pass arguements to executibles from wrapper scripts
+  * Add PATH to wrapper scripts
+
+ -- Richard A. Johnson <nixternal@kubuntu.org>  Sun, 30 Dec 2007 23:20:44 -0600
+
+kdebase-runtime (4:3.97.0-1ubuntu4) hardy; urgency=low
+
+  * Fix Exec= entry in .desktop files
+  * Pass arguements to executibles from wrapper scripts
+
+ -- Terence Simpson <stdin@stdin.me.uk>  Wed, 12 Dec 2007 16:40:19 +0000
+
+kdebase-runtime (4:3.97.0-1ubuntu3) hardy; urgency=low
+
+  * Move wrapper script target in debian/rules
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Sat, 08 Dec 2007 11:16:36 +0000
+
+kdebase-runtime (4:3.97.0-1ubuntu2) hardy; urgency=low
+
+  * Add epoch to kdepimlibs build-dep
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 07 Dec 2007 11:30:09 +0000
+
+kdebase-runtime (4:3.97.0-1ubuntu1) hardy; urgency=low
+
+  * Merge with Debian for new upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 06 Dec 2007 12:28:06 +0000
+
 kdebase-runtime (4:3.97.0-1) experimental; urgency=low
 
   * New upstream release:
@@ -1123,6 +3602,17 @@ kdebase-runtime (4:3.96.0-2) experimental; urgency=low
   * kdebase-runtime-bin-kde4 must be Arch: any. (Closes: #452538)
 
  -- Ana Beatriz Guerrero Lopez <ana@debian.org>  Fri, 23 Nov 2007 18:51:07 +0100
+
+kdebase-runtime (4:3.96.0-1ubuntu1) hardy; urgency=low
+
+  * Sync with Debian
+  * Use modified kde.mk
+  * Rename packages:
+   - khelpcenter -> khelpcenter-kde4
+   - kinfocenter -> kinfocenter-kde4
+  * Remove replaces/conflicts to kde 3 packages
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 19 Nov 2007 13:12:03 +0000
 
 kdebase-runtime (4:3.96.0-1) experimental; urgency=low
 
@@ -1155,6 +3645,23 @@ kdebase-runtime (4:3.96.0-1) experimental; urgency=low
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Wed, 14 Nov 2007 22:33:53 +0100
 
+kdebase-runtime (4:3.95.2-1) experimental; urgency=low
+
+  * New upstream release.
+
+  +++ Changes by Fathi Boudra:
+
+  * Remove 01_knotify4_desktop patch. Merged upstream.
+  * Bump kdepimlibs5-dev build dependency version.
+  * Add libclucene-dev, libsoprano-dev and libstrigiqtdbusclient-dev build
+    dependencies for nepomuk.
+  * Update installed files.
+  * Add 01_kde4_information_menu: prepend kde4 to information.menu.
+  * Add 02_ksvgtopng4: append 4 to ksvgtopng.
+  * Add 03_ktrash4: append 4 to ktrash.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 09 Nov 2007 00:13:11 +0100
+
 kdebase-runtime (4:3.95.0-1) experimental; urgency=low
 
   * KDE 4 beta 4, first upload to the Debian archive.
@@ -1170,3 +3677,4 @@ kdebase-runtime (4:3.95.0-1) experimental; urgency=low
   * Add gdb dependency to drkonqi.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Wed, 31 Oct 2007 14:30:35 +0100
+

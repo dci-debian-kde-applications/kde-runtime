@@ -15,14 +15,15 @@ Build-Depends: cmake,
                kdoctools (>= 4:4.11),
                libasound2-dev (>= 1.0.14a) [linux-any],
                libattica-dev (>= 0.1.4),
-               libboost-dev,
+               libboost1.55-dev,
                libbz2-dev,
                libcanberra-dev,
                libexiv2-dev (>= 0.12),
                libgcrypt20-dev,
                libgpgme11-dev,
                libjpeg-dev,
-               libkactivities-dev (>= 4:4.11),
+               libkactivities-dev,
+               libkubuntu-dev,
                liblzma-dev,
                libnm-util-dev (>= 0.7)  [linux-any],
                libntrack-qt4-dev [linux-any],
@@ -52,23 +53,27 @@ Package: kde-runtime
 Architecture: any
 Depends: kde-runtime-data (>= ${source:Version}),
          kdelibs5-plugins (>= ${source:Upstream-Version}),
+         language-selector-common,
+         libqapt2-runtime,
          oxygen-icon-theme (>= 4:4.6),
          plasma-scriptengine-javascript (= ${binary:Version}),
          ${misc:Depends},
          ${perl:Depends},
          ${shlibs:Depends}
-Suggests: djvulibre-bin,
-          finger,
-          icoutils,
-          libcanberra-pulse,
-          sound-theme-freedesktop
-Replaces: kdebase-runtime (<< 4:4.7.2),
+Recommends: icoutils,
+            kubuntu-debug-installer,
+            libcanberra-pulse | libcanberra-gstreamer,
+            sound-theme-freedesktop,
+            udisks2,
+            upower
+Suggests: djvulibre-bin, finger
+Replaces: kde-runtime-data (<< 4:4.13.97),
           kdebase-runtime-bin-kde4,
           kdebase-workspace-bin (<< 4:4.6),
           kdebluetooth (<< 1.0~beta7-1),
           kdelibs5-plugins (<< 4:4.5),
           plasma-netbook (<< 4:4.5.95)
-Breaks: kdebase-runtime (<< 4:4.7.2),
+Breaks: kde-runtime-data (<< 4:4.13.97),
         kdebase-runtime-bin-kde4,
         kdebase-workspace-bin (<< 4:4.6),
         kdebluetooth (<< 1.0~beta7-1),
@@ -105,6 +110,7 @@ Package: kde-runtime-data
 Architecture: all
 Depends: ${misc:Depends}, ${perl:Depends}
 Replaces: kcontrol,
+          kde-runtime (<< 4:4.13.90),
           kde-workspace-bin (<< 4:4.10),
           kdebase-bin-kde3,
           kdebase-kio-plugins,
@@ -115,6 +121,7 @@ Replaces: kcontrol,
           plasma-netbook (<< 4:4.5.95),
           plasma-widget-networkmanagement (<< 0.1+git20110422.810bc16-1+)
 Breaks: kcontrol,
+        kde-runtime (<< 4:4.13.90),
         kde-workspace-bin (<< 4:4.10),
         kdebase-bin-kde3,
         kdebase-kio-plugins,
@@ -134,8 +141,8 @@ Package: khelpcenter4
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Recommends: htdig
-Replaces: khelpcenter (<< 4:4.0.0)
-Breaks: khelpcenter (<< 4:4.0.0)
+Replaces: kde-runtime-data (<< 4:4.13.90), khelpcenter (<< 4:4.0.0)
+Breaks: kde-runtime-data (<< 4:4.13.90), khelpcenter (<< 4:4.0.0)
 Description: help center
  The KDE Help Center displays documentation on how to use the KDE plasma
  workspaces and applications, as well as UNIX man and info pages.
