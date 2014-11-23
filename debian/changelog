@@ -24,6 +24,7 @@ kde-runtime (4:14.11.95-0ubuntu1) UNRELEASED; urgency=medium
       + upstream_CVE-2014-8600.diff
       + use_always_present_path_to_test.patch
   * New upstream beta release
+    - drop upstream_CVE-2014-8600.diff, applied upstream
   * Fix watch urls for new release location
   * Update Vcs urls for the new repository location
   * Update the maintainer

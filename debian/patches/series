@@ -10,4 +10,3 @@ kubuntu_nodisplay_knetattach.diff
 kubuntu_shutup_shutup_shutup.diff
 kubuntu_drkonqi_whoopsie_integration.patch
 kubuntu_disable-gpg-backend.diff
-upstream_CVE-2014-8600.diff
