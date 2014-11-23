@@ -1,5 +1,5 @@
 etc/dbus-1/system.d/org.kde.kcontrol.kcmremotewidgets.conf
-etc/xdg/menus/kde4-information.menu
+etc/xdg/menus/kde-information.menu
 usr/lib/kde4/imports/org/kde/dirmodel/qmldir
 usr/lib/kde4/imports/org/kde/draganddrop/qmldir
 usr/lib/kde4/imports/org/kde/locale/qmldir
@@ -159,7 +159,7 @@ usr/share/desktop-directories/kde-utilities-peripherals.directory
 usr/share/desktop-directories/kde-utilities-pim.directory
 usr/share/desktop-directories/kde-utilities-xutils.directory
 usr/share/desktop-directories/kde-utilities.directory
-usr/share/desktop-directories/kde4-information.directory
+usr/share/desktop-directories/kde-information.directory
 usr/share/doc/kde/HTML/*/fundamentals/
 usr/share/doc/kde/HTML/*/kcontrol/
 usr/share/doc/kde/HTML/*/kdebugdialog/
