@@ -1,4 +1,4 @@
-kde-runtime (4:14.11.95-0ubuntu1) UNRELEASED; urgency=medium
+kde-runtime (4:14.11.97-0ubuntu1) UNRELEASED; urgency=medium
 
   * Merge with debian git, remaining changes:
     - add and install 30-baloo-inotify-limit.conf
@@ -23,7 +23,7 @@ kde-runtime (4:14.11.95-0ubuntu1) UNRELEASED; urgency=medium
       + kubuntu_shutup_shutup_shutup.diff
       + upstream_CVE-2014-8600.diff
       + use_always_present_path_to_test.patch
-  * New upstream beta release
+  * New upstream release candidate
     - drop upstream_CVE-2014-8600.diff, applied upstream
     - refresh kde-runtime-data.install
   * Fix watch urls for new release location
