@@ -1,5 +1,6 @@
 kde-runtime (4:14.11.97-0ubuntu1) UNRELEASED; urgency=medium
 
+  [ Philip Muškovac ]
   * Merge with debian git, remaining changes:
     - add and install 30-baloo-inotify-limit.conf
     - build-depend on libboost1.55-dev instead of libboost-dev
@@ -29,6 +30,9 @@ kde-runtime (4:14.11.97-0ubuntu1) UNRELEASED; urgency=medium
   * Fix watch urls for new release location
   * Update Vcs urls for the new repository location
   * Update the maintainer
+
+  [ Jonathan Riddell ]
+  * Make depends on kdelibs5-plugins unversioned
 
  -- Philip Muškovac <yofel@kubuntu.org>  Sun, 23 Nov 2014 18:30:53 +0100
 

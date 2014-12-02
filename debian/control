@@ -52,7 +52,7 @@ Vcs-Git: git://anonscm.debian.org/pkg-kde/kde-applications/kde-runtime.git
 Package: kde-runtime
 Architecture: any
 Depends: kde-runtime-data (>= ${source:Version}),
-         kdelibs5-plugins (>= ${source:Upstream-Version}),
+         kdelibs5-plugins,
          language-selector-common,
          libqapt2-runtime,
          oxygen-icon-theme (>= 4:4.6),
