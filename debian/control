@@ -137,7 +137,7 @@ Description: shared data files for the KDE base runtime module
  .
  This package is part of the KDE base runtime module.
 
-Package: khelpcenter4
+Package: khelpcenter
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Recommends: htdig
