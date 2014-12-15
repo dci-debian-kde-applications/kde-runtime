@@ -137,19 +137,6 @@ Description: shared data files for the KDE base runtime module
  .
  This package is part of the KDE base runtime module.
 
-Package: khelpcenter
-Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
-Recommends: htdig
-Replaces: kde-runtime-data (<< 4:4.13.90), khelpcenter (<< 4:4.0.0)
-Breaks: kde-runtime-data (<< 4:4.13.90), khelpcenter (<< 4:4.0.0)
-Description: help center
- The KDE Help Center displays documentation on how to use the KDE plasma
- workspaces and applications, as well as UNIX man and info pages.
- It can search through documentation using the 'htdig' package.
- .
- This package is part of the KDE base runtime module.
-
 Package: plasma-scriptengine-javascript
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
