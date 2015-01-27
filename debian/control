@@ -54,7 +54,6 @@ Architecture: any
 Depends: kde-runtime-data (>= ${source:Version}),
          kdelibs5-plugins,
          language-selector-common,
-         libqapt2-runtime,
          oxygen-icon-theme (>= 4:4.6),
          plasma-scriptengine-javascript (= ${binary:Version}),
          ${misc:Depends},

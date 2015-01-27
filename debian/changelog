@@ -1,3 +1,9 @@
+kde-runtime (4:14.12.0-0ubuntu3) vivid; urgency=medium
+
+  * Remove depends on qapt-runtime
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 27 Jan 2015 11:05:59 +0100
+
 kde-runtime (4:14.12.0-0ubuntu2) vivid; urgency=medium
 
   * Don't apply kubuntu_langpack_install.diff, libkubuntu is moving to
