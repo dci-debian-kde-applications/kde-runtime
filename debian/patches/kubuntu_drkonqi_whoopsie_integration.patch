@@ -1,0 +1,64 @@
+Description: automatic crash report integration
+ integraes drkonqi with whoopsie/kubuntu-notification-helper/apport to allow
+ automatic crash reporting to errors.ubuntu.com. this is achieved by
+ adding a checkbox to drkonqi that will create a marker file (*.drkonqi-accept)
+ if the user wishes to automatically submit the crash report to us.
+Origin: vendor
+Forwarded: no
+
+Index: kde-runtime-4.11.2/drkonqi/drkonqidialog.cpp
+===================================================================
+--- kde-runtime-4.11.2.orig/drkonqi/drkonqidialog.cpp	2013-08-28 18:59:56.412413678 +0200
++++ kde-runtime-4.11.2/drkonqi/drkonqidialog.cpp	2013-12-09 13:29:39.777253818 +0100
+@@ -41,6 +41,8 @@
+ static const char DRKONQI_REPORT_BUG_URL[] =
+     KDE_BUGZILLA_URL "enter_bug.cgi?product=drkonqi&format=guided";
+ 
++static QCheckBox *s_whoopsieCheckBox = 0;
++
+ DrKonqiDialog::DrKonqiDialog(QWidget * parent) :
+         KDialog(parent),
+         m_aboutBugReportingDialog(0),
+@@ -75,6 +77,25 @@
+ 
+ DrKonqiDialog::~DrKonqiDialog()
+ {
++    if (s_whoopsieCheckBox && s_whoopsieCheckBox->isChecked()) {
++        const CrashedApplication *crashedApp = DrKonqi::crashedApplication();
++
++        const QString procPath = QString::fromUtf8("/proc/%1").arg(QString::number(crashedApp->pid()));
++        const QFileInfo procFileInfo(procPath);
++
++        const QString executable = QFileInfo(procPath + QLatin1String("/exe")).symLinkTarget().replace('/', '_');
++        const QString uid = QString::number(procFileInfo.ownerId());
++        const QString filePath =
++                QString("/var/crash/%1.%2.drkonqi-accept").arg(executable,
++                                                               uid);
++
++        kDebug() << executable << uid << filePath << s_whoopsieCheckBox->isChecked();
++
++        QFile acceptFile(filePath);
++        acceptFile.open(QFile::WriteOnly);
++        acceptFile.close();
++    }
++
+     KConfigGroup config(KGlobal::config(), "General");
+     saveDialogSize(config);
+ 
+@@ -158,6 +179,16 @@
+ 
+                                              KGlobal::locale()->formatTime(crashedApp->datetime().time(), true)
+                                              ));
++
++    // Read file because it's faster than dbus.
++    QFile whoopsieConfig(QLatin1String("/etc/default/whoopsie"));
++    whoopsieConfig.open(QFile::ReadOnly);
++    if (whoopsieConfig.readAll().contains(QByteArray("report_crashes=true"))) {
++        s_whoopsieCheckBox = new QCheckBox(m_introWidget);
++        s_whoopsieCheckBox->setText(i18n("Automatically submit a crash report"));
++        s_whoopsieCheckBox->setChecked(true);
++        m_introWidget->layout()->addWidget(s_whoopsieCheckBox);
++    }
+ }
+ 
+ void DrKonqiDialog::buildDialogButtons()

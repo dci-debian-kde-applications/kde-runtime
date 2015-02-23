@@ -1,0 +1,20 @@
+--- a/attica/kdeplugin/kdeplatformdependent.cpp
++++ b/attica/kdeplugin/kdeplatformdependent.cpp
+@@ -221,7 +221,7 @@
+     foreach (const QString& pathString, pathStrings) {
+         paths.append(QUrl(pathString));
+     }
+-    qDebug() << "Loaded paths from config:" << paths;
++    //qDebug() << "Loaded paths from config:" << paths;
+     return paths;
+ }
+ 
+@@ -234,7 +234,7 @@
+         pathStrings.append(urlString);
+         group.writeEntry("providerFiles", pathStrings);
+         group.sync();
+-        kDebug() << "wrote providers: " << pathStrings;
++        //kDebug() << "wrote providers: " << pathStrings;
+     }
+ }
+ 

@@ -1,0 +1,601 @@
+diff --git a/kcontrol/locale/CMakeLists.txt b/kcontrol/locale/CMakeLists.txt
+index 3b1f2b9..1022dd8 100644
+--- a/kcontrol/locale/CMakeLists.txt
++++ b/kcontrol/locale/CMakeLists.txt
+@@ -1,6 +1,14 @@
+ 
+ add_subdirectory( pics )
+ 
++find_package(Kubuntu QUIET CONFIG)
++set_package_properties(Kubuntu
++    PROPERTIES DESCRIPTION "Kubuntu Platform Integration"
++#    URL ""
++    TYPE REQUIRED
++    PURPOSE "Kubuntu specific l10n bits."
++)
++
+ ########### next target ###############
+ 
+ set(kcm_locale_PART_SRCS kcmlocale.cpp)
+@@ -9,11 +17,11 @@ kde4_add_ui_files(kcm_locale_PART_SRCS kcmlocalewidget.ui )
+ 
+ kde4_add_plugin(kcm_locale ${kcm_locale_PART_SRCS})
+ 
+-target_link_libraries(kcm_locale ${KDE4_KIO_LIBS} ${QT_QTGUI_LIBRARY} )
++target_link_libraries(kcm_locale ${KDE4_KIO_LIBS} ${QT_QTGUI_LIBRARY} ${KUBUNTU_LIBRARY})
++include_directories(${KUBUNTU_INCLUDE_DIR})
+ 
+ install(TARGETS kcm_locale  DESTINATION ${PLUGIN_INSTALL_DIR} )
+ 
+ ########### install files ###############
+ 
+ install( FILES language.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
+-
+diff --git a/kcontrol/locale/kcmlocale.cpp b/kcontrol/locale/kcmlocale.cpp
+index 3b7d310..cacf119 100644
+--- a/kcontrol/locale/kcmlocale.cpp
++++ b/kcontrol/locale/kcmlocale.cpp
+@@ -25,7 +25,10 @@
+ #include <QListWidget>
+ #include <QListWidgetItem>
+ #include <QPrinter>
++#include <QProgressBar>
+ #include <QTimer>
++#include <QFile>
++#include <QDir>
+ 
+ #include <KAboutData>
+ #include <KActionSelector>
+@@ -37,9 +40,15 @@
+ #include <KLocalizedString>
+ #include <KMessageBox>
+ #include <KPluginFactory>
++#include <KProtocolManager>
+ #include <KStandardDirs>
+ #include <KCurrencyCode>
+ 
++#include <Kubuntu/l10n_language.h>
++#include <Kubuntu/l10n_languagecollection.h>
++#include <Kubuntu/l10n_locale.h>
++#include <Kubuntu/busyoverlay.h>
++
+ #include "ui_kcmlocalewidget.h"
+ 
+ K_PLUGIN_FACTORY( KCMLocaleFactory, registerPlugin<KCMLocale>(); )
+@@ -57,6 +66,7 @@ KCMLocale::KCMLocale( QWidget *parent, const QVariantList &args )
+            m_kcmLocale( 0 ),
+            m_defaultLocale( 0 ),
+            m_ui( new Ui::KCMLocaleWidget )
++         , m_kubuntuLanguages(new Kubuntu::LanguageCollection)
+ {
+     KAboutData *about = new KAboutData( "kcmlocale", 0, ki18n( "Localization options for KDE applications" ),
+                                         0, KLocalizedString(), KAboutData::License_GPL,
+@@ -67,6 +77,10 @@ KCMLocale::KCMLocale( QWidget *parent, const QVariantList &args )
+     setAboutData( about );
+ 
+     m_ui->setupUi( this );
++    m_ui->m_messageWidget->hide();
++
++    m_ui->installWidgets->hide();
++    m_ui->installProgressBar->setValue(0);
+ 
+     initSettings();
+ 
+@@ -567,8 +581,24 @@ void KCMLocale::mergeSettings()
+     if ( m_kcmTranslations.count() >= 1 ) {
+         locale = m_kcmTranslations.first();
+     } else {
+-        locale = "en_US";
++        // If no language is explicitly selected, switch to the global one.
++        // This actually by-passes QApt integration as obviously we would not
++        // want to trigger additional package installation without context.
++        // Not having a language manually selected is pretty much as uncontextual
++        // as it gets.
++        const QString globalLanguage = KGlobal::locale()->language();
++        kDebug() << "No language selected yet. Forcing KGlobal's language." << globalLanguage;
++        kDebug() << "Installed Languages:" << m_installedTranslations;
++        if (m_installedTranslations.contains(globalLanguage)) {
++            m_manuallySetLanguage = globalLanguage;
++            setTranslations(globalLanguage);
++            return;
++        }
++        kDebug() << "Fallback not available, using en_US instead.";
++        setTranslations("en_US");
++        return;
+     }
++    kDebug() << locale;
+ 
+     m_cConfig->setLocale( locale );
+     m_countryConfig->setLocale( locale );
+@@ -659,6 +689,17 @@ void KCMLocale::save()
+ 
+     load();
+     KGlobalSettings::self()->emitChange(KGlobalSettings::SettingsChanged, KGlobalSettings::SETTINGS_LOCALE);
++
++    // -------------------------------------------------------------------------
++    // Write LANG and LANGUAGE to ~/.kde/env/setlocale.sh
++
++    const QString envPath = KGlobal::dirs()->localkdedir() % QLatin1String("/env");
++    const QString envFile = envPath % QLatin1String("/setlocale.sh");
++
++    kDebug() << m_kcmTranslations;
++    Kubuntu::Locale locale(m_kcmTranslations, m_kcmLocale->countryDivisionCode());
++    kDebug() << "write env" << locale.writeToFile(envFile);
++
+ }
+ 
+ QString KCMLocale::quickHelp() const
+@@ -1194,12 +1235,53 @@ void KCMLocale::initTranslations()
+     m_ui->m_selectTranslations->availableListWidget()->clear();
+     m_ui->m_selectTranslations->selectedListWidget()->clear();
+ 
++    // To do a search we need to open the cache and if necessary build it first.
++    // This can take quite a while so we busy indicate by default and only once init is done
++    // we switch to the actual UI.
++    m_ui->m_tabTranslations->setEnabled(false);
++    Kubuntu::BusyOverlay *b = new Kubuntu::BusyOverlay(m_ui->m_tabTranslations, this);
++    connect(m_kubuntuLanguages, SIGNAL(updateProgress(int)), b, SLOT(setProgress(int)));
++    connect(m_kubuntuLanguages, SIGNAL(updated()), b, SLOT(throwAway()));
++    connect(m_kubuntuLanguages, SIGNAL(updated()), this, SLOT(continueInitTranslations()));
++    m_kubuntuLanguages->update();
++}
++
++/**
++ * Unlike KLocale::languageCodeToName this function *always* returns a
++ * non-empty string. In particular if there is no mapping it returns the code.
++ */
++QString KCMLocale::languageCodeToName(const QString &code) const
++{
++    QString name = m_kcmLocale->languageCodeToName(code);
++    if (name.isEmpty())
++        name = code;
++    return name;
++}
++
++void KCMLocale::continueInitTranslations()
++{
++    disconnect(m_kubuntuLanguages, SIGNAL(updated()), this, SLOT(continueInitTranslations()));
++
++    QSet<Kubuntu::Language *> kubuntuLanguageSet = m_kubuntuLanguages->languages();
++    QMap<QString, Kubuntu::Language*> kubuntuLanguageMap;
++    foreach (Kubuntu::Language *language, kubuntuLanguageSet) {
++        kubuntuLanguageMap.insert(language->kdeLanguageCode(), language);
++    }
++
++    // Please note that the reason we are setting the languageCode explicitly is
++    // that even when the package based Kubuntu::Language magic fails we
++    // have something to fall back to when applying the languages.
++
+     // Load each user selected language into the selected list
+     int i = 0;
+     foreach ( const QString &languageCode, m_kcmTranslations ) {
+         QListWidgetItem *listItem = new QListWidgetItem( m_ui->m_selectTranslations->selectedListWidget() );
++        kDebug()  << "adding translations" << m_kcmLocale->languageCodeToName( languageCode );
++
+         listItem->setText( m_kcmLocale->languageCodeToName( languageCode ) );
+         listItem->setData( Qt::UserRole, languageCode );
++        if (Kubuntu::Language *language = kubuntuLanguageMap.value(languageCode))
++            listItem->setData(Qt::UserRole+1, QVariant::fromValue<Kubuntu::Language *>(language));
+         ++i;
+     }
+ 
+@@ -1208,11 +1290,29 @@ void KCMLocale::initTranslations()
+     foreach ( const QString &languageCode, m_installedTranslations ) {
+         if ( !m_kcmTranslations.contains( languageCode ) ) {
+             QListWidgetItem *listItem = new QListWidgetItem( m_ui->m_selectTranslations->availableListWidget() );
++            kDebug()  << "adding installed" << m_kcmLocale->languageCodeToName( languageCode );
+             listItem->setText( m_kcmLocale->languageCodeToName( languageCode ) );
+             listItem->setData( Qt::UserRole, languageCode );
++            if (Kubuntu::Language *language = kubuntuLanguageMap.value(languageCode))
++                listItem->setData(Qt::UserRole+1, QVariant::fromValue<Kubuntu::Language *>(language));
+             ++i;
+         }
+     }
++
++    // Load all other languages avialable for installation.
++    foreach (Kubuntu::Language *language, kubuntuLanguageSet) {
++        // Don't list languages that are either already known as being installed or selected for use.
++        if (m_kcmTranslations.contains(language->kdeLanguageCode()) ||
++                m_installedTranslations.contains(language->kdeLanguageCode()))
++            continue;
++
++        QListWidgetItem *listItem = new QListWidgetItem(m_ui->m_selectTranslations->availableListWidget());
++        const QString languageName = languageCodeToName(language->kdeLanguageCode());
++        listItem->setText(languageName);
++        listItem->setData(Qt::UserRole, language->kdeLanguageCode());
++        listItem->setData(Qt::UserRole+1, QVariant::fromValue<Kubuntu::Language *>(language));
++    }
++
+     m_ui->m_selectTranslations->availableListWidget()->sortItems();
+ 
+     // Default to selecting the first Selected language,
+@@ -1224,6 +1324,7 @@ void KCMLocale::initTranslations()
+         m_ui->m_selectTranslations->availableListWidget()->setCurrentRow( 0 );
+     }
+ 
++    m_ui->m_tabTranslations->setEnabled(true);
+     enableItemWidgets( "Language",
+                        &m_userSettings, &m_kcmSettings, &m_defaultSettings,
+                        m_ui->m_selectTranslations, m_ui->m_buttonDefaultTranslations );
+@@ -1239,6 +1340,14 @@ void KCMLocale::defaultTranslations()
+ void KCMLocale::changedTranslationsAvailable( QListWidgetItem *item )
+ {
+     Q_UNUSED( item );
++    if (item->data(Qt::UserRole).toString() == m_manuallySetLanguage) {
++        // It is re-inserted by mergeSettings(). No need to do it manually here.
++        m_ui->m_messageWidget->setText(i18nc("@status message widget",
++                                             "You tried to remove your active system language, this is not supported."));
++        m_ui->m_messageWidget->setMessageType(KMessageWidget::Error);
++        m_ui->m_messageWidget->animatedShow();
++    }
++
+     m_ui->m_selectTranslations->availableListWidget()->sortItems();
+     int row = m_ui->m_selectTranslations->availableListWidget()->currentRow();
+     changedTranslations();
+@@ -1259,9 +1368,95 @@ void KCMLocale::changedTranslations()
+     QStringList selectedTranslations;
+     for ( int i = 0; i < m_ui->m_selectTranslations->selectedListWidget()->count(); ++i ) {
+         selectedTranslations.append(  m_ui->m_selectTranslations->selectedListWidget()->item( i )->data( Qt::UserRole ).toString() );
++
++        // Use Kubuntu addons to figure out whether or not this installation
++        // needs installation actions.
++        QListWidgetItem* item = m_ui->m_selectTranslations->selectedListWidget()->item( i );
++
++        Kubuntu::Language *language = 0;
++        const QVariant variant = item->data(Qt::UserRole+1);
++        kDebug() << "variant" << variant;
++        kDebug() << "variant" << variant.isValid() << variant.canConvert<Kubuntu::Language *>();
++        if (variant.isValid())
++            language = variant.value<Kubuntu::Language *>();
++
++        if (language && !language->isSupportComplete()) {
++            kDebug() << "support not complete for" << language->kdeLanguageCode();
++            m_kubuntuLanguagesMap[language] = i;
++
++            // Deactivate UI during install.
++            m_ui->m_selectTranslations->setEnabled(false);
++            m_ui->m_buttonDefaultTranslations->setEnabled(false);
++
++            connect(language, SIGNAL(supportCompletionProgress(int)),
++                    this, SLOT(onLanguageCompletionProgress(int)));
++            connect(language, SIGNAL(supportComplete()),
++                    this, SLOT(onLanguageCompletion()));
++            connect(language, SIGNAL(supportCompletionFailed()),
++                    this, SLOT(onLanguageCompletionError()));
++            language->completeSupport();
++        } else if (language)
++            kDebug() << "support complete for" << language->kdeLanguageCode();
++        else
++            kDebug() << "this language has no Kubuntu::Language associated with it :'<" << item->text();
++    }
++
++    kDebug() << m_kubuntuLanguagesMap;
++
++    // setting of translations is delayed until all transactions returned, if we started any
++    if (m_kubuntuLanguagesMap.count() == 0) {
++        kDebug() << "setTranslations" << selectedTranslations;
++        setTranslations( selectedTranslations.join( ":" ) );
++    }
++}
++
++void KCMLocale::onLanguageCompletionError()
++{
++    const int i = m_kubuntuLanguagesMap.value(qobject_cast<Kubuntu::Language *>(sender()));
++    // Error'd item cleanup needs to happen in one go or the index will change
++    m_selectedCleanupList.append(i);
++    kDebug() << "Transaction error on selected item" << i;
++    onLanguageCompletion();
++}
++
++void KCMLocale::onLanguageCompletion()
++{
++    const int i = m_kubuntuLanguagesMap.take(qobject_cast<Kubuntu::Language *>(sender()));
++    kDebug() << "Completion finished for item" << i;
++    sender()->deleteLater();
++    if (m_kubuntuLanguagesMap.count() == 0) {
++        kDebug() << "Out of transactions ... enabling UI and clearing pending packages";
++
++        // Move selected items with errors from selected to available.
++        // Loop the list backwards as otherwise the index may change due to removal
++        // of a previous entry.
++        for (int i = m_selectedCleanupList.size() - 1; i >= 0; --i) {
++            const int index = m_selectedCleanupList.at(i);
++            QListWidgetItem *item = m_ui->m_selectTranslations->selectedListWidget()->takeItem(index);
++            Q_ASSERT(item);
++            m_ui->m_selectTranslations->selectedListWidget()->removeItemWidget(item);
++            kDebug() << "Dropping item" << index << item->text() << "because it had an error.";
++            m_ui->m_selectTranslations->availableListWidget()->addItem(item);
++            m_ui->m_selectTranslations->availableListWidget()->sortItems();
++        }
++        m_selectedCleanupList.clear();
++
++        m_ui->m_selectTranslations->setEnabled(true);
++        m_ui->m_buttonDefaultTranslations->setEnabled(true);
++        QStringList selectedTranslations;
++        for ( int i = 0; i < m_ui->m_selectTranslations->selectedListWidget()->count(); ++i )
++            selectedTranslations.append(  m_ui->m_selectTranslations->selectedListWidget()->item( i )->data( Qt::UserRole ).toString() );
++        setTranslations( selectedTranslations.join( ":" ) );
+     }
++}
+ 
+-    setTranslations( selectedTranslations.join( ":" ) );
++void KCMLocale::onLanguageCompletionProgress(int percentage) {
++    if (percentage == 100) {
++        m_ui->installWidgets->hide();
++    } else {
++        m_ui->installWidgets->show();
++        m_ui->installProgressBar->setValue(percentage);
++    }
+ }
+ 
+ void KCMLocale::setTranslations( const QString &newValue )
+diff --git a/kcontrol/locale/kcmlocale.h b/kcontrol/locale/kcmlocale.h
+index c7b29bc..f72d373 100644
+--- a/kcontrol/locale/kcmlocale.h
++++ b/kcontrol/locale/kcmlocale.h
+@@ -29,6 +29,7 @@
+ 
+ class QListWidgetItem;
+ class QCheckBox;
++class QProgressBar;
+ class KPushButton;
+ class KComboBox;
+ class KIntNumInput;
+@@ -37,6 +38,11 @@ namespace Ui {
+   class KCMLocaleWidget;
+ }
+ 
++namespace Kubuntu {
++    class Language;
++    class LanguageCollection;
++}
++
+ /**
+  * @short A KCM to configure locale settings
+  *
+@@ -408,7 +414,18 @@ private Q_SLOTS:
+     void defaultBinaryUnitDialect();
+     void changedBinaryUnitDialectIndex( int index );
+ 
++    // Kubuntu adhoc l10n installation patch slots
++    void onLanguageCompletionProgress(int);
++    void onLanguageCompletionError();
++    void onLanguageCompletion();
++    void continueInitTranslations();
++
+ private:
++    // Kubuntu langpack patch privates.
++    QString languageCodeToName(const QString &code) const;
++    /** !empty when the system language was inserted as only selection */
++    QString m_manuallySetLanguage;
++
+     // Date/Time format map utilities
+     QString posixToUserDate( const QString &posixFormat ) const;
+     QString posixToUserTime( const QString &posixFormat ) const;
+@@ -478,6 +495,11 @@ private:
+     KLocale *m_defaultLocale;
+ 
+     Ui::KCMLocaleWidget *m_ui;
++    Kubuntu::LanguageCollection *m_kubuntuLanguages;
++    QMap<Kubuntu::Language *, int> m_kubuntuLanguagesMap;
++    QList<int> m_selectedCleanupList;
+ };
+ 
+-#endif //KCMLOCALE_H
+\ No newline at end of file
++Q_DECLARE_METATYPE(Kubuntu::Language*)
++
++#endif //KCMLOCALE_H
+diff --git a/kcontrol/locale/kcmlocalewidget.ui b/kcontrol/locale/kcmlocalewidget.ui
+index bba9074..1a97d75 100644
+--- a/kcontrol/locale/kcmlocalewidget.ui
++++ b/kcontrol/locale/kcmlocalewidget.ui
+@@ -7,7 +7,7 @@
+     <x>0</x>
+     <y>0</y>
+     <width>702</width>
+-    <height>439</height>
++    <height>443</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+@@ -20,7 +20,7 @@
+    <item>
+     <widget class="KTabWidget" name="m_tabWidgetSettings">
+      <property name="currentIndex">
+-      <number>0</number>
++      <number>1</number>
+      </property>
+      <widget class="QWidget" name="m_tabLocation">
+       <attribute name="title">
+@@ -105,16 +105,36 @@
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+-        <widget class="KActionSelector" name="m_selectTranslations">
+-         <property name="availableLabel">
++        <widget class="KMessageWidget" name="m_messageWidget" native="true"/>
++       </item>
++       <item>
++        <widget class="KActionSelector" name="m_selectTranslations" native="true">
++         <property name="availableLabel" stdset="0">
+           <string>Available Languages:</string>
+          </property>
+-         <property name="selectedLabel">
++         <property name="selectedLabel" stdset="0">
+           <string>Preferred Languages:</string>
+          </property>
+-         <property name="availableInsertionPolicy">
+-          <enum>KActionSelector::BelowCurrent</enum>
+-         </property>
++        </widget>
++       </item>
++       <item>
++        <widget class="QWidget" name="installWidgets" native="true">
++         <layout class="QHBoxLayout" name="horizontalLayout_15">
++          <item>
++           <widget class="QLabel" name="installLabel">
++            <property name="text">
++             <string>Install Progress:</string>
++            </property>
++           </widget>
++          </item>
++          <item>
++           <widget class="QProgressBar" name="installProgressBar">
++            <property name="value">
++             <number>24</number>
++            </property>
++           </widget>
++          </item>
++         </layout>
+         </widget>
+        </item>
+        <item>
+@@ -284,7 +304,7 @@
+        <item row="3" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_13">
+          <item>
+-          <widget class="KIntNumInput" name="m_intDecimalPlaces">
++          <widget class="KIntNumInput" name="m_intDecimalPlaces" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+@@ -297,10 +317,10 @@
+            <property name="whatsThis">
+             <string/>
+            </property>
+-           <property name="minimum">
++           <property name="minimum" stdset="0">
+             <number>0</number>
+            </property>
+-           <property name="maximum">
++           <property name="maximum" stdset="0">
+             <number>10</number>
+            </property>
+           </widget>
+@@ -645,7 +665,7 @@
+        <item row="5" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+-          <widget class="KIntNumInput" name="m_intMonetaryDecimalPlaces">
++          <widget class="KIntNumInput" name="m_intMonetaryDecimalPlaces" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+@@ -658,10 +678,10 @@
+            <property name="whatsThis">
+             <string/>
+            </property>
+-           <property name="minimum">
++           <property name="minimum" stdset="0">
+             <number>0</number>
+            </property>
+-           <property name="maximum">
++           <property name="maximum" stdset="0">
+             <number>10</number>
+            </property>
+           </widget>
+@@ -871,20 +891,20 @@
+        <item row="2" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_29">
+          <item>
+-          <widget class="KIntNumInput" name="m_intShortYearWindowStartYear">
++          <widget class="KIntNumInput" name="m_intShortYearWindowStartYear" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+-           <property name="value">
++           <property name="value" stdset="0">
+             <number>2000</number>
+            </property>
+-           <property name="minimum">
++           <property name="minimum" stdset="0">
+             <number>-9999</number>
+            </property>
+-           <property name="maximum">
++           <property name="maximum" stdset="0">
+             <number>9999</number>
+            </property>
+           </widget>
+@@ -1534,6 +1554,13 @@
+       <string/>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
++      <item row="3" column="1" colspan="2">
++       <widget class="QLabel" name="m_textShortDateSample">
++        <property name="text">
++         <string/>
++        </property>
++       </widget>
++      </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="m_labelNumbersSample">
+         <property name="text">
+@@ -1590,13 +1617,6 @@
+         </property>
+        </widget>
+       </item>
+-      <item row="3" column="1" colspan="2">
+-       <widget class="QLabel" name="m_textShortDateSample">
+-        <property name="text">
+-         <string/>
+-        </property>
+-       </widget>
+-      </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="m_labelTimeSample">
+         <property name="text">
+@@ -1625,9 +1645,9 @@
+  </widget>
+  <customwidgets>
+   <customwidget>
+-   <class>KIntSpinBox</class>
+-   <extends>QSpinBox</extends>
+-   <header>knuminput.h</header>
++   <class>KComboBox</class>
++   <extends>QComboBox</extends>
++   <header>kcombobox.h</header>
+   </customwidget>
+   <customwidget>
+    <class>KPushButton</class>
+@@ -1635,9 +1655,14 @@
+    <header>kpushbutton.h</header>
+   </customwidget>
+   <customwidget>
+-   <class>KComboBox</class>
+-   <extends>QComboBox</extends>
+-   <header>kcombobox.h</header>
++   <class>KIntSpinBox</class>
++   <extends>QSpinBox</extends>
++   <header>knuminput.h</header>
++  </customwidget>
++  <customwidget>
++   <class>KIntNumInput</class>
++   <extends>QWidget</extends>
++   <header>knuminput.h</header>
+   </customwidget>
+   <customwidget>
+    <class>KTabWidget</class>
+@@ -1646,14 +1671,15 @@
+    <container>1</container>
+   </customwidget>
+   <customwidget>
+-   <class>KIntNumInput</class>
++   <class>KActionSelector</class>
+    <extends>QWidget</extends>
+-   <header>knuminput.h</header>
++   <header>kactionselector.h</header>
+   </customwidget>
+   <customwidget>
+-   <class>KActionSelector</class>
++   <class>KMessageWidget</class>
+    <extends>QWidget</extends>
+-   <header>kactionselector.h</header>
++   <header location="global">KMessageWidget</header>
++   <container>1</container>
+   </customwidget>
+  </customwidgets>
+  <tabstops>

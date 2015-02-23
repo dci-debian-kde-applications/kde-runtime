@@ -1,0 +1,9 @@
+Index: kde-runtime-4.10.3/knetattach/knetattach.desktop
+===================================================================
+--- kde-runtime-4.10.3.orig/knetattach/knetattach.desktop	2013-05-24 22:15:44.000000000 +0000
++++ kde-runtime-4.10.3/knetattach/knetattach.desktop	2013-05-24 22:15:44.000000000 +0000
+@@ -187,3 +187,4 @@
+ Categories=Qt;KDE;Network;RemoteAccess;
+ X-DocPath=knetattach/index.html
+ OnlyShowIn=KDE;
++NoDisplay=true
