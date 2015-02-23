@@ -125,8 +125,8 @@ kde-runtime (4:4.14.1-1) unstable; urgency=medium
 kde-runtime (4:4.14.1-0ubuntu1) utopic; urgency=medium
 
   * New upstream release
-  * Add missing qwant searchproviders files to install file. 
-  * wrap-and-sort 
+  * Add missing qwant searchproviders files to install file.
+  * wrap-and-sort
 
  -- Scarlett Clark <scarlett@scarlettgatelyclark.com>  Mon, 22 Sep 2014 17:06:28 +0200
 
@@ -154,7 +154,7 @@ kde-runtime (4:4.14.0-0ubuntu1) utopic; urgency=medium
 kde-runtime (4:4.13.97-0ubuntu4) utopic; urgency=medium
 
   * Bump kde-runtime-data breaks/replaces kde-runtime version for the SRU
-    updates 
+    updates
 
  -- Philip Muškovac <yofel@kubuntu.org>  Tue, 12 Aug 2014 22:08:00 +0200
 
@@ -215,7 +215,7 @@ kde-runtime (4:4.13.2-0ubuntu5) utopic; urgency=medium
 
 kde-runtime (4:4.13.2-0ubuntu4) utopic; urgency=medium
 
-  * khelpcenter4 breaks/replaces kde-runtime-data << 4:4.13.2-0ubuntu3~ 
+  * khelpcenter4 breaks/replaces kde-runtime-data << 4:4.13.2-0ubuntu3~
 
  -- Philip Muškovac <yofel@kubuntu.org>  Thu, 19 Jun 2014 10:28:47 +0200
 
@@ -392,7 +392,7 @@ kde-runtime (4:4.12.2-1) experimental; urgency=medium
 
 kde-runtime (4:4.12.2-0ubuntu2) trusty; urgency=medium
 
-  * Update kubuntu_langpack_install.diff for 4.12.2 from 
+  * Update kubuntu_langpack_install.diff for 4.12.2 from
     git@git.kde.org:clones/kde-runtime/sitter/kubuntu
     + Also port to libkubuntu, cutting the patch in half.
     + This is part of the ongoing movement towards upstreaming this patch.
@@ -521,7 +521,7 @@ kde-runtime (4:4.11.2-0ubuntu1) saucy; urgency=low
 
 kde-runtime (4:4.11.1-0ubuntu2) saucy; urgency=low
 
-  * Import be1a5d484c70f4f6a383150810afbfbb367db2ac 
+  * Import be1a5d484c70f4f6a383150810afbfbb367db2ac
     from upstream to fix regressions related to
     ignored events in the event handler.
 
@@ -536,7 +536,7 @@ kde-runtime (4:4.11.1-0ubuntu1) saucy; urgency=low
 kde-runtime (4:4.11.0-0ubuntu2) saucy; urgency=low
 
   * Recommend udisks2 instead of udisks now that kdelibs builds the udisks2
-    backend 
+    backend
 
  -- Philip Muškovac <yofel@kubuntu.org>  Fri, 16 Aug 2013 02:33:50 +0200
 
@@ -559,7 +559,7 @@ kde-runtime (4:4.10.97-0ubuntu1) saucy; urgency=low
 
 kde-runtime (4:4.10.95-0ubuntu1) saucy; urgency=low
 
-  * New upstream RC release 
+  * New upstream RC release
     - Drop kubuntu_phonon_forget_option.diff as that's now fixed upstream
     - Drop kubuntu_silence_kwallet_per_app.patch, applied upstream
     - Add documentation files to kde-runtime-data
@@ -635,7 +635,7 @@ kde-runtime (4:4.10.3-0ubuntu3) saucy; urgency=low
 
 kde-runtime (4:4.10.3-0ubuntu2) saucy; urgency=low
 
-  * khelpcenter4 breaks/replaces kde-runtime-data << 4:4.10.3-0ubuntu2~ 
+  * khelpcenter4 breaks/replaces kde-runtime-data << 4:4.10.3-0ubuntu2~
   * Remove plasmapkg manpage from kde-runtime.manpages, it's shipped in
     kde-runtime-data and add breaks/replaces
     (LP: #1184127)
@@ -778,7 +778,7 @@ kde-runtime (4:4.10.0-0ubuntu1) raring-proposed; urgency=low
 kde-runtime (4:4.9.98-0ubuntu2) raring; urgency=low
 
   * Import kde-runtime-4.9.98-kde#310486.patch from fedora as
-    kubuntu_kde-runtime-4.9.98-kde#310486.patch which reverts parts from 
+    kubuntu_kde-runtime-4.9.98-kde#310486.patch which reverts parts from
     upstream commit deee161a42efda74965ca4aab7d79fb7fb375352 to work around
     kde bug #310486.
 
@@ -809,7 +809,7 @@ kde-runtime (4:4.9.95-0ubuntu3) raring; urgency=low
 
 kde-runtime (4:4.9.95-0ubuntu2) raring; urgency=low
 
-  * kde-runtime breaks replaces kde-workspace-bin << 4:4.9.95 
+  * kde-runtime breaks replaces kde-workspace-bin << 4:4.9.95
     (overwrites plasmapkg)
 
  -- Philip Muškovac <yofel@kubuntu.org>  Sun, 23 Dec 2012 15:07:01 +0100
@@ -887,7 +887,7 @@ kde-runtime (4:4.9.2-0ubuntu2) raring-proposed; urgency=low
 
   * Add kubuntu_shutup_shutup_shutup.diff to stop Attica-KDE from being so
     damn noisy, debug-wise.
-  * Update kubuntu_langpack_install.diff:           
+  * Update kubuntu_langpack_install.diff:
     - Port to QApt2. (New transaction API for installs)
     - Use the KDE proxy for downloading langpacks
     - Optimize QString usage, by using const QString functions to avoid
@@ -959,7 +959,7 @@ kde-runtime (4:4.8.90-0ubuntu1) quantal; urgency=low
 
 kde-runtime (4:4.8.80-0ubuntu1) quantal; urgency=low
 
-  * Merge with debian git, remaining changes: 
+  * Merge with debian git, remaining changes:
     - add kde-runtime.[postinst,prerm] for update-alternatives kdesu
     - debian/control:
       + Remove libqzeitgeist-dev build-dep, not in main
@@ -1089,7 +1089,7 @@ kde-runtime (4:4.8.1-0ubuntu1) precise; urgency=low
 
   [ Philip Muskovac ]
   * New upstream release
-  * Add a kde-runtime-dev package with the nepomuk headers 
+  * Add a kde-runtime-dev package with the nepomuk headers
     (LP: #928009, #947498)
   * Add separate packages for libnepomukdatamanagement4 and libnepomuksync4
     and add symbol files
@@ -1560,7 +1560,7 @@ kdebase-runtime (4:4.6.2-1) experimental; urgency=low
   * Remove stating articles from short descriptions.
   * Update lintian overrides.
   * Add myself to Uploaders.
-  
+
   [ Pino Toscano ]
   * Add build dependencies:
     - libntrack-qt4-dev
@@ -3728,4 +3728,3 @@ kdebase-runtime (4:3.95.0-1) experimental; urgency=low
   * Add gdb dependency to drkonqi.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Wed, 31 Oct 2007 14:30:35 +0100
-
