@@ -1,11 +1,11 @@
-kde-runtime (4:14.12.2-1~) UNRELEASED; urgency=medium
+kde-runtime (4:14.12.2-1) experimental; urgency=medium
 
   * New upstream release (14.12.2).
   * Bump Standards-Version to 3.9.6, no changes needed.
   * Remove upstream patch: upstream_sanitize_path
   * Refresh patches.
 
- -- Maximiliano Curia <maxy@debian.org>  Mon, 23 Feb 2015 22:19:24 +0100
+ -- Maximiliano Curia <maxy@debian.org>  Tue, 24 Feb 2015 13:12:06 +0100
 
 kde-runtime (4:14.12.2-0ubuntu1) vivid; urgency=medium
 
