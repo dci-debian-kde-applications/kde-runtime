@@ -1,8 +1,8 @@
-kde-runtime (4:14.12.3-0ubuntu1) UNRELEASED; urgency=medium
+kde-runtime (4:14.12.3-0ubuntu1) vivid; urgency=medium
 
   * New upstream release
 
- -- Scarlett Clark <sgclark@kubuntu.org>  Mon, 09 Mar 2015 10:23:06 -0700
+ -- Scarlett Clark <sgclark@kubuntu.org>  Fri, 13 Mar 2015 14:32:44 -0700
 
 kde-runtime (4:14.12.2-0ubuntu1) vivid; urgency=medium
 
