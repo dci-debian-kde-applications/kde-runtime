@@ -1,3 +1,10 @@
+kde-runtime (4:15.04.0-0ubuntu1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+  * Bump kdepimlibs version
+
+ -- Scarlett Clark <sgclark@kubuntu.org>  Tue, 28 Apr 2015 15:00:43 -0700
+
 kde-runtime (4:14.11.95-0ubuntu1) UNRELEASED; urgency=medium
 
   * Merge with debian git, remaining changes:
