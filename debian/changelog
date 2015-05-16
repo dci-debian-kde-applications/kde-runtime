@@ -1,9 +1,11 @@
-kde-runtime (4:15.04.0-0ubuntu1) UNRELEASED; urgency=medium
+kde-runtime (4:15.04.1-0ubuntu1) UNRELEASED; urgency=medium
 
   * New upstream release.
   * Bump kdepimlibs version
+  * New upstream release
+  * wrap-and-sort 
 
- -- Scarlett Clark <sgclark@kubuntu.org>  Tue, 28 Apr 2015 15:00:43 -0700
+ -- Scarlett Clark <sgclark@kubuntu.org>  Wed, 13 May 2015 21:33:16 -0700
 
 kde-runtime (4:14.12.3-0ubuntu1) vivid; urgency=medium
 

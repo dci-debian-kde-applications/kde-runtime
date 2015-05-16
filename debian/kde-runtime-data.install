@@ -140,6 +140,7 @@ usr/share/desktop-directories/kde-games-roguelikes.directory
 usr/share/desktop-directories/kde-games-strategy.directory
 usr/share/desktop-directories/kde-games.directory
 usr/share/desktop-directories/kde-graphics.directory
+usr/share/desktop-directories/kde-information.directory
 usr/share/desktop-directories/kde-internet-terminal.directory
 usr/share/desktop-directories/kde-internet.directory
 usr/share/desktop-directories/kde-main.directory
@@ -159,7 +160,6 @@ usr/share/desktop-directories/kde-utilities-peripherals.directory
 usr/share/desktop-directories/kde-utilities-pim.directory
 usr/share/desktop-directories/kde-utilities-xutils.directory
 usr/share/desktop-directories/kde-utilities.directory
-usr/share/desktop-directories/kde-information.directory
 usr/share/doc/kde/HTML/*/fundamentals/
 usr/share/doc/kde/HTML/*/kcontrol/
 usr/share/doc/kde/HTML/*/kdebugdialog/
