@@ -1,3 +1,11 @@
+kde-runtime (4:4.14.2-3) unstable; urgency=medium
+
+  * Team upload.
+  * Add libsoprano-dev to build-depends to fix FTBFS now that it is no longer
+    pulled in transitively
+
+ -- Scott Kitterman <scott@kitterman.com>  Tue, 25 Aug 2015 16:59:36 -0400
+
 kde-runtime (4:4.14.2-2) unstable; urgency=medium
 
   [ Lisandro Damián Nicanor Pérez Meyer ]
