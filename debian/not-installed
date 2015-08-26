@@ -77,3 +77,14 @@
 ./usr/lib/kde4/platformimports/touch/org/kde/plasma/components/private/TabBarLayout.qml
 ./usr/lib/kde4/platformimports/touch/org/kde/plasma/components/private/TabGroup.js
 ./usr/lib/kde4/platformimports/touch/org/kde/plasma/components/private/TextFieldFocus.qml
+
+# Khelpcenter4 now provided by Kf5 source khelpcenter
+./usr/bin/khelpcenter
+./usr/lib/libkdeinit4_khelpcenter.so
+./usr/share/applications/kde4/Help.desktop
+./usr/share/dbus-1/interfaces/org.kde.khelpcenter.kcmhelpcenter.xml
+./usr/share/doc/kde/HTML/*/khelpcenter/
+./usr/share/doc/kde/HTML/*/onlinehelp/
+./usr/share/kde4/apps/khelpcenter/
+./usr/share/kde4/config.kcfg/khelpcenter.kcfg
+./usr/share/kde4/services/khelpcenter.desktop
