@@ -2,6 +2,12 @@
 
 include /usr/share/pkg-kde-tools/qt-kde-team/2/debian-qt-kde.mk
 
+# Because of bug #190367 hurd doesn't support samba
+DEB_TARGET_ARCH_OS:=$(shell dpkg-architecture -qDEB_TARGET_ARCH_OS)
+ifeq ($(DEB_TARGET_ARCH_OS), hurd)
+	DH_INSTALL_PARAMS := -Xkio_smb.so -Xsmb-network.desktop -Xsmb.protocol
+endif
+
 override_dh_auto_test:
 	# Disable dh_auto_test at build time
 	:
@@ -20,3 +26,6 @@ override_dh_fixperms:
 
 override_dh_strip:
 	$(overridden_command) --dbg-package=kde-runtime-dbg
+
+override_dh_install:
+	dh_install $(DH_INSTALL_PARAMS)
