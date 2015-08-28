@@ -1,3 +1,10 @@
+kde-runtime (4:4.14.2-5) UNRELEASED; urgency=medium
+
+  * Team upload.
+  * Don't build smbclient support on hurd due to Bug #190367
+
+ -- Diane Trout <diane@debian.org>  Thu, 27 Aug 2015 18:11:46 -0700
+
 kde-runtime (4:4.14.2-4) unstable; urgency=medium
 
   * Team upload.
