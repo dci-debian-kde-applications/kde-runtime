@@ -107,6 +107,33 @@ kde-runtime (4:14.11.97-0ubuntu1) vivid; urgency=medium
 
  -- Philip Muškovac <yofel@kubuntu.org>  Sun, 23 Nov 2014 18:30:53 +0100
 
+kde-runtime (4:4.14.2-5) UNRELEASED; urgency=medium
+
+  * Team upload.
+  * Don't build smbclient support on hurd due to Bug #190367
+
+ -- Diane Trout <diane@debian.org>  Thu, 27 Aug 2015 18:11:46 -0700
+
+kde-runtime (4:4.14.2-4) unstable; urgency=medium
+
+  * Team upload.
+  * Remove helpcenter4 binary as it's now provided as a transitional package
+    by the Kf5 based khelpcenter package
+    - Remove from debian/control
+    - Remove debian/khelpcenter4.dirs debian/khelpcenter4.install
+      debian/khelpcenter4.links debian/khelpcenter4.lintian-overrides
+    - Add files from debian/khelpcenter4.install to debian/not-installed
+
+ -- Scott Kitterman <scott@kitterman.com>  Wed, 26 Aug 2015 00:07:42 -0400
+
+kde-runtime (4:4.14.2-3) unstable; urgency=medium
+
+  * Team upload.
+  * Add libsoprano-dev to build-depends to fix FTBFS now that it is no longer
+    pulled in transitively
+
+ -- Scott Kitterman <scott@kitterman.com>  Tue, 25 Aug 2015 16:59:36 -0400
+
 kde-runtime (4:4.14.2-2) unstable; urgency=medium
 
   [ Lisandro Damián Nicanor Pérez Meyer ]
