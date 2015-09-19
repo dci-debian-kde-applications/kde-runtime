@@ -1,8 +1,8 @@
-kde-runtime (4:15.08.1-1~) UNRELEASED; urgency=medium
+kde-runtime (4:15.08.1-1) unstable; urgency=medium
 
   * New upstream release (15.08.1).
 
- -- Maximiliano Curia <maxy@debian.org>  Thu, 17 Sep 2015 19:58:00 +0200
+ -- Maximiliano Curia <maxy@debian.org>  Sat, 19 Sep 2015 19:10:37 +0200
 
 kde-runtime (4:15.08.0-2) unstable; urgency=medium
 
