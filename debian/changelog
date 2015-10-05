@@ -1,3 +1,12 @@
+kde-runtime (4:15.08.1-0ubuntu2) wily; urgency=medium
+
+  * kde4libs as of 4.14.12-0ubuntu2 makes sure to default to breeze instead of
+    oxygen, so adjust kde-runtime's runtime dependencies to pull in the breeze
+    icon theme and the widget style to meet the runtime requirements of
+    kdelibs.
+
+ -- Harald Sitter <sitter@kde.org>  Mon, 05 Oct 2015 16:27:39 +0200
+
 kde-runtime (4:15.08.1-0ubuntu1) wily; urgency=medium
 
   * New upstream release (15.08.1)
