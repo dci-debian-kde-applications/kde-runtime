@@ -1,8 +1,8 @@
-kde-runtime (4:15.08.2-0ubuntu1) UNRELEASED; urgency=medium
+kde-runtime (4:15.08.2-0ubuntu1) wily; urgency=medium
 
   * New upstream release
 
- -- Scarlett Clark <sgclark@kubuntu.org>  Fri, 09 Oct 2015 13:54:33 -0700
+ -- Scarlett Clark <sgclark@kubuntu.org>  Wed, 14 Oct 2015 12:11:18 +0100
 
 kde-runtime (4:15.08.1-0ubuntu2) wily; urgency=medium
 
