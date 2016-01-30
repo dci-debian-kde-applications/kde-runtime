@@ -1,0 +1,17 @@
+Index: kde-runtime/solid-networkstatus/kded/CMakeLists.txt
+===================================================================
+--- kde-runtime.orig/solid-networkstatus/kded/CMakeLists.txt	2015-08-31 17:08:45.262292739 +0200
++++ kde-runtime/solid-networkstatus/kded/CMakeLists.txt	2015-08-31 18:50:55.592167844 +0200
+@@ -16,6 +16,12 @@
+                       )
+ 
+ if(NETWORKMANAGER_FOUND)
++    find_package(PkgConfig REQUIRED)
++    pkg_check_modules(GLIB_PKG glib-2.0)
++
++    if (GLIB_PKG_FOUND)
++       include_directories(${GLIB_PKG_INCLUDE_DIRS})
++    endif()
+     macro_ensure_version("0.7.0" ${NETWORKMANAGER_VERSION} NM_0_7)
+     if(NM_0_7)
+         MESSAGE(STATUS "Adding in-process NetworkManager service-wart to kded module")

@@ -46,6 +46,7 @@
 ./usr/share/doc/kde/HTML/en/kioslave/nepomuksearch/index.docbook
 ./usr/share/kde4/apps/desktoptheme/default/icons/nepomuk.svgz
 
+# Khelpcenter4 now provided by Kf5 source khelpcenter
 ./usr/bin/khelpcenter
 ./usr/lib/libkdeinit4_khelpcenter.so
 ./usr/share/applications/kde4/Help.desktop
