@@ -25,7 +25,7 @@ override_dh_fixperms:
 	$(overridden_command) -Xusr/lib/kde4/libexec/kdesud
 
 override_dh_strip:
-	$(overridden_command) --dbg-package=kde-runtime-dbg
+	$(overridden_command) --ddeb-migration='kde-runtime-dbg (<= 4:15.12.1-1~~)'
 
 override_dh_install:
 	dh_install $(DH_INSTALL_PARAMS)
