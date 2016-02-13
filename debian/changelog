@@ -9,6 +9,12 @@ kde-runtime (4:16.04.0-1~1.gbp1d7ff6) UNRELEASED; urgency=medium
 
  -- Automatic packaging <jenkins@amadeus.gnuservers.com.ar>  Thu, 21 Apr 2016 01:35:33 +0200
 
+kde-runtime (4:15.12.2-1~) UNRELEASED; urgency=medium
+
+  * New upstream release (15.12.2).
+
+ -- Maximiliano Curia <maxy@debian.org>  Sat, 13 Feb 2016 10:01:54 +0100
+
 kde-runtime (4:15.12.1-1) experimental; urgency=medium
 
   * New upstream release (15.12.0).
