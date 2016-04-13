@@ -1,16 +1,16 @@
-Description: automatic crash report integration
- integraes drkonqi with whoopsie/kubuntu-notification-helper/apport to allow
- automatic crash reporting to errors.ubuntu.com. this is achieved by
- adding a checkbox to drkonqi that will create a marker file (*.drkonqi-accept)
- if the user wishes to automatically submit the crash report to us.
-Origin: vendor
-Forwarded: no
+From: Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Date: Wed, 13 Apr 2016 13:53:28 +0200
+Subject: kubuntu_drkonqi_whoopsie_integration
 
-Index: kde-runtime-4.11.2/drkonqi/drkonqidialog.cpp
-===================================================================
---- kde-runtime-4.11.2.orig/drkonqi/drkonqidialog.cpp	2013-08-28 18:59:56.412413678 +0200
-+++ kde-runtime-4.11.2/drkonqi/drkonqidialog.cpp	2013-12-09 13:29:39.777253818 +0100
-@@ -41,6 +41,8 @@
+---
+ drkonqi/drkonqidialog.cpp | 31 +++++++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
+
+diff --git a/drkonqi/drkonqidialog.cpp b/drkonqi/drkonqidialog.cpp
+index 0ea3931..17dedb8 100644
+--- a/drkonqi/drkonqidialog.cpp
++++ b/drkonqi/drkonqidialog.cpp
+@@ -41,6 +41,8 @@ static const char ABOUT_BUG_REPORTING_URL[] = "#aboutbugreporting";
  static const char DRKONQI_REPORT_BUG_URL[] =
      KDE_BUGZILLA_URL "enter_bug.cgi?product=drkonqi&format=guided";
  
@@ -19,7 +19,7 @@ Index: kde-runtime-4.11.2/drkonqi/drkonqidialog.cpp
  DrKonqiDialog::DrKonqiDialog(QWidget * parent) :
          KDialog(parent),
          m_aboutBugReportingDialog(0),
-@@ -75,6 +77,25 @@
+@@ -75,6 +77,25 @@ DrKonqiDialog::DrKonqiDialog(QWidget * parent) :
  
  DrKonqiDialog::~DrKonqiDialog()
  {
@@ -45,7 +45,7 @@ Index: kde-runtime-4.11.2/drkonqi/drkonqidialog.cpp
      KConfigGroup config(KGlobal::config(), "General");
      saveDialogSize(config);
  
-@@ -158,6 +179,16 @@
+@@ -158,6 +179,16 @@ void DrKonqiDialog::buildIntroWidget()
  
                                               KGlobal::locale()->formatTime(crashedApp->datetime().time(), true)
                                               ));

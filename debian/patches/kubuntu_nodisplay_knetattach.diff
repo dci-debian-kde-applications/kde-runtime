@@ -1,8 +1,17 @@
-Index: kde-runtime/knetattach/knetattach.desktop
+From: Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Date: Wed, 13 Apr 2016 13:53:28 +0200
+Subject: kubuntu_nodisplay_knetattach
+
 ===================================================================
---- kde-runtime.orig/knetattach/knetattach.desktop	2015-02-23 22:57:53.683998274 +0100
-+++ kde-runtime/knetattach/knetattach.desktop	2015-02-23 22:57:53.679998329 +0100
-@@ -186,3 +186,4 @@
+---
+ knetattach/knetattach.desktop | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/knetattach/knetattach.desktop b/knetattach/knetattach.desktop
+index 88b5585..f61827f 100755
+--- a/knetattach/knetattach.desktop
++++ b/knetattach/knetattach.desktop
+@@ -186,3 +186,4 @@ X-KDE-StartupNotify=true
  Categories=Qt;KDE;Network;RemoteAccess;
  X-DocPath=knetattach/index.html
  OnlyShowIn=KDE;

@@ -1,6 +1,16 @@
+From: Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Date: Wed, 13 Apr 2016 13:53:28 +0200
+Subject: kubuntu_shutup_shutup_shutup
+
+---
+ attica/kdeplugin/kdeplatformdependent.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/attica/kdeplugin/kdeplatformdependent.cpp b/attica/kdeplugin/kdeplatformdependent.cpp
+index d0041b8..fde029c 100644
 --- a/attica/kdeplugin/kdeplatformdependent.cpp
 +++ b/attica/kdeplugin/kdeplatformdependent.cpp
-@@ -221,7 +221,7 @@
+@@ -221,7 +221,7 @@ QList<QUrl> KdePlatformDependent::getDefaultProviderFiles() const
      foreach (const QString& pathString, pathStrings) {
          paths.append(QUrl(pathString));
      }
@@ -9,7 +19,7 @@
      return paths;
  }
  
-@@ -234,7 +234,7 @@
+@@ -234,7 +234,7 @@ void KdePlatformDependent::addDefaultProviderFile(const QUrl& url)
          pathStrings.append(urlString);
          group.writeEntry("providerFiles", pathStrings);
          group.sync();
