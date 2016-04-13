@@ -74,3 +74,4 @@ index 73aec82..4d73d5c 100644
 +# endif(GPGME_FOUND AND QGPGME_FOUND)
  
  install(TARGETS kdeinit_kwalletd  ${INSTALL_TARGETS_DEFAULT_ARGS})
+ 
