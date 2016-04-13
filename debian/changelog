@@ -1,3 +1,13 @@
+kde-runtime (4:15.12.3-1~1.gbpd89e02) UNRELEASED; urgency=medium
+
+  ** SNAPSHOT build @d89e02e4cc3a8204d8243a6670b8a8a6e49249a2 **
+
+  * Bump Standards-Version to 3.9.8
+  * Missing line in diff file
+  * Refresh patches
+
+ -- Automatic packaging <maxy+jenkins@gnuservers.com.ar>  Wed, 13 Apr 2016 13:53:32 +0200
+
 kde-runtime (4:15.12.1-1) experimental; urgency=medium
 
   * New upstream release (15.12.0).
