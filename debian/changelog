@@ -1,19 +1,21 @@
-kde-runtime (4:16.04.0-1~1.gbp1d7ff6) UNRELEASED; urgency=medium
+kde-runtime (4:16.04.0-1) unstable; urgency=medium
 
-  ** SNAPSHOT build @1d7ff677d4835f7e7fec303398b20975bf194b83 **
-
+  [ Automatic packaging ]
   * Bump Standards-Version to 3.9.8
   * Missing line in diff file
   * Refresh patches
-  * UNRELEASED
 
- -- Automatic packaging <jenkins@amadeus.gnuservers.com.ar>  Thu, 21 Apr 2016 01:35:33 +0200
-
-kde-runtime (4:15.12.2-1~) UNRELEASED; urgency=medium
-
+  [ Maximiliano Curia ]
   * New upstream release (15.12.2).
+  * Replace the "Historical name" ddeb-migration by its "Modern, clearer" replacement dbgsym-migration.
+  * Add upstream metadata (DEP-12)
+  * debian/control: Update Vcs-Browser and Vcs-Git fields
+  * Drop openslp from the build deps
+  * Update testsuite scripts
+  * testsuite: Add a basic XDG environment, use kdeinit4
+  * testsuite: add missing openbox
 
- -- Maximiliano Curia <maxy@debian.org>  Sat, 13 Feb 2016 10:01:54 +0100
+ -- Maximiliano Curia <maxy@debian.org>  Fri, 13 May 2016 22:31:07 +0200
 
 kde-runtime (4:15.12.1-1) experimental; urgency=medium
 
