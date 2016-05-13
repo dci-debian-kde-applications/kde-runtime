@@ -3,5 +3,5 @@
 Tests: testsuite
 Depends: @, @builddeps@, build-essential,
          xvfb, xauth, dbus-x11, kdelibs5-plugins, udisks2, phonon-backend-vlc,
-         ghostscript, katepart, kinit, plasma-desktop, libgl1-mesa-dri
+         ghostscript, katepart, plasma-desktop, libgl1-mesa-dri, openbox
 Restrictions: build-needed
