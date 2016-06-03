@@ -52,7 +52,7 @@ Package: kde-runtime
 Architecture: any
 Depends: kde-runtime-data (>= ${source:Version}),
          kdelibs5-plugins,
-         oxygen-icon-theme (>= 4:4.6),
+         oxygen5-icon-theme | oxygen-icon-theme (>= 4:4.6),
          plasma-scriptengine-javascript (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends}
