@@ -86,22 +86,6 @@ Description: runtime components from the official KDE release
  .
  This package contains programs and data needed at runtime by KDE applications.
 
-Package: kdebase-runtime
-Section: oldlibs
-Priority: extra
-Architecture: all
-Depends: kde-runtime, ${misc:Depends}
-Description: Transitional package for the KDE runtime components
- KDE is produced by an international technology team that creates free and open
- source software for desktop and portable computing. Among KDE's products are a
- modern desktop system for Linux and UNIX platforms, comprehensive office
- productivity and groupware suites and hundreds of software titles in many
- categories including Internet and web applications, multimedia, entertainment,
- educational, graphics and software development.
- .
- This transitional package takes care of pulling in the new kde-runtime package
- and can safely be removed after installation.
-
 Package: kde-runtime-data
 Architecture: all
 Depends: ${misc:Depends}, ${perl:Depends}
