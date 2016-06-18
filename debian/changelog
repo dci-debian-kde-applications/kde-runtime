@@ -4,6 +4,7 @@ kde-runtime (4:16.04.2-0r1) UNRELEASED; urgency=medium
   * New upstream release.
   * Disable the build of khelpcenter, as it is not used from this source.
   * Wrap too long changelog lines in older entries.
+  * Remove unused and outdated installgen file.
 
  -- Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 18 Jun 2016 09:39:41 +0200
 
