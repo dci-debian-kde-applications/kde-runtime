@@ -15,13 +15,10 @@
 # Manpages are compressed
 ./usr/share/man/man1/kdesu.1
 ./usr/share/man/man1/plasmapkg.1
-./usr/share/man/man8/nepomukserver.8
-./usr/share/man/man8/nepomukservicestub.8
 
 # These files are moved by dh_movelibkdeinit
 ./usr/lib/libkdeinit4_kcmshell4.so
 ./usr/lib/libkdeinit4_kglobalaccel.so
-./usr/lib/libkdeinit4_khelpcenter.so
 ./usr/lib/libkdeinit4_kuiserver.so
 ./usr/lib/libkdeinit4_kwalletd.so
 
@@ -30,15 +27,25 @@
 ./usr/share/kde4/apps/kio_desktop/directory.trash
 ./usr/share/kde4/apps/kio_desktop/DesktopLinks/Home.desktop
 
-# we don't use kdesu
-./usr/lib/kde4/libexec/kdesu
-./usr/share/man/man1/kdesu.1
-
-# nepomuk - obsolete
-./usr/share/doc/kde/HTML/en/kcontrol/nepomuk/common
-./usr/share/doc/kde/HTML/en/kcontrol/nepomuk/index.cache.bz2
-./usr/share/doc/kde/HTML/en/kcontrol/nepomuk/index.docbook
-./usr/share/doc/kde/HTML/en/kioslave/nepomuksearch/common
-./usr/share/doc/kde/HTML/en/kioslave/nepomuksearch/index.cache.bz2
-./usr/share/doc/kde/HTML/en/kioslave/nepomuksearch/index.docbook
-./usr/share/kde4/apps/desktoptheme/default/icons/nepomuk.svgz
+# Khelpcenter4 now provided by Kf5 source khelpcenter
+./usr/share/doc/kde/HTML/en/khelpcenter/background.png
+./usr/share/doc/kde/HTML/en/khelpcenter/bgtable.png
+./usr/share/doc/kde/HTML/en/khelpcenter/common
+./usr/share/doc/kde/HTML/en/khelpcenter/documentationnotfound/common
+./usr/share/doc/kde/HTML/en/khelpcenter/documentationnotfound/index.cache.bz2
+./usr/share/doc/kde/HTML/en/khelpcenter/documentationnotfound/index.docbook
+./usr/share/doc/kde/HTML/en/khelpcenter/glossary/common
+./usr/share/doc/kde/HTML/en/khelpcenter/glossary/index.cache.bz2
+./usr/share/doc/kde/HTML/en/khelpcenter/glossary/index.docbook
+./usr/share/doc/kde/HTML/en/khelpcenter/glossary/kdeprintingglossary.docbook
+./usr/share/doc/kde/HTML/en/khelpcenter/index.cache.bz2
+./usr/share/doc/kde/HTML/en/khelpcenter/index.docbook
+./usr/share/doc/kde/HTML/en/khelpcenter/kdelogo2.png
+./usr/share/doc/kde/HTML/en/khelpcenter/khelpcenter.png
+./usr/share/doc/kde/HTML/en/khelpcenter/lines2.png
+./usr/share/doc/kde/HTML/en/khelpcenter/lines.png
+./usr/share/doc/kde/HTML/en/khelpcenter/pointers.png
+./usr/share/doc/kde/HTML/en/khelpcenter/shadow1.png
+./usr/share/doc/kde/HTML/en/onlinehelp/common
+./usr/share/doc/kde/HTML/en/onlinehelp/index.cache.bz2
+./usr/share/doc/kde/HTML/en/onlinehelp/index.docbook
