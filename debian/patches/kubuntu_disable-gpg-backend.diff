@@ -1,13 +1,8 @@
-From: Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
-Date: Wed, 13 Apr 2016 13:53:28 +0200
-Subject: kubuntu_disable-gpg-backend
+Description: disable kwallet gpg backend as it is not working perfectly
+Forwarded: no
+Author: Alex Fiestas <afiestas@kde.org>
+Reviewed-by: Harald Sitter <apachelogger@kubuntu.org>
 
----
- kwalletd/CMakeLists.txt | 46 +++++++++++++++++++++++-----------------------
- 1 file changed, 23 insertions(+), 23 deletions(-)
-
-diff --git a/kwalletd/CMakeLists.txt b/kwalletd/CMakeLists.txt
-index 73aec82..4d73d5c 100644
 --- a/kwalletd/CMakeLists.txt
 +++ b/kwalletd/CMakeLists.txt
 @@ -1,15 +1,15 @@
@@ -17,15 +12,16 @@ index 73aec82..4d73d5c 100644
 -find_package(Gpgme)  # Called by FindQGpgme, but since we call some gpgme
 -                     # functions ourselves we need to link against it directly.
 -find_package(QGpgme) # provided by kdepimlibs
-+# find_package(Gpgme)  # Called by FindQGpgme, but since we call some gpgme
-+#                      # functions ourselves we need to link against it directly.
-+# find_package(QGpgme) # provided by kdepimlibs
- 
+-
 -if (GPGME_FOUND AND QGPGME_FOUND)
 -    add_definitions(-DHAVE_QGPGME)
 -    include_directories(${GPGME_INCLUDES} ${QGPGME_INCLUDE_DIR})
 -    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
 -endif(GPGME_FOUND AND QGPGME_FOUND)
++# find_package(Gpgme)  # Called by FindQGpgme, but since we call some gpgme
++#                      # functions ourselves we need to link against it directly.
++# find_package(QGpgme) # provided by kdepimlibs
++
 +# if (GPGME_FOUND AND QGPGME_FOUND)
 +#     add_definitions(-DHAVE_QGPGME)
 +#     include_directories(${GPGME_INCLUDES} ${QGPGME_INCLUDE_DIR})
@@ -65,7 +61,7 @@ index 73aec82..4d73d5c 100644
  
  find_file(kwallet_xml org.kde.KWallet.xml HINTS ${KDE4_DBUS_INTERFACES_DIR} )
  
-@@ -57,9 +57,9 @@ qt4_add_dbus_adaptor( kwalletd_KDEINIT_SRCS ${kwallet_xml} kwalletd.h KWalletD )
+@@ -57,9 +57,9 @@ qt4_add_dbus_adaptor( kwalletd_KDEINIT_S
  kde4_add_kdeinit_executable( kwalletd NOGUI ${kwalletd_KDEINIT_SRCS} )
  
  target_link_libraries(kdeinit_kwalletd ${KDE4_KDEUI_LIBS} kwalletbackend )

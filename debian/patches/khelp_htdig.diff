@@ -1,15 +1,3 @@
-From: Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
-Date: Wed, 13 Apr 2016 13:53:28 +0200
-Subject: khelp_htdig
-
----
- khelpcenter/searchhandlers/khc_docbookdig.pl.cmake | 2 +-
- khelpcenter/searchhandlers/khc_htdig.pl.cmake      | 2 +-
- khelpcenter/searchhandlers/khc_htsearch.pl         | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/khelpcenter/searchhandlers/khc_docbookdig.pl.cmake b/khelpcenter/searchhandlers/khc_docbookdig.pl.cmake
-index 3b424c4..7fa6671 100755
 --- a/khelpcenter/searchhandlers/khc_docbookdig.pl.cmake
 +++ b/khelpcenter/searchhandlers/khc_docbookdig.pl.cmake
 @@ -26,7 +26,7 @@ use strict;
@@ -21,8 +9,6 @@ index 3b424c4..7fa6671 100755
  my $htdigbin = "/usr/bin";
  my $kdeprefix = "@CMAKE_INSTALL_PREFIX@";
  chomp $kdeprefix;
-diff --git a/khelpcenter/searchhandlers/khc_htdig.pl.cmake b/khelpcenter/searchhandlers/khc_htdig.pl.cmake
-index 511adc8..7270b16 100755
 --- a/khelpcenter/searchhandlers/khc_htdig.pl.cmake
 +++ b/khelpcenter/searchhandlers/khc_htdig.pl.cmake
 @@ -26,7 +26,7 @@ use strict;
@@ -34,8 +20,6 @@ index 511adc8..7270b16 100755
  my $htdigbin = "/usr/bin";
  my $kdeprefix = "@CMAKE_INSTALL_PREFIX@";
  chomp $kdeprefix;
-diff --git a/khelpcenter/searchhandlers/khc_htsearch.pl b/khelpcenter/searchhandlers/khc_htsearch.pl
-index 5dc3f5f..aa1f872 100755
 --- a/khelpcenter/searchhandlers/khc_htsearch.pl
 +++ b/khelpcenter/searchhandlers/khc_htsearch.pl
 @@ -8,7 +8,7 @@ use Getopt::Long;
