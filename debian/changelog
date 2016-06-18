@@ -1,6 +1,6 @@
-kde-runtime (4:16.04.2-0r1) UNRELEASED; urgency=medium
+kde-runtime (4:16.04.2-1) unstable; urgency=medium
 
-  [ Pino Toscano ]
+  * Team upload.
   * New upstream release.
   * Disable the build of khelpcenter, as it is not used from this source.
     - remove leftover bits from kde-runtime.install
@@ -19,7 +19,7 @@ kde-runtime (4:16.04.2-0r1) UNRELEASED; urgency=medium
   * Fix build on Hurd, by providing a fallback definition of PATH_MAX in
     kio_nfs; patch hurd.diff.
 
- -- Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 18 Jun 2016 09:39:41 +0200
+ -- Pino Toscano <pino@debian.org>  Sat, 18 Jun 2016 12:20:25 +0200
 
 kde-runtime (4:16.04.0-1) unstable; urgency=medium
 
