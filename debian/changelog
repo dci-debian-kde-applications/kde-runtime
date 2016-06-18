@@ -1,3 +1,12 @@
+kde-runtime (4:16.04.2-2~1.gbp39eecf) UNRELEASED; urgency=medium
+
+  ** SNAPSHOT build @39eecf7b8be616da371cef05f52a21863b6bcfec **
+
+  * Prefer oxygen5-icon-theme
+  * Refresh patches
+
+ -- Maximiliano Curia <maxy@gnuservers.com.ar>  Sat, 18 Jun 2016 16:32:24 +0200
+
 kde-runtime (4:16.04.2-1) unstable; urgency=medium
 
   * Team upload.
