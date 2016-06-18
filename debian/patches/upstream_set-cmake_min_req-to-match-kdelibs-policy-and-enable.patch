@@ -1,0 +1,25 @@
+From 5a1d89e006ca69c6bf5351a796f7da57a6f96582 Mon Sep 17 00:00:00 2001
+From: Pino Toscano <pino@kde.org>
+Date: Sat, 18 Jun 2016 09:46:45 +0200
+Subject: [PATCH] set cmake_min_req to match kdelibs policy and enable newer
+ cmake policies
+
+---
+ CMakeLists.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1db0cd2..8b4d0f2 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,5 +1,7 @@
+ project(KDEBASE_RUNTIME)
+ 
++cmake_minimum_required(VERSION 2.8.9)
++
+ # where to look first for cmake modules, before ${CMAKE_ROOT}/Modules/ is checked
+ set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${CMAKE_MODULE_PATH})
+ 
+-- 
+2.8.1
+

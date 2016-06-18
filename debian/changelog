@@ -9,6 +9,11 @@ kde-runtime (4:16.04.2-0r1) UNRELEASED; urgency=medium
   * Drop patch khelp_htdig.diff, no more needed now that khelpcenter is not
     built.
   * Clean not-installed file.
+  * Backport upstream commits 5a1d89e006ca69c6bf5351a796f7da57a6f96582 and
+    823d2fbd9cbc146e007510a41b4820fb8b9e81b8 to set the cmake minimum version
+    required and policies, and build properly with that; patches
+    upstream_set-cmake_min_req-to-match-kdelibs-policy-and-enable.patch and
+    upstream_cmake-fix-add_definitions-according-to-new-policy.patch.
 
  -- Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 18 Jun 2016 09:39:41 +0200
 

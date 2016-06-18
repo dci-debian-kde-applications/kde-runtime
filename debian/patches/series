@@ -8,3 +8,5 @@ kubuntu_shutup_shutup_shutup.diff
 kubuntu_drkonqi_whoopsie_integration.patch
 kubuntu_disable-gpg-backend.diff
 add_glib_for_nm
+upstream_set-cmake_min_req-to-match-kdelibs-policy-and-enable.patch
+upstream_cmake-fix-add_definitions-according-to-new-policy.patch
