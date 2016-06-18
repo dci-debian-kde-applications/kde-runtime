@@ -1,3 +1,6 @@
+From: Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>
+Date: Wed, 13 Apr 2016 13:53:28 +0200
+
 Description: use a path that's always there
  Or at least in Debian ;)
  .

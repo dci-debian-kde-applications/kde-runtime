@@ -1,3 +1,6 @@
+From: Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>
+Date: Wed, 13 Apr 2016 13:53:28 +0200
+
 Description: Use the correct locale.
  The test was expecting a specific locale. Everything seems to indicate
  that any UTF-8 enabled locale would work for this testcases, so use

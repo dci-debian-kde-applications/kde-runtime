@@ -1,3 +1,6 @@
+From: Pino Toscano <pino@debian.org>
+Date: Sat Jun 18 11:49:17 2016 +0200
+
 Author: Pino Toscano <pino@debian.org>
 Description: nfs: provide a fallback PATH_MAX definition
  Define PATH_MAX to 4096 if not defined already -- this way kio_nfs can build

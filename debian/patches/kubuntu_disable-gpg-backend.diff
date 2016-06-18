@@ -1,3 +1,7 @@
+From: Alex Fiestas <afiestas@kde.org>
+Date: Sat, 18 Jun 2016 13:51:49 +0200
+Subject: kubuntu_disable-gpg-backend.diff
+
 Description: disable kwallet gpg backend as it is not working perfectly
 Forwarded: no
 Author: Alex Fiestas <afiestas@kde.org>
