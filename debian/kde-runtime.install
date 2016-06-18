@@ -103,11 +103,6 @@ usr/lib/kde4/libexec/kdeeject
 usr/lib/kde4/libexec/kdesu /usr/lib/kde4/libexec/kdesu-distrib/
 usr/lib/kde4/libexec/kdesud
 usr/lib/kde4/libexec/kdontchangethehostname
-usr/lib/kde4/libexec/khc_docbookdig.pl
-usr/lib/kde4/libexec/khc_htdig.pl
-usr/lib/kde4/libexec/khc_htsearch.pl
-usr/lib/kde4/libexec/khc_indexbuilder
-usr/lib/kde4/libexec/khc_mansearch.pl
 usr/lib/kde4/libexec/kioexec
 usr/lib/kde4/libexec/knetattach
 usr/lib/kde4/libkmanpart.so

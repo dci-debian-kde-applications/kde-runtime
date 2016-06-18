@@ -3,6 +3,7 @@ kde-runtime (4:16.04.2-0r1) UNRELEASED; urgency=medium
   [ Pino Toscano ]
   * New upstream release.
   * Disable the build of khelpcenter, as it is not used from this source.
+    - remove leftover bits from kde-runtime.install
   * Wrap too long changelog lines in older entries.
   * Remove unused and outdated installgen file.
   * Restore headers for patches.
