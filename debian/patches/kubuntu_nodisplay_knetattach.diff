@@ -1,3 +1,13 @@
+From: Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Date: Sat, 18 Jun 2016 16:24:29 +0200
+Subject: kubuntu_nodisplay_knetattach
+
+---
+ knetattach/knetattach.desktop | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/knetattach/knetattach.desktop b/knetattach/knetattach.desktop
+index 88b5585..f61827f 100755
 --- a/knetattach/knetattach.desktop
 +++ b/knetattach/knetattach.desktop
 @@ -186,3 +186,4 @@ X-KDE-StartupNotify=true

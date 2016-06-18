@@ -1,5 +1,6 @@
 From: Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Date: Wed, 13 Apr 2016 13:53:28 +0200
+Subject: kubuntu_drkonqi_whoopsie_integration
 
 Description: automatic crash report integration
  integraes drkonqi with whoopsie/kubuntu-notification-helper/apport to allow
@@ -8,10 +9,15 @@ Description: automatic crash report integration
  if the user wishes to automatically submit the crash report to us.
 Origin: vendor
 Forwarded: no
+---
+ drkonqi/drkonqidialog.cpp | 31 +++++++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
 
+diff --git a/drkonqi/drkonqidialog.cpp b/drkonqi/drkonqidialog.cpp
+index 0ea3931..17dedb8 100644
 --- a/drkonqi/drkonqidialog.cpp
 +++ b/drkonqi/drkonqidialog.cpp
-@@ -41,6 +41,8 @@ static const char ABOUT_BUG_REPORTING_UR
+@@ -41,6 +41,8 @@ static const char ABOUT_BUG_REPORTING_URL[] = "#aboutbugreporting";
  static const char DRKONQI_REPORT_BUG_URL[] =
      KDE_BUGZILLA_URL "enter_bug.cgi?product=drkonqi&format=guided";
  
@@ -20,7 +26,7 @@ Forwarded: no
  DrKonqiDialog::DrKonqiDialog(QWidget * parent) :
          KDialog(parent),
          m_aboutBugReportingDialog(0),
-@@ -75,6 +77,25 @@ DrKonqiDialog::DrKonqiDialog(QWidget * p
+@@ -75,6 +77,25 @@ DrKonqiDialog::DrKonqiDialog(QWidget * parent) :
  
  DrKonqiDialog::~DrKonqiDialog()
  {

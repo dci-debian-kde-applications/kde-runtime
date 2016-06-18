@@ -1,5 +1,10 @@
-From: Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>
+From: =?utf-8?q?Lisandro_Dami=C3=A1n_Nicanor_P=C3=A9rez_Meyer?=
+ <lisandro@debian.org>
 Date: Wed, 13 Apr 2016 13:53:28 +0200
+Subject: use_the_correct_locale
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 
 Description: Use the correct locale.
  The test was expecting a specific locale. Everything seems to indicate
@@ -8,7 +13,12 @@ Description: Use the correct locale.
 Author: Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>
 Forwarded: https://bugs.kde.org/show_bug.cgi?id=329983
 Last-Update: 2014-01-14
+---
+ kioslave/trash/tests/testtrash.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/kioslave/trash/tests/testtrash.cpp b/kioslave/trash/tests/testtrash.cpp
+index bccb0e5..f99f0f0 100644
 --- a/kioslave/trash/tests/testtrash.cpp
 +++ b/kioslave/trash/tests/testtrash.cpp
 @@ -58,7 +58,7 @@ int initLocale()

@@ -1,3 +1,13 @@
+From: Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Date: Sat, 18 Jun 2016 16:24:29 +0200
+Subject: disable_kwalletd_autotests
+
+---
+ kwalletd/autotests/CMakeLists.txt | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/kwalletd/autotests/CMakeLists.txt b/kwalletd/autotests/CMakeLists.txt
+index c9af385..cd5f59e 100644
 --- a/kwalletd/autotests/CMakeLists.txt
 +++ b/kwalletd/autotests/CMakeLists.txt
 @@ -1,11 +1,11 @@

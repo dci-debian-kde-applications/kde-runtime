@@ -1,7 +1,6 @@
-From 823d2fbd9cbc146e007510a41b4820fb8b9e81b8 Mon Sep 17 00:00:00 2001
 From: Pino Toscano <pino@kde.org>
 Date: Sat, 18 Jun 2016 10:25:22 +0200
-Subject: [PATCH] cmake: fix add_definitions according to new policy
+Subject: cmake: fix add_definitions according to new policy
 
 ---
  kioslave/nfs/CMakeLists.txt       | 2 +-
@@ -38,6 +37,3 @@ index 5ffbba4..c9af385 100644
 -target_link_libraries(${testname} ${QT_QTTEST_LIBRARY} ${QT_QTCORE_LIBRARY} ${QT_QTNETWORK_LIBRARY} ${KDE4_KDECORE_LIBS})
 \ No newline at end of file
 +target_link_libraries(${testname} ${QT_QTTEST_LIBRARY} ${QT_QTCORE_LIBRARY} ${QT_QTNETWORK_LIBRARY} ${KDE4_KDECORE_LIBS})
--- 
-2.8.1
-

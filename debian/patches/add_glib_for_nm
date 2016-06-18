@@ -1,6 +1,16 @@
+From: Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Date: Sat, 18 Jun 2016 16:24:29 +0200
+Subject: add_glib_for_nm
+
+---
+ solid-networkstatus/kded/CMakeLists.txt | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/solid-networkstatus/kded/CMakeLists.txt b/solid-networkstatus/kded/CMakeLists.txt
+index 633c7f1..5dfcbf4 100644
 --- a/solid-networkstatus/kded/CMakeLists.txt
 +++ b/solid-networkstatus/kded/CMakeLists.txt
-@@ -16,6 +16,12 @@ set_package_properties(NetworkManager PR
+@@ -16,6 +16,12 @@ set_package_properties(NetworkManager PROPERTIES DESCRIPTION "The NetworkManager
                        )
  
  if(NETWORKMANAGER_FOUND)
