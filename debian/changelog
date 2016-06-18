@@ -1,9 +1,3 @@
-kde-runtime (4:16.04.0-2) UNRELEASED; urgency=medium
-
-  * Drop obsolete kdebase-runtime transitional package
-
- -- Scott Kitterman <scott@kitterman.com>  Wed, 08 Jun 2016 08:33:07 -0400
-
 kde-runtime (4:16.04.0-1) unstable; urgency=medium
 
   [ Automatic packaging ]
