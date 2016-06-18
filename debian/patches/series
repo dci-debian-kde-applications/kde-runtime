@@ -1,4 +1,5 @@
-hurd.diff
+upstream_set-cmake_min_req-to-match-kdelibs-policy-and-enable.patch
+upstream_cmake-fix-add_definitions-according-to-new-policy.patch
 disable_usr_lib_install_rpath.diff
 use_the_correct_locale.patch
 use_always_present_path_to_test.patch
@@ -9,5 +10,4 @@ kubuntu_shutup_shutup_shutup.diff
 kubuntu_drkonqi_whoopsie_integration.patch
 kubuntu_disable-gpg-backend.diff
 add_glib_for_nm
-upstream_set-cmake_min_req-to-match-kdelibs-policy-and-enable.patch
-upstream_cmake-fix-add_definitions-according-to-new-policy.patch
+hurd.diff
