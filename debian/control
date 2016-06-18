@@ -55,7 +55,6 @@ Depends: kde-runtime-data (>= ${source:Version}),
          oxygen-icon-theme (>= 4:4.6),
          plasma-scriptengine-javascript (= ${binary:Version}),
          ${misc:Depends},
-         ${perl:Depends},
          ${shlibs:Depends}
 Recommends: icoutils,
             libcanberra-pulse | libcanberra-gstreamer,
