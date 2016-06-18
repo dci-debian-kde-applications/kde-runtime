@@ -14,6 +14,8 @@ kde-runtime (4:16.04.2-0r1) UNRELEASED; urgency=medium
     required and policies, and build properly with that; patches
     upstream_set-cmake_min_req-to-match-kdelibs-policy-and-enable.patch and
     upstream_cmake-fix-add_definitions-according-to-new-policy.patch.
+  * Fix build on Hurd, by providing a fallback definition of PATH_MAX in
+    kio_nfs; patch hurd.diff.
 
  -- Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 18 Jun 2016 09:39:41 +0200
 
