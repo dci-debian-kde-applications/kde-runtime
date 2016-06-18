@@ -8,6 +8,9 @@ ifeq ($(DEB_TARGET_ARCH_OS), hurd)
 	DH_INSTALL_PARAMS := -Xkio_smb.so -Xsmb-network.desktop -Xsmb.protocol
 endif
 
+override_dh_auto_configure:
+	$(overridden_command) -- -DBUILD_khelpcenter=FALSE
+
 override_dh_auto_test:
 	# Disable dh_auto_test at build time
 	:

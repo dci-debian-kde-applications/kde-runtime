@@ -2,6 +2,7 @@ kde-runtime (4:16.04.2-0r1) UNRELEASED; urgency=medium
 
   [ Pino Toscano ]
   * New upstream release.
+  * Disable the build of khelpcenter, as it is not used from this source.
 
  -- Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 18 Jun 2016 09:39:41 +0200
 
