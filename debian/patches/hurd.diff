@@ -5,8 +5,8 @@ Description: nfs: provide a fallback PATH_MAX definition
 Forwarded: not-needed
 Last-Update: 2016-06-18
 
---- a/kde-runtime-16.04.2/kioslave/nfs/nfsv3.cpp
-+++ b/kde-runtime-16.04.2/kioslave/nfs/nfsv3.cpp
+--- a/kioslave/nfs/nfsv3.cpp
++++ b/kioslave/nfs/nfsv3.cpp
 @@ -59,6 +59,9 @@
  #define NFSVERS 3UL
  
