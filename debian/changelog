@@ -1,11 +1,13 @@
-kde-runtime (4:16.04.2-2~1.gbp39eecf) UNRELEASED; urgency=medium
+kde-runtime (4:16.04.2-2~2.gbpbac718) UNRELEASED; urgency=medium
 
-  ** SNAPSHOT build @39eecf7b8be616da371cef05f52a21863b6bcfec **
+  ** SNAPSHOT build @bac71802bceec4c301df4695ccffab4bfc45db3a **
 
   * Prefer oxygen5-icon-theme
   * Refresh patches
+  * Reenable gpg backend
+  * Drop testsuite
 
- -- Maximiliano Curia <maxy@gnuservers.com.ar>  Sat, 18 Jun 2016 16:32:24 +0200
+ -- Maximiliano Curia <maxy@gnuservers.com.ar>  Tue, 28 Jun 2016 21:35:19 +0200
 
 kde-runtime (4:16.04.2-1) unstable; urgency=medium
 
