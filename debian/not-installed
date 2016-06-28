@@ -49,3 +49,6 @@
 ./usr/share/doc/kde/HTML/en/onlinehelp/common
 ./usr/share/doc/kde/HTML/en/onlinehelp/index.cache.bz2
 ./usr/share/doc/kde/HTML/en/onlinehelp/index.docbook
+
+# kdesu is installed in /usr/lib/kde4/libexec/kdesu-distrib/
+usr/lib/kde4/libexec/kdesu
