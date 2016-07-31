@@ -1,3 +1,10 @@
+kde-runtime (4:16.04.3-0r1) UNRELEASED; urgency=medium
+
+  [ Pino Toscano ]
+  * New upstream release.
+
+ -- Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 31 Jul 2016 15:37:23 +0200
+
 kde-runtime (4:16.04.2-2) unstable; urgency=medium
 
   * Prefer oxygen5-icon-theme
