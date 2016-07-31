@@ -1,6 +1,6 @@
-kde-runtime (4:16.04.3-0r1) UNRELEASED; urgency=medium
+kde-runtime (4:16.04.3-1) unstable; urgency=medium
 
-  [ Pino Toscano ]
+  * Team upload.
   * New upstream release.
   * Remove the unused libqzeitgeist-dev build dependency.
   * Update the patches:
@@ -13,7 +13,7 @@ kde-runtime (4:16.04.3-0r1) UNRELEASED; urgency=medium
   * Fix arch-dep Hurd build: dnyamically create kde-runtime.install.hurd from
     kde-runtime.install, removing the samba bits.
 
- -- Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 31 Jul 2016 15:37:23 +0200
+ -- Pino Toscano <pino@debian.org>  Sun, 31 Jul 2016 20:26:03 +0200
 
 kde-runtime (4:16.04.2-2) unstable; urgency=medium
 
