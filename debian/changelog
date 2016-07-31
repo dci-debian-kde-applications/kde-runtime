@@ -3,6 +3,11 @@ kde-runtime (4:16.04.3-0r1) UNRELEASED; urgency=medium
   [ Pino Toscano ]
   * New upstream release.
   * Remove the unused libqzeitgeist-dev build dependency.
+  * Update the patches:
+    - upstream_set-cmake_min_req-to-match-kdelibs-policy-and-enable.patch:
+      drop, backported
+    - upstream_cmake-fix-add_definitions-according-to-new-policy.patch: drop,
+      backported
 
  -- Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 31 Jul 2016 15:37:23 +0200
 
