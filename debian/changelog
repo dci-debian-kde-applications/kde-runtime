@@ -8,6 +8,8 @@ kde-runtime (4:16.04.3-0r1) UNRELEASED; urgency=medium
       drop, backported
     - upstream_cmake-fix-add_definitions-according-to-new-policy.patch: drop,
       backported
+  * Stop shipping the custom /etc/sysctl.d/30-baloo-inotify-limit.conf: this
+    is the wrong place for it, and maybe no more needed.
 
  -- Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 31 Jul 2016 15:37:23 +0200
 

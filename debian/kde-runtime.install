@@ -1,4 +1,3 @@
-debian/30-baloo-inotify-limit.conf etc/sysctl.d/
 usr/bin/kcmshell4
 usr/bin/kde-cp
 usr/bin/kde-mv
