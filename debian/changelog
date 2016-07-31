@@ -10,6 +10,8 @@ kde-runtime (4:16.04.3-0r1) UNRELEASED; urgency=medium
       backported
   * Stop shipping the custom /etc/sysctl.d/30-baloo-inotify-limit.conf: this
     is the wrong place for it, and maybe no more needed.
+  * Fix arch-dep Hurd build: dnyamically create kde-runtime.install.hurd from
+    kde-runtime.install, removing the samba bits.
 
  -- Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 31 Jul 2016 15:37:23 +0200
 
