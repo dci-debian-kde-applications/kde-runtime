@@ -3,6 +3,7 @@ kde-runtime (4:16.04.3-2) UNRELEASED; urgency=medium
   [ Pino Toscano ]
   * Drop oxygen5-icon-theme primary alternative for oxygen-icon-theme, leaving
     only the latter (which is the canonical package).
+  * Update lintian overrides.
 
  -- Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 01 Aug 2016 07:36:49 +0200
 
