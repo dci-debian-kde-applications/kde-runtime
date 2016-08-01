@@ -4,6 +4,8 @@ kde-runtime (4:16.04.3-2) UNRELEASED; urgency=medium
   * Drop oxygen5-icon-theme primary alternative for oxygen-icon-theme, leaving
     only the latter (which is the canonical package).
   * Update lintian overrides.
+  * Limit the udisks2 recommend in kde-runtime as linux-any, as udisks2 is
+    Linux-specific.
 
  -- Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 01 Aug 2016 07:36:49 +0200
 

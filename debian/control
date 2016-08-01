@@ -58,7 +58,7 @@ Depends: kde-runtime-data (>= ${source:Version}),
 Recommends: icoutils,
             libcanberra-pulse | libcanberra-gstreamer,
             sound-theme-freedesktop,
-            udisks2,
+            udisks2 [linux-any],
             upower
 Suggests: djvulibre-bin, finger
 Replaces: kde-runtime-data (<< 4:4.13.97),
