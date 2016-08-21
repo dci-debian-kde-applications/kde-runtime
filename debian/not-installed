@@ -52,3 +52,6 @@
 
 # kdesu is installed in /usr/lib/kde4/libexec/kdesu-distrib/
 usr/lib/kde4/libexec/kdesu
+
+# image/webp is already provided by shared-mime-info
+./usr/share/mime/packages/webp.xml

@@ -12,6 +12,8 @@ kde-runtime (4:16.08.0-0r1) UNRELEASED; urgency=medium
       (whoopsie is not even available in Debian)
     - kubuntu_disable-gpg-backend.diff: drop, as it was not applied anymore
       since 4:16.04.2-2
+  * Stop installing the webp mime type definition, since shared-mime-info
+    provides it already.
 
  -- Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 01 Aug 2016 07:36:49 +0200
 
