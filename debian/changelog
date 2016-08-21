@@ -7,6 +7,11 @@ kde-runtime (4:16.08.0-0r1) UNRELEASED; urgency=medium
   * Update lintian overrides.
   * Limit the udisks2 recommend in kde-runtime as linux-any, as udisks2 is
     Linux-specific.
+  * Update the patches:
+    - kubuntu_drkonqi_whoopsie_integration.patch: drop, KUbuntu-specific
+      (whoopsie is not even available in Debian)
+    - kubuntu_disable-gpg-backend.diff: drop, as it was not applied anymore
+      since 4:16.04.2-2
 
  -- Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 01 Aug 2016 07:36:49 +0200
 
