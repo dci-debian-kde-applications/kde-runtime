@@ -1,6 +1,6 @@
-kde-runtime (4:16.08.0-0r1) UNRELEASED; urgency=medium
+kde-runtime (4:16.08.0-1) unstable; urgency=medium
 
-  [ Pino Toscano ]
+  * Team upload.
   * New upstream release.
   * Drop oxygen5-icon-theme primary alternative for oxygen-icon-theme, leaving
     only the latter (which is the canonical package).
@@ -15,7 +15,7 @@ kde-runtime (4:16.08.0-0r1) UNRELEASED; urgency=medium
   * Stop installing the webp mime type definition, since shared-mime-info
     provides it already.
 
- -- Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 01 Aug 2016 07:36:49 +0200
+ -- Pino Toscano <pino@debian.org>  Sun, 21 Aug 2016 10:16:51 +0200
 
 kde-runtime (4:16.04.3-1) unstable; urgency=medium
 
