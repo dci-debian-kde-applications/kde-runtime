@@ -1,10 +1,11 @@
-kde-runtime (4:16.08.1-1~1.gbp53fcf4) UNRELEASED; urgency=medium
+kde-runtime (4:16.08.2-1~1.gbpa94658) UNRELEASED; urgency=medium
 
-  ** SNAPSHOT build @53fcf4cecde473bb1ceef2295804577a41806e60 **
+  ** SNAPSHOT build @a946580ba35aee83de4e16d3bd71efa5f67e25ac **
 
   * UNRELEASED
+  * UNRELEASED
 
- -- Pino Toscano <jenkins@gnuservers.com.ar>  Fri, 09 Sep 2016 13:18:19 +0200
+ -- Pino Toscano <jenkins@gnuservers.com.ar>  Thu, 13 Oct 2016 19:36:01 +0200
 
 kde-runtime (4:16.08.0-1) unstable; urgency=medium
 
