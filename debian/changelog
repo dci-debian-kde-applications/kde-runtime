@@ -1,11 +1,8 @@
-kde-runtime (4:16.08.2-1~1.gbpa94658) UNRELEASED; urgency=medium
+kde-runtime (4:16.08.2-1) unstable; urgency=medium
 
-  ** SNAPSHOT build @a946580ba35aee83de4e16d3bd71efa5f67e25ac **
+  * New upstream release (16.08.2)
 
-  * UNRELEASED
-  * UNRELEASED
-
- -- Pino Toscano <jenkins@gnuservers.com.ar>  Thu, 13 Oct 2016 19:36:01 +0200
+ -- Maximiliano Curia <maxy@debian.org>  Tue, 18 Oct 2016 23:56:09 +0200
 
 kde-runtime (4:16.08.0-1) unstable; urgency=medium
 
