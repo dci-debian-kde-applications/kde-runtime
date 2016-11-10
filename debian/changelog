@@ -1,3 +1,11 @@
+kde-runtime (4:16.08.3-1~1.gbp324b70) UNRELEASED; urgency=medium
+
+  ** SNAPSHOT build @324b702ef38cf652104b3663ea41ea3c9ae887b9 **
+
+  * UNRELEASED
+
+ -- Maximiliano Curia <jenkins@gnuservers.com.ar>  Thu, 10 Nov 2016 19:35:32 +0100
+
 kde-runtime (4:16.08.2-1) unstable; urgency=medium
 
   * New upstream release (16.08.2)
