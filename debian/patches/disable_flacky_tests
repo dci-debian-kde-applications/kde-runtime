@@ -7,7 +7,7 @@ Subject: disable_flacky_tests
  1 file changed, 7 insertions(+), 7 deletions(-)
 
 diff --git a/kurifilter-plugins/tests/kurifiltertest.cpp b/kurifilter-plugins/tests/kurifiltertest.cpp
-index 32f968c..13c8e36 100644
+index 32f968c278..13c8e3696f 100644
 --- a/kurifilter-plugins/tests/kurifiltertest.cpp
 +++ b/kurifilter-plugins/tests/kurifiltertest.cpp
 @@ -256,7 +256,7 @@ void KUriFilterTest::shortUris()

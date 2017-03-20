@@ -7,7 +7,7 @@ Subject: kubuntu_shutup_shutup_shutup
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/attica/kdeplugin/kdeplatformdependent.cpp b/attica/kdeplugin/kdeplatformdependent.cpp
-index d0041b8..fde029c 100644
+index d0041b8a0e..fde029c654 100644
 --- a/attica/kdeplugin/kdeplatformdependent.cpp
 +++ b/attica/kdeplugin/kdeplatformdependent.cpp
 @@ -221,7 +221,7 @@ QList<QUrl> KdePlatformDependent::getDefaultProviderFiles() const

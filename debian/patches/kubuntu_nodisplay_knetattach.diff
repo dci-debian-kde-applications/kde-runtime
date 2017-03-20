@@ -7,7 +7,7 @@ Subject: kubuntu_nodisplay_knetattach
  1 file changed, 1 insertion(+)
 
 diff --git a/knetattach/knetattach.desktop b/knetattach/knetattach.desktop
-index 88b5585..f61827f 100755
+index 88b5585c1c..f61827f58d 100755
 --- a/knetattach/knetattach.desktop
 +++ b/knetattach/knetattach.desktop
 @@ -186,3 +186,4 @@ X-KDE-StartupNotify=true

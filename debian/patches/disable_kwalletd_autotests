@@ -7,7 +7,7 @@ Subject: disable_kwalletd_autotests
  1 file changed, 8 insertions(+), 8 deletions(-)
 
 diff --git a/kwalletd/autotests/CMakeLists.txt b/kwalletd/autotests/CMakeLists.txt
-index c9af385..cd5f59e 100644
+index c9af3854e2..cd5f59ebc8 100644
 --- a/kwalletd/autotests/CMakeLists.txt
 +++ b/kwalletd/autotests/CMakeLists.txt
 @@ -1,11 +1,11 @@

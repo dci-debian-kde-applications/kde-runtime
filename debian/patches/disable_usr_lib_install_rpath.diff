@@ -12,7 +12,7 @@ Forwarded: not-needed
  1 file changed, 2 deletions(-)
 
 diff --git a/phonon/platform_kde/CMakeLists.txt b/phonon/platform_kde/CMakeLists.txt
-index f41a4dc..3d3df10 100644
+index f41a4dc58b..3d3df10e96 100644
 --- a/phonon/platform_kde/CMakeLists.txt
 +++ b/phonon/platform_kde/CMakeLists.txt
 @@ -19,10 +19,8 @@ endif(ALSA_FOUND)

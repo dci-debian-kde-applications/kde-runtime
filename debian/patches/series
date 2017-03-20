@@ -7,3 +7,4 @@ kubuntu_nodisplay_knetattach.diff
 kubuntu_shutup_shutup_shutup.diff
 add_glib_for_nm
 hurd.diff
+Make-sure-people-are-not-trying-to-sneak-invisible-charac.patch
