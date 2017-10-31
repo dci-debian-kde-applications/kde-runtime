@@ -1,9 +1,12 @@
-kde-runtime (4:17.08.1-1~) UNRELEASED; urgency=medium
+kde-runtime (4:17.08.1-1~1) UNRELEASED; urgency=medium
 
   * Set Priority to optional
   * New upstream release (17.08.1).
+  * Bump Standards-Version to 4.1.0.
+  * Update upstream metadata
+  * Update uploaders list as requested by MIA team (Closes: #879330)
 
- -- Maximiliano Curia <maxy@debian.org>  Thu, 07 Sep 2017 15:49:50 +0200
+ -- Maximiliano Curia <maxy@debian.org>  Tue, 31 Oct 2017 18:00:14 +0100
 
 kde-runtime (4:16.08.3-2) unstable; urgency=medium
 
