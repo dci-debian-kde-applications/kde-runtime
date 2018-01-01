@@ -1,5 +1,8 @@
+# private libraries
 kde-runtime: package-name-doesnt-match-sonames
 kde-runtime: setgid-binary usr/lib/kde4/libexec/kdesud 2755 root/nogroup
 kde-runtime: shlib-without-versioned-soname usr/lib/libknotifyplugin.so libknotifyplugin.so
 # About to deprecate this package
 kde-runtime: sharedobject-in-library-directory-missing-soname usr/lib/attica_kde.so
+# private library
+kde-runtime: no-symbols-control-file
