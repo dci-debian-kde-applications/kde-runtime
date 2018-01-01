@@ -116,7 +116,6 @@ Description: shared data files for the KDE base runtime module
 
 Package: kdebase-runtime
 Section: oldlibs
-Priority: optional
 Architecture: all
 Depends: kde-runtime, ${misc:Depends}
 Description: Transitional package for the KDE runtime components
