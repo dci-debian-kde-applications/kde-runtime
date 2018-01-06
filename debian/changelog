@@ -13,6 +13,7 @@ kde-runtime (4:17.08.3-0r1) UNRELEASED; urgency=medium
   * Simplify watch file, and switch it to https.
   * Update lintian overrides.
   * Wrap too long old changelog entry.
+  * Remove unused build dependencies: libqca2-dev, and libsoprano-dev.
 
  -- Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 31 Oct 2017 18:00:14 +0100
 
